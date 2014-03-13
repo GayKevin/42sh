@@ -4,7 +4,7 @@
 ## Login   <gay_k@epitech.net>
 ## 
 ## Started on  Mon Oct 21 09:25:09 2013 Kévin Gay
-## Last update Thu Mar 13 22:03:57 2014 Kevin Gay
+## Last update Thu Mar 13 22:05:32 2014 Kevin Gay
 ##
 
 SRC	= Print_error/function_tab.c \
@@ -26,8 +26,7 @@ SRC	= Print_error/function_tab.c \
 	  SRC/my_show_tab.c \
 	  SRC/my_put_tool.c \
 	  SRC/my_strcmp.c \
-	  SRC/main.c \
-	  SRC/test.c \
+	  SRC/main.c
 
 NAME	= 42sh
 
