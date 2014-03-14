@@ -4,7 +4,11 @@
 ## Login   <gay_k@epitech.net>
 ## 
 ## Started on  Mon Oct 21 09:25:09 2013 Kévin Gay
+<<<<<<< HEAD
 ## Last update Fri Mar 14 13:03:34 2014 Kevin Gay
+=======
+## Last update Thu Mar 13 22:12:14 2014 Kevin Gay
+>>>>>>> b9212172a4c9e819acc9f563e608ba8d1185f3b6
 ##
 
 SRC	= Print_error/function_tab.c \
