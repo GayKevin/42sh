@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Wed Mar 12 10:55:07 2014 Kevin Gay
-** Last update Thu Mar 13 16:56:20 2014 Kevin Gay
+** Last update Fri Mar 14 14:19:00 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -39,9 +39,8 @@ void	check_point_slash(t_shell *sh, char **env)
       while (sh->cmd[i][++l] != '\0')
 	{
 	  if (sh->cmd[i][l] == '.' && sh->cmd[i][l + 1] == '/')
-	    exec_cmd(sh->path[0], sh->cmd, env, &sh->ch);
-	  /* if (sh->cmd[i][l] == '/') */
-	  /*   exec_cmd(sh->path[0], sh->cmd, env, &sh->ch); */
+	    if (i ==  0)
+	      exec_cmd(sh->path[0], sh->cmd, env, &sh->ch);
 	}
     }
 }

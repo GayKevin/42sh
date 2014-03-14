@@ -4,7 +4,7 @@
 ## Login   <gay_k@epitech.net>
 ## 
 ## Started on  Mon Oct 21 09:25:09 2013 Kévin Gay
-## Last update Thu Mar 13 22:05:32 2014 Kevin Gay
+## Last update Fri Mar 14 13:03:34 2014 Kevin Gay
 ##
 
 SRC	= Print_error/function_tab.c \
@@ -19,6 +19,8 @@ SRC	= Print_error/function_tab.c \
 	  Builtins/built_in.c \
 	  Builtins/unsetenv.c \
 	  Builtins/setenv.c \
+	  Builtins/find_pwd.c \
+	  Builtins/pwd.c \
 	  SRC/my_strcat.c \
 	  SRC/my_free.c \
 	  SRC/my_strcpy.c \
