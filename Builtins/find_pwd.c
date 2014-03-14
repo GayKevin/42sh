@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Fri Mar 14 11:08:01 2014 Kevin Gay
-** Last update Fri Mar 14 16:08:01 2014 Kevin Gay
+** Last update Fri Mar 14 16:51:11 2014 Kevin Gay
 */
 
 #include <string.h>
@@ -28,6 +28,7 @@ int	find_pwd_env(t_shell *sh)
 
 void	find_point(t_shell *sh, int d)
 {
+  my_putchar('3');
   sh->l = my_strlen(sh->env[d]);
   while (sh->env[d][sh->l] != '/')
     sh->l--;
@@ -40,6 +41,7 @@ void	find_slash(t_shell *sh, int d, int i, char *cmd)
 {
   char	*ev;
 
+  my_putchar('2');
   sh->l = my_strlen(sh->env[d]);
   ev = malloc(sizeof(char) * (strlen(sh->env[d]) + strlen(cmd) + 2));
   memset(ev, 0, (strlen(sh->env[d]) + strlen(cmd) + 2));
@@ -72,6 +74,7 @@ void	find_slash_2(t_shell *sh, int d, int i, char *cmd)
 {
   char	*en;
 
+  my_putchar('1');
   sh->l = my_strlen(sh->env[d]);
   en = malloc(sizeof(char) * (strlen(sh->env[d]) + strlen(cmd) + 2));
   memset(en, 0, (strlen(sh->env[d]) + strlen(cmd) + 2));
@@ -85,6 +88,7 @@ void	find_slash_2(t_shell *sh, int d, int i, char *cmd)
   if (i > 0)
     if (sh->cmd[i - 1] == '.')
       ++i;
+  i++;
   while ((cmd[i] != '/') && (cmd[i] != '\0'))
     {
       en[sh->l] = cmd[i];
@@ -101,7 +105,6 @@ void	find_first_slash(t_shell *sh, int d, char *cmd)
   char	*env;
   int	i;
 
-  my_putchar('1');
   i = strlen(sh->env[d]) + strlen(cmd);
   sh->l = 0;
   env = malloc(sizeof(char) * i);

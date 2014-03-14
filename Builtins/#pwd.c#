@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Fri Mar 14 11:00:40 2014 Kevin Gay
-** Last update Fri Mar 14 16:58:27 2014 Kevin Gay
+** Last update Fri Mar 14 16:45:59 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -17,7 +17,7 @@ int	set_pwd_2(int i, int d, t_shell *sh, char *cmd)
   if (i > 0)
     if (cmd[i] == '/' && cmd[i - 1] > 47 && cmd[i + 1] > 47)
       find_slash(sh, d, i, cmd);
-  if (cmd[0] == '/' && cmd[i + 1] > 47)
+  if (cmd[0] == '/' && cmd[i + 1] == 0)
     find_first_slash(sh, d, cmd);
   if (cmd[i] == '.' && cmd[i + 1] == '.')
       find_point(sh, d);
@@ -32,7 +32,7 @@ int	set_pwd_2(int i, int d, t_shell *sh, char *cmd)
   /*   } */
   else if (cmd[i] == '/' && cmd[i + 1] == '.' && cmd[i + 2] == 46)
     {
-      my_putstr("lkjkj");
+      my_putstr("kjklj");
       find_point(sh, d);
       return (2);
     }
