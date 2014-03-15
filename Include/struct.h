@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Sat Dec 14 13:01:27 2013 Kevin Gay
-** Last update Fri Mar 14 14:33:53 2014 Kevin Gay
+** Last update Sat Mar 15 16:15:07 2014 Kevin Gay
 */
 
 #ifndef STRUCT_H_
@@ -63,7 +63,7 @@ int	set_env(t_shell *sh, int i);
 int	find_pwd_env(t_shell *sh);
 void	find_point(t_shell *sh, int d);
 void	find_slash(t_shell *sh, int d, int i, char *cmd);
-void	find_slash_2(t_shell *sh, int d, int i, char *cmd);
+int	find_slash_2(t_shell *sh, int d, int i, char *cmd);
 void	find_first_slash(t_shell *sh, int d, char *cmd);
 int	set_pwd_2(int i, int d, t_shell *sh, char *cmd);
 int	set_pwd(t_shell *sh, char *cmd);
