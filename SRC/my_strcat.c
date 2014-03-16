@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Wed Dec  4 11:30:05 2013 Kevin Gay
-** Last update Fri Mar 14 13:11:20 2014 Kevin Gay
+** Last update Sun Mar 16 05:43:02 2014 Kevin Gay
 */
 
 #include "struct.h"
@@ -28,23 +28,23 @@ char	*my_strcat(char *dest, char *src)
   return (dest);
 }
 
-/* char	*my_strcat_(char *dest, char *src, t_path *pa) */
-/* { */
-/*   int	i; */
-/*   int	k; */
+char	*my_strcat_(char *dest, char *src)
+{
+  int	i;
+  int	k;
 
-/*   k = 4; */
-/*   i = 0; */
-/*   i = my_strlen(dest); */
-/*   while (src[k] != '\0') */
-/*     { */
-/*       dest[i] = src[k]; */
-/*       i++; */
-/*       k++; */
-/*     } */
-/*   dest[i] = '\0'; */
-/*   return (dest); */
-/* } */
+  k = 4;
+  i = 0;
+  i = my_strlen(dest);
+  while (src[k] != '\0')
+    {
+      dest[i] = src[k];
+      i++;
+      k++;
+    }
+  dest[i] = '\0';
+  return (dest);
+}
 
 char	*my_strcat_1(char *dest, char *src)
 {

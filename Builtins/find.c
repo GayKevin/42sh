@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Wed Mar 12 11:09:37 2014 Kevin Gay
-** Last update Fri Mar 14 11:18:19 2014 Kevin Gay
+** Last update Sun Mar 16 05:35:51 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -19,7 +19,7 @@ int	find_cd(t_shell *sh, int i)
 	return (1);
       if (sh->cmd[i + 1] != NULL)
        {
-	 //	 old_pwd(pa);
+	 old_pwd(sh);
 	 set_pwd(sh, sh->cmd[i + 1]);
        }
       sh->ch = 1;

@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Sat Dec 14 13:01:27 2013 Kevin Gay
-** Last update Sat Mar 15 16:15:07 2014 Kevin Gay
+** Last update Sun Mar 16 05:43:01 2014 Kevin Gay
 */
 
 #ifndef STRUCT_H_
@@ -68,4 +68,6 @@ void	find_first_slash(t_shell *sh, int d, char *cmd);
 int	set_pwd_2(int i, int d, t_shell *sh, char *cmd);
 int	set_pwd(t_shell *sh, char *cmd);
 char	*my_strcat_1(char *dest, char *src);
+int	old_pwd(t_shell *sh);
+char	*my_strcat_(char *dest, char *src);
 #endif
