@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Sat Dec 14 13:01:27 2013 Kevin Gay
-** Last update Thu Mar 13 17:16:41 2014 Kevin Gay
+** Last update Sun Mar 16 05:43:01 2014 Kevin Gay
 */
 
 #ifndef STRUCT_H_
@@ -24,6 +24,7 @@ typedef struct	s_shell
   int		p;
   int		m;
   int		a;
+  int		l;
 }		t_shell;
 
 void	my_putchar(char c);
@@ -59,4 +60,14 @@ int	compare_env(t_shell *sh, int i, int p);
 int	edit_env(t_shell *sh, int l, int i, int p);
 int	add_env(t_shell *sh, int i, int p);
 int	set_env(t_shell *sh, int i);
+int	find_pwd_env(t_shell *sh);
+void	find_point(t_shell *sh, int d);
+void	find_slash(t_shell *sh, int d, int i, char *cmd);
+int	find_slash_2(t_shell *sh, int d, int i, char *cmd);
+void	find_first_slash(t_shell *sh, int d, char *cmd);
+int	set_pwd_2(int i, int d, t_shell *sh, char *cmd);
+int	set_pwd(t_shell *sh, char *cmd);
+char	*my_strcat_1(char *dest, char *src);
+int	old_pwd(t_shell *sh);
+char	*my_strcat_(char *dest, char *src);
 #endif

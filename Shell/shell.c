@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Mon Mar 10 15:32:07 2014 Kevin Gay
-** Last update Thu Mar 13 16:58:45 2014 Kevin Gay
+** Last update Sun Mar 16 06:15:36 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -48,9 +48,10 @@ int	shell(t_shell *sh, char **env)
       if (built_in(sh) == 1)
 	return (1);
       while (sh->path != NULL && sh->path[i] != NULL && sh->ch == 0)
-	if (access(my_strcat(sh->path[i++], sh->cmd[0]), X_OK) == 0)
-	  exec_cmd(sh->path[i - 1], sh->cmd, env, &sh->ch);
-      sh->path[i] == NULL ? my_putstr("Command not found\n") : 0;
+      	if (access(my_strcat(sh->path[i++], sh->cmd[0]), X_OK) == 0)
+      	  exec_cmd(sh->path[i - 1], sh->cmd, env, &sh->ch);
+      exec_slah_bin(sh->cmd, &sh->ch);
+      sh->ch == 0 ? my_putstr("Command not found\n") : 0;
       my_free(sh->cmd);
       my_free(sh->path);
     }

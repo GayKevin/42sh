@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Wed Mar 12 10:55:07 2014 Kevin Gay
-** Last update Thu Mar 13 16:56:20 2014 Kevin Gay
+** Last update Sun Mar 16 06:25:16 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -27,6 +27,27 @@ int	exec_cmd(char *path, char **cmd, char **env, int *ch)
   return (0);
 }
 
+int	exec_slah_bin(char **cmd, int *ch)
+{
+  pid_t	pid;
+  int	status;
+  int	i;
+
+  i = -1;
+  while (cmd[++i] != NULL)
+    if (cmd[i][0] == '/')
+      {
+	pid = fork();
+	if (pid > 0)
+	  wait(&status);
+	else if (pid == 0)
+	  if ((execve(cmd[i], cmd, NULL)) == -1)
+	    return (0);
+	*ch = 1;
+      }
+  return (0);
+}
+
 void	check_point_slash(t_shell *sh, char **env)
 {
   int	i;
@@ -39,9 +60,8 @@ void	check_point_slash(t_shell *sh, char **env)
       while (sh->cmd[i][++l] != '\0')
 	{
 	  if (sh->cmd[i][l] == '.' && sh->cmd[i][l + 1] == '/')
-	    exec_cmd(sh->path[0], sh->cmd, env, &sh->ch);
-	  /* if (sh->cmd[i][l] == '/') */
-	  /*   exec_cmd(sh->path[0], sh->cmd, env, &sh->ch); */
+	    if (i ==  0)
+	      exec_cmd(sh->path[0], sh->cmd, env, &sh->ch);
 	}
     }
 }
