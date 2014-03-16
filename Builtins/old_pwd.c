@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Sun Mar 16 05:24:16 2014 Kevin Gay
-** Last update Sun Mar 16 05:42:21 2014 Kevin Gay
+** Last update Sun Mar 16 05:48:00 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -64,6 +64,7 @@ int	old_pwd(t_shell *sh)
   if (find_old_pwd_env_1(sh) == 1)
     l = l - 1;
   my_put_nbr(l);
+  free(sh->env[l]);
   sh->env[l] = malloc(sizeof(char) * my_strlen(sh->env[d])  * 2);
   sh->env[l] = clear_old_pwd(sh->env[l], d , sh);
   sh->env[l][0] = 'O';
