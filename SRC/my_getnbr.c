@@ -5,13 +5,13 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Wed Oct  9 09:14:02 2013 Kévin Gay
-** Last update Mon Jan  6 11:03:32 2014 Kevin Gay
+** Last update Mon Mar 17 12:05:24 2014 Kevin Gay
 */
 
 int	operator(int signe, char *str)
 {
   int	i;
-  
+
   i = 0;
   while (str[i++] != '\0')
     {
@@ -36,7 +36,7 @@ int	my_getnbr(char *str)
   signe = 0;
   signe = operator(signe, str);
   i = 0;
-  while (str[i++] != '\0') 
+  while (str[i++] != '\0')
     {
       if (str[i] <= 57 && str[i] >= 47)
 	return (1);

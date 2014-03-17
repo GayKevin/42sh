@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Sat Dec 14 13:01:27 2013 Kevin Gay
-** Last update Sun Mar 16 05:43:01 2014 Kevin Gay
+** Last update Mon Mar 17 12:53:41 2014 Kevin Gay
 */
 
 #ifndef STRUCT_H_
@@ -17,6 +17,7 @@ typedef struct	s_shell
   char		**path;
   char		**cmd;
   char		**env;
+  int		re;
   int		ch;
   int		d;
   int		j;
@@ -70,4 +71,6 @@ int	set_pwd(t_shell *sh, char *cmd);
 char	*my_strcat_1(char *dest, char *src);
 int	old_pwd(t_shell *sh);
 char	*my_strcat_(char *dest, char *src);
+int	my_getnbr(char *str);
+int	exec_slah_bin(char **cmd, int *ch);
 #endif
