@@ -1,13 +1,3 @@
-/*
-** find_pwd.c<2> for find_pwd in /home/gay_k/rendu/42sh
-** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Fri Mar 14 11:08:01 2014 Kevin Gay
-** Last update Sat Mar 15 16:16:27 2014 Kevin Gay
-*/
-
 #include <string.h>
 #include <stdlib.h>
 #include "struct.h"
@@ -88,7 +78,7 @@ int	find_slash_2(t_shell *sh, int d, int i, char *cmd)
   if (i != 0)
     i++;
   if (i > 0)
-    if (sh->cmd[i - 1] == '.')
+    if (cmd[i - 1] == '.')
       ++i;
   while ((cmd[i] != '/') && (cmd[i] != '\0'))
     {

@@ -1,13 +1,3 @@
-/*
-** pwd.c for pwd in /home/gay_k/rendu/42sh
-** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Fri Mar 14 11:00:40 2014 Kevin Gay
-** Last update Sat Mar 15 16:11:07 2014 Kevin Gay
-*/
-
 #include <stdlib.h>
 #include "struct.h"
 

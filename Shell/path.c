@@ -1,29 +1,9 @@
-/*
-** path.c for path in /home/gay_k/rendu/42sh
-** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Mon Mar 10 17:28:57 2014 Kevin Gay
-** Last update Thu Mar 13 16:25:27 2014 Kevin Gay
-*/
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
 #include "struct.h"
-
-char	*clean_path(char *str)
-{
-  int	i;
-
-  i = -1;
-  while (++i != 512)
-    str[i] = '\0';
-  return (str);
-}
 
 int	path(t_shell *sh, char *env)
 {
@@ -42,9 +22,9 @@ int	path(t_shell *sh, char *env)
   while (env[sh->o++] != '\0')
     {
       l = 0;
-      if ((sh->path[sh->j] = malloc(sizeof(char) * 512)) == NULL)
+      if ((sh->path[sh->j] = malloc(sizeof(char) * 1024)) == NULL)
 	return (1);
-      sh->path[sh->j] = clean_path(sh->path[sh->j]);
+      memset(sh->path[sh->j], 0, 512);
       while ((env[sh->o] != ':') && (env[sh->o] != '\0'))
 	sh->path[sh->j][l++] = env[sh->o++];
       sh->path[sh->j][l++] = '/';

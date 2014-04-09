@@ -1,13 +1,3 @@
-/*
-** main.c for Printf in /home/gay_k/printf
-**
-** Made by Kévin Gay
-** Login   <gay_k@epitech.net>
-**
-** Started on  Wed Nov  6 20:56:27 2013 Kévin Gay
-** Last update Mon Mar 10 12:55:54 2014 Kevin Gay
-*/
-
 #include <stdarg.h>
 #include <stdlib.h>
 #include "flag.h"
@@ -62,16 +52,6 @@ void	compare(va_list ap, const  char *format, flag *tab_func, char *tab_tab)
     }
 }
 
-/* void	free_printf(char *str, int nb) */
-/* { */
-/*   int	i; */
-
-/*   i = -1; */
-/*   while (++i != nb) */
-/*     free(str[i]); */
-/*   free(str); */
-/* } */
-
 int	printf_error(const char *format, ...)
 {
   va_list	ap;
@@ -84,8 +64,6 @@ int	printf_error(const char *format, ...)
   tab_tab = tab(tab_tab);
   tab_func = tab_function(tab_func);
   compare(ap, format, tab_func, tab_tab);
-  //free_printf(tab_tab, 5);
-  //free_printf(tab_func, 5);
   free(tab_tab);
   free(tab_func);
   va_end(ap);

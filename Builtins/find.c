@@ -1,13 +1,3 @@
-/*
-** cd.c for cd in /home/gay_k/rendu/42sh
-** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Wed Mar 12 11:09:37 2014 Kevin Gay
-** Last update Sun Mar 16 05:35:51 2014 Kevin Gay
-*/
-
 #include <unistd.h>
 #include "struct.h"
 
