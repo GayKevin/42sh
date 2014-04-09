@@ -1,22 +1,6 @@
 #include <unistd.h>
 #include "struct.h"
 
-int	find_cd(t_shell *sh, int i)
-{
-  if (my_strcmp(sh->cmd[i], "cd") == 0)
-    {
-      if (chdir(sh->cmd[i + 1]) == -1)
-	return (1);
-      if (sh->cmd[i + 1] != NULL)
-       {
-	 old_pwd(sh);
-	 set_pwd(sh, sh->cmd[i + 1]);
-       }
-      sh->ch = 1;
-      return (1);
-    }
-  return (0);
-}
 
 int	find_env(t_shell *sh, int i)
 {

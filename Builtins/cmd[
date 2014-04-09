@@ -1,0 +1,104 @@
+built_in.c:  while (sh->cmd[++i] != NULL)
+built_in.c:      if (my_strcmp_nbr(sh->cmd[i], "exit", 4) == 0)
+built_in.c:	  if (sh->cmd[i + 1] != NULL)
+built_in.c:	    sh->re = my_getnbr(sh->cmd[i + 1]);
+built_in.c:	  my_free(sh->cmd);
+find.c:  if (my_strcmp(sh->cmd[i], "cd") == 0)
+find.c:      if (sh->cmd[i + 1] == NULL)
+find.c:	  while (sh->env[++l] != NULL)
+find.c:	    if (my_strcmp_nbr(sh->env[l], "HOME=", 5) == 0)
+find.c:	      while (sh->env[l][o] != '\0')
+find.c:		cd[++p] = sh->env[l][o++];
+find.c:	    sh->cmd[i + 1][p] = cd[p];
+find.c:	if(chdir(sh->cmd[i + 1]) == -1)
+find.c:      if (sh->cmd[i + 1] != NULL)
+find.c:	  set_pwd(sh, sh->cmd[i + 1]);
+find.c:      sh->ch = 1;
+find.c:  if (my_strcmp(sh->cmd[i], "env") == 0)
+find.c:      my_show_tab(sh->env);
+find.c:      sh->ch = 1;
+find.c:  if (my_strcmp(sh->cmd[i], "unsetenv") == 0)
+find.c:      sh->ch = 1;
+find.c:  if (my_strcmp(sh->cmd[i], "setenv") == 0)
+find.c:      sh->ch = 1;
+find_pwd.c:  while (sh->env[i] != NULL)
+find_pwd.c:      if (my_strcmp_("PWD=", sh->env[i]) == 0)
+find_pwd.c:  sh->l = my_strlen(sh->env[d]);
+find_pwd.c:  while (sh->env[d][sh->l] != '/')
+find_pwd.c:    sh->l--;
+find_pwd.c:  if (sh->l == 4)
+find_pwd.c:    sh->env[d][sh->l++] = '/';
+find_pwd.c:  sh->env[d][sh->l] = '\0';
+find_pwd.c:  sh->l = my_strlen(sh->env[d]);
+find_pwd.c:  ev = malloc(sizeof(char) * (strlen(sh->env[d]) + strlen(cmd) + 2));
+find_pwd.c:  memset(ev, 0, (strlen(sh->env[d]) + strlen(cmd) + 2));
+find_pwd.c:  my_strcpy(ev, sh->env[d]);
+find_pwd.c:  free(sh->env[d]);
+find_pwd.c:  sh->env[d] = malloc(sizeof(char) * (strlen(ev)) + 10);
+find_pwd.c:  memset(sh->env[d], 0, strlen(ev) + 10);
+find_pwd.c:  ev[sh->l++] = '/';
+find_pwd.c:      ev[sh->l] = cmd[i++];
+find_pwd.c:      sh->l = sh->l + 1;
+find_pwd.c:  ev[sh->l] = '\0';
+find_pwd.c:  my_strcpy(sh->env[d], ev);
+find_pwd.c:  sh->l = my_strlen(sh->env[d]);
+find_pwd.c:  en = malloc(sizeof(char) * (strlen(sh->env[d]) + strlen(cmd) + 2));
+find_pwd.c:  memset(en, 0, (strlen(sh->env[d]) + strlen(cmd) + 2));
+find_pwd.c:  my_strcpy(en, sh->env[d]);
+find_pwd.c:  free(sh->env[d]);
+find_pwd.c:  sh->env[d] = malloc(sizeof(char) * (strlen(en)) + 10);
+find_pwd.c:  memset(sh->env[d], 0, strlen(en) + 10);
+find_pwd.c:  en[sh->l++] = '/';
+find_pwd.c:      en[sh->l] = cmd[i];
+find_pwd.c:      sh->l = sh->l + 1;
+find_pwd.c:  en[sh->l] = '\0';
+find_pwd.c:  my_strcpy(sh->env[d], en);
+find_pwd.c:  i = strlen(sh->env[d]) + strlen(cmd);
+find_pwd.c:  sh->l = 0;
+find_pwd.c:  free(sh->env[d]);
+find_pwd.c:  sh->env[d] = malloc(sizeof(char) * i);
+find_pwd.c:  memset(sh->env[d], 0, i);
+find_pwd.c:  strcpy(sh->env[d], env);
+find_pwd.c:  sh->j = 1;
+old_pwd.c:  while (sh->env[i] != '\0')
+old_pwd.c:      if (my_strcmp_("OLDPWD=", sh->env[i]) == 0)
+old_pwd.c:  while (sh->env[i] != '\0')
+old_pwd.c:      if (my_strcmp_("OLDPWD=", sh->env[i]) == 0)
+old_pwd.c:  while (i != my_strlen(sh->env[d]) * 2)
+old_pwd.c:  free(sh->env[l]);
+old_pwd.c:  sh->env[l] = malloc(sizeof(char) * my_strlen(sh->env[d])  * 2);
+old_pwd.c:  sh->env[l] = clear_old_pwd(sh->env[l], d , sh);
+old_pwd.c:  sh->env[l][0] = 'O';
+old_pwd.c:  sh->env[l][1] = 'L';
+old_pwd.c:  sh->env[l][2] = 'D';
+old_pwd.c:  sh->env[l][3] = 'P';
+old_pwd.c:  sh->env[l][4] = 'W';
+old_pwd.c:  sh->env[l][5] = 'D';
+old_pwd.c:  sh->env[l][6] = '=';
+old_pwd.c:  my_strcat_(sh->env[l], sh->env[d]);
+pwd.c:  else if (i > 0 && cmd[i] > 47 && cmd[i + 1] == '\0' && sh->j == 0)
+pwd.c:  sh->l = 0;
+pwd.c:  sh->l = my_strlen(sh->env[d]);
+pwd.c:      sh->j = 0;
+setenv.c:  if (my_strcmp_(sh->cmd[i + 1], sh->env[p]) == 0)
+setenv.c:  while (sh->cmd[i + 1][l] != '\0')
+setenv.c:      sh->env[p][l] = sh->cmd[i + 1][l];
+setenv.c:  sh->env[p][l] = '\0';
+setenv.c:  while (sh->cmd[i + 1][l] != '\0')
+setenv.c:      if (sh->cmd[i + 1][l] == '=')
+setenv.c:      if ((sh->env = realloc(sh->env, sizeof(char *) * (p + 2))) == NULL)
+setenv.c:      (sh->env)[p] = malloc(sizeof(char) * (strlen(sh->cmd[i + 1]) + 2));
+setenv.c:      memset(sh->env[p], 0, strlen(sh->cmd[i + 1]));
+setenv.c:      sh->env[p] = strcpy(sh->env[p], sh->cmd[i + 1]);
+setenv.c:      sh->env[p + 1] = NULL;
+setenv.c:  if (sh->cmd[i] == NULL)
+setenv.c:  while (sh->env[++p] != NULL)
+unsetenv.c:  if (my_strcmp_unsetenv(sh->cmd[i + 1], sh->env[l]) == 0)
+unsetenv.c:  if (my_strcmp_nbr(sh->cmd[i + 1], "PATH", 4) == 0)
+unsetenv.c:      my_free(sh->path);
+unsetenv.c:      sh->path = NULL;
+unsetenv.c:  while (sh->env[++l] != '\0')
+unsetenv.c:	  free(sh->env[l]);
+unsetenv.c:	  while (sh->env[l] != '\0')
+unsetenv.c:	    sh->env[l] = sh->env[l + 1];
+unsetenv.c:      if (sh->env[l] == '\0')

@@ -38,7 +38,7 @@ char	**malloc_tab(char *str)
     }
   if (str[0] == ' ' || str[0] == 9)
     nb = nb - 1;
-  if ((word = malloc(sizeof(char *) * (nb + 1))) == NULL)
+  if ((word = malloc(sizeof(char *) * (nb + 3))) == NULL)
     return (NULL);
   i = -1;
   while (++i < nb)
