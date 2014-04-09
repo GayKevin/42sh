@@ -1,6 +1,8 @@
 # Object files
 *.o
 *.ko
+*.~
+./42sh
 
 # Libraries
 *.lib
@@ -11,8 +13,8 @@
 *.so
 *.so.*
 *.dylib
+*~
+*#
 
 # Executables
-*.exe
 *.out
-*.app
