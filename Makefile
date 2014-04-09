@@ -4,7 +4,7 @@
 ## Login   <gay_k@epitech.net>
 ## 
 ## Started on  Mon Oct 21 09:25:09 2013 Kévin Gay
-## Last update Tue Apr  8 16:25:17 2014 Kevin Gay
+## Last update Wed Apr  9 16:53:10 2014 Kevin Gay
 # Last update Thu Mar 13 22:12:14 2014 Kevin Gay
 ##
 
@@ -17,6 +17,7 @@ SRC	= Print_error/function_tab.c \
 	  Shell/path.c \
 	  Shell/execve.c\
 	  Builtins/find.c \
+	  Builtins/cd.c \
 	  Builtins/built_in.c \
 	  Builtins/unsetenv.c \
 	  Builtins/setenv.c \

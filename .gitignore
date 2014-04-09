@@ -3,3 +3,21 @@
 
 # Executables
 *.out
+*.ko
+*.~
+./42sh
+
+# Libraries
+*.lib
+*.a
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+*~
+*#
+
+# Executables
+*.out

@@ -14,14 +14,14 @@ void	get_env(t_shell *sh, char **env)
     {
       while (env[++i] != NULL)
       	l++;
-      sh->env = malloc(sizeof(char *) * (l + 3));
+      sh->env = malloc(sizeof(char *) * (l + 2));
       i = -1;
       while (env[++i] != NULL)
       	{
-      	  sh->env[i] = malloc(sizeof(char) * strlen(env[i]) + 2);
-	  memset(sh->env[i], 0, strlen(env[i] + 2));
+      	  sh->env[i] = malloc(sizeof(char) * (strlen(env[i]) + 2));
+	  memset(sh->env[i], 0, (strlen(env[i] + 2)));
       	  strcpy(sh->env[i], env[i]);
-      	}
+	}
       sh->env[i] = NULL;
     }
 }
