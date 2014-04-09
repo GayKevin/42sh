@@ -1,13 +1,3 @@
-/*
-** path.c for path in /home/gay_k/rendu/42sh
-** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Mon Mar 10 17:28:57 2014 Kevin Gay
-** Last update Mon Mar 17 13:14:55 2014 Kevin Gay
-*/
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>

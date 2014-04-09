@@ -1,13 +1,3 @@
-/*
-** setenv.c for setenv in /home/gay_k/rendu/42sh
-** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Thu Mar 13 17:05:59 2014 Kevin Gay
-** Last update Thu Mar 13 18:29:07 2014 Kevin Gay
-*/
-
 #include <string.h>
 #include <stdlib.h>
 #include "struct.h"

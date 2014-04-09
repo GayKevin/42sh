@@ -1,13 +1,3 @@
-/*
-** struct.h for struct.h in /home/gay_k/rendu/MUL_2013_wolf3d
-** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Sat Dec 14 13:01:27 2013 Kevin Gay
-** Last update Mon Mar 17 12:53:41 2014 Kevin Gay
-*/
-
 #ifndef STRUCT_H_
 # define STRUCT_H_
 
@@ -17,6 +7,7 @@ typedef struct	s_shell
   char		**path;
   char		**cmd;
   char		**env;
+  int		free_path;
   int		re;
   int		ch;
   int		d;
@@ -28,6 +19,7 @@ typedef struct	s_shell
   int		l;
 }		t_shell;
 
+int	my_strcmp_nbr(char *str1, char *str2, int o);
 void	my_putchar(char c);
 void	my_putstr(char *str);
 int	my_put_nbr(int nbr);

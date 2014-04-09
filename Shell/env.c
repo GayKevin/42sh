@@ -1,13 +1,3 @@
-/*
-** env.c for env in /home/gay_k/rendu/42sh
-** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Wed Mar 12 23:13:35 2014 Kevin Gay
-** Last update Thu Mar 13 13:38:07 2014 Kevin Gay
-*/
-
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>

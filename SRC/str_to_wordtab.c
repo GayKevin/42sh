@@ -1,13 +1,3 @@
-/*
-** str_to_wordtab.c for strtowordtab in /home/gay_k
-** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Wed Dec 18 09:50:06 2013 Kevin Gay
-** Last update Wed Mar 12 23:44:43 2014 Kevin Gay
-*/
-
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>

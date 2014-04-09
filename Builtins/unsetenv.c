@@ -1,13 +1,4 @@
-/*
-** unsetenv.c for unsetenv in /home/gay_k/rendu/42sh
-** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Wed Mar 12 17:17:25 2014 Kevin Gay
-** Last update Wed Mar 12 23:49:43 2014 Kevin Gay
-*/
-
+#include <stdlib.h>
 #include "struct.h"
 
 int	my_strcmp_unsetenv(char *str1, char *str2)
@@ -36,6 +27,11 @@ int	unset_env(t_shell *sh, int i)
   int	l;
 
   l = -1;
+  if (my_strcmp_nbr(sh->cmd[i + 1], "PATH", 4) == 0)
+    {
+      my_free(sh->path);
+      sh->path = NULL;
+    }
   while (sh->env[++l] != '\0')
     {
       if (find_unset_env(sh, l, i) == 0)

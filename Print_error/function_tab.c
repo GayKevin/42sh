@@ -1,13 +1,3 @@
-/*
-** function_tab.c for function_tab in /home/gay_k/printf
-** 
-** Made by Kévin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Fri Nov 15 16:28:11 2013 Kévin Gay
-** Last update Mon Mar 10 17:37:59 2014 Kevin Gay
-*/
-
 #include <stdarg.h>
 #include "flag.h"
 #include "struct.h"

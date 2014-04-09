@@ -1,13 +1,3 @@
-/*
-** printf_s.c for printf_s in /home/gay_k/printf
-** 
-** Made by Kévin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Wed Nov 13 14:09:33 2013 Kévin Gay
-** Last update Thu Feb 20 16:36:58 2014 Kevin Gay
-*/
-
 #include "struct.h"
 #include "flag.h"
 

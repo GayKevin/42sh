@@ -1,13 +1,3 @@
-/*
-** my_putchar.c for my_putchar in /home/gay_k/rendu/Piscine-C-lib/my
-** 
-** Made by Kévin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Wed Oct  9 09:43:19 2013 Kévin Gay
-** Last update Thu Mar 13 00:34:36 2014 Kevin Gay
-*/
-
 #include <unistd.h>
 
 void	my_putchar(char c)

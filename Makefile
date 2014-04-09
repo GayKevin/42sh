@@ -4,7 +4,7 @@
 ## Login   <gay_k@epitech.net>
 ## 
 ## Started on  Mon Oct 21 09:25:09 2013 Kévin Gay
-## Last update Mon Mar 17 12:53:10 2014 Kevin Gay
+## Last update Tue Apr  8 16:25:17 2014 Kevin Gay
 # Last update Thu Mar 13 22:12:14 2014 Kevin Gay
 ##
 
@@ -39,7 +39,7 @@ CC	= cc
 
 OBJ	= $(SRC:.c=.o)
 
-CFLAGS	= -IInclude -Wall -Wextra -g
+CFLAGS	= -IInclude -Wall -g
 
 all:	$(NAME)
 

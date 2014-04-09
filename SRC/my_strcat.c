@@ -1,13 +1,3 @@
-/*
-** my_strcat.c for strcat in /home/gay_k/rendu/CPE-2013-BSQ
-** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Wed Dec  4 11:30:05 2013 Kevin Gay
-** Last update Sun Mar 16 05:43:02 2014 Kevin Gay
-*/
-
 #include "struct.h"
 
 char	*my_strcat(char *dest, char *src)

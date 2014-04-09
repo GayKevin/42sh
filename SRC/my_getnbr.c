@@ -1,13 +1,3 @@
-/*
-** my_getnbr.c for my_getnbr in /home/gay_k/Library
-** 
-** Made by Kévin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Wed Oct  9 09:14:02 2013 Kévin Gay
-** Last update Mon Mar 17 12:05:24 2014 Kevin Gay
-*/
-
 int	operator(int signe, char *str)
 {
   int	i;

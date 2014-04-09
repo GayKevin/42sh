@@ -1,13 +1,3 @@
-/*
-** old_pwd.c<2> for old in /home/gay_k/rendu/42sh
-** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Sun Mar 16 05:24:16 2014 Kevin Gay
-** Last update Sun Mar 16 05:48:00 2014 Kevin Gay
-*/
-
 #include <stdlib.h>
 #include "struct.h"
 
