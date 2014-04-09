@@ -35,11 +35,14 @@ int	unset_env(t_shell *sh, int i)
   while (sh->env[++l] != '\0')
     {
       if (find_unset_env(sh, l, i) == 0)
-	while (sh->env[l] != '\0')
+	{
+	  free(sh->env[l]);
+	  while (sh->env[l] != '\0')
 	  {
 	    sh->env[l] = sh->env[l + 1];
 	    l++;
 	  }
+	}
       if (sh->env[l] == '\0')
 	return (0);
     }
