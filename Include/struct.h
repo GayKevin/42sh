@@ -7,6 +7,7 @@ typedef struct	s_shell
   char		**path;
   char		**cmd;
   char		**env;
+  char		*en;
   int		free_path;
   int		re;
   int		ch;
@@ -65,4 +66,5 @@ int	old_pwd(t_shell *sh);
 char	*my_strcat_(char *dest, char *src);
 int	my_getnbr(char *str);
 int	exec_slah_bin(char **cmd, int *ch);
+void	my_malloc_pwd(t_shell *sh, int d, char *cmd);
 #endif

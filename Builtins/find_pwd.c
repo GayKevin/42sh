@@ -28,18 +28,10 @@ void	find_point(t_shell *sh, int d)
 
 void	find_slash(t_shell *sh, int d, int i, char *cmd)
 {
-  char	*ev;
-
-  sh->l = my_strlen(sh->env[d]);
-  ev = malloc(sizeof(char) * (strlen(sh->env[d]) + strlen(cmd) + 2));
-  memset(ev, 0, (strlen(sh->env[d]) + strlen(cmd) + 2));
-  my_strcpy(ev, sh->env[d]);
-  free(sh->env[d]);
-  sh->env[d] = malloc(sizeof(char) * (strlen(ev)) + 10);
-  memset(sh->env[d], 0, strlen(ev) + 10);
+  my_malloc_pwd(sh, d, cmd);
   while ((i > 0) && (cmd[i] != '/' ))
     i--;
-  ev[sh->l++] = '/';
+  sh->en[sh->l++] = '/';
   i--;
   if (i > 0 && cmd[i] == '.' && cmd[i - 1] == '.')
     i = i + 2;
@@ -50,31 +42,22 @@ void	find_slash(t_shell *sh, int d, int i, char *cmd)
     i = 0;
   while ((cmd[i] != '/') && (cmd[i] != '\0'))
     {
-      ev[sh->l] = cmd[i++];
+      sh->en[sh->l] = cmd[i++];
       sh->l = sh->l + 1;
     }
-  ev[sh->l] = '\0';
-  my_strcpy(sh->env[d], ev);
-  free(ev);
+  sh->en[sh->l] = '\0';
+  my_strcpy(sh->env[d], sh->en);
+  free(sh->en);
 }
 
 int	find_slash_2(t_shell *sh, int d, int i, char *cmd)
 {
-  char	*en;
-
   if (cmd[0] == '/')
     return (0);
-  sh->l = my_strlen(sh->env[d]);
-  en = malloc(sizeof(char) * (strlen(sh->env[d]) + strlen(cmd) + 2));
-  memset(en, 0, (strlen(sh->env[d]) + strlen(cmd) + 2));
-  my_strcpy(en, sh->env[d]);
-  my_putstr(en);
-  free(sh->env[d]);
-  sh->env[d] = malloc(sizeof(char) * (strlen(en)) + 10);
-  memset(sh->env[d], 0, strlen(en) + 10);
+  my_malloc_pwd(sh, d, cmd);
   while ((i > 0) && (cmd[i] != '/'))
     i--;
-  en[sh->l++] = '/';
+  sh->en[sh->l++] = '/';
   if (i != 0)
     i++;
   if (i > 0)
@@ -82,13 +65,13 @@ int	find_slash_2(t_shell *sh, int d, int i, char *cmd)
       ++i;
   while ((cmd[i] != '/') && (cmd[i] != '\0'))
     {
-      en[sh->l] = cmd[i];
+      sh->en[sh->l] = cmd[i];
       ++i;
       sh->l = sh->l + 1;
     }
-  en[sh->l] = '\0';
-  my_strcpy(sh->env[d], en);
-  free(en);
+  sh->en[sh->l] = '\0';
+  my_strcpy(sh->env[d], sh->en);
+  free(sh->en);
   return (0);
 }
 

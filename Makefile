@@ -4,7 +4,7 @@
 ## Login   <gay_k@epitech.net>
 ## 
 ## Started on  Mon Oct 21 09:25:09 2013 Kévin Gay
-## Last update Wed Apr  9 16:53:10 2014 Kevin Gay
+## Last update Thu Apr 10 01:12:22 2014 Kevin Gay
 # Last update Thu Mar 13 22:12:14 2014 Kevin Gay
 ##
 
@@ -29,6 +29,7 @@ SRC	= Print_error/function_tab.c \
 	  SRC/my_free.c \
 	  SRC/my_strcpy.c \
 	  SRC/str_to_wordtab.c \
+	  SRC/my_malloc_pwd.c \
 	  SRC/my_show_tab.c \
 	  SRC/my_put_tool.c \
 	  SRC/my_strcmp.c \
