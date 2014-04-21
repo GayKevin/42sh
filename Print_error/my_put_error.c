@@ -10,7 +10,7 @@ void	my_putstr_e(char *str)
   int	number;
 
   number = 0;
-  while(str[number] != '\0')
+  while (str[number] != '\0')
     {
       my_puterror(str[number]);
       number =  number + 1;

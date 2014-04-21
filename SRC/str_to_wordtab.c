@@ -1,7 +1,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "struct.h"
+#include "main.h"
+#include "my_put_tool.h"
 
 char	**clean_str(int nb, char **word, char *str)
 {
@@ -56,11 +57,11 @@ char	**my_str_to_wordtab(char *str)
   char	**word;
 
   o = 0;
-  i = 0;
+  i = -1;
   j = 0;
   if ((word = malloc_tab(str)) == NULL)
     return (NULL);
-  while (str[i] != '\0')
+  while (str[++i] != '\0')
     {
       while (str[i] == ' ' || str[i] == 9)
 	{
@@ -73,7 +74,6 @@ char	**my_str_to_wordtab(char *str)
 	  if (str[i + 1] == ' ' || str[i + 1] == 9)
 	    word[j++][o] = '\0';
 	}
-      ++i;
     }
   return (word);
 }

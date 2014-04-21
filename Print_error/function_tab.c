@@ -1,6 +1,5 @@
 #include <stdarg.h>
 #include "flag.h"
-#include "struct.h"
 
 void	numbers(va_list list)
 {

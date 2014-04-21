@@ -1,5 +1,10 @@
 #include <unistd.h>
-#include "struct.h"
+#include "main.h"
+#include "cd.h"
+#include "my_getnbr.h"
+#include "find.h"
+#include "my_strcmp.h"
+#include "my_free.h"
 
 int	built_in(t_shell *sh)
 {

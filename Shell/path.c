@@ -3,7 +3,8 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
-#include "struct.h"
+#include "main.h"
+#include "my_strcmp.h"
 
 int	path(t_shell *sh, char *env)
 {

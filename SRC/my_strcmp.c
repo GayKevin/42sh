@@ -1,4 +1,7 @@
-#include "struct.h"
+#include "main.h"
+#include "env.h"
+#include "my_free.h"
+#include "shell.h"
 
 int	my_strcmp(char *str1, char *str2)
 {

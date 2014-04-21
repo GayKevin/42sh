@@ -1,33 +1,30 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include "flag.h"
-#include "struct.h"
 
 
 char	*tab(char *tab)
 {
-  tab = malloc(sizeof(char) * 5);
-  if (tab == NULL)
+  if ((tab = malloc(sizeof(char) * 5)) == NULL)
     return (NULL);
   tab[0] = 'd';
   tab[1] = 's';
   tab[2] = 'c';
   tab[3] = '%';
   tab[4] = 'i';
-  return(tab);
+  return (tab);
 }
 
 flag	*tab_function(flag *tab_function)
 {
-  tab_function = malloc(sizeof(flag) * 5);
-  if (tab_function == NULL)
+  if ((tab_function = malloc(sizeof(flag) * 5)) == NULL)
     return (NULL);
   tab_function[0] = numbers;
   tab_function[1] = sentence;
   tab_function[2] = character;
   tab_function[3] = modulo;
   tab_function[4] = numbers;
-  return(tab_function);
+  return (tab_function);
 }
 
 void	compare(va_list ap, const  char *format, flag *tab_func, char *tab_tab)

@@ -1,6 +1,9 @@
 #include <unistd.h>
-#include "struct.h"
-
+#include "main.h"
+#include "my_strcmp.h"
+#include "my_show_tab.h"
+#include "unsetenv.h"
+#include "setenv.h"
 
 int	find_env(t_shell *sh, int i)
 {

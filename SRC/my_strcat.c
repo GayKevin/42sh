@@ -1,4 +1,5 @@
-#include "struct.h"
+#include "main.h"
+#include "my_put_tool.h"
 
 char	*my_strcat(char *dest, char *src)
 {
