@@ -1,5 +1,8 @@
 #include <stdlib.h>
-#include "struct.h"
+#include "main.h"
+#include "pwd.h"
+#include "my_put_tool.h"
+#include "find_pwd.h"
 
 int	set_pwd_2(int i, int d, t_shell *sh, char *cmd)
 {
@@ -22,7 +25,6 @@ int	set_pwd_2(int i, int d, t_shell *sh, char *cmd)
     }
   return (0);
 }
-
 
 int	set_pwd(t_shell *sh, char *cmd)
 {

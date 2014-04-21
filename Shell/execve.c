@@ -1,16 +1,6 @@
-/*
-** execve.c for execve in /home/gay_k/rendu/42sh
-** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Wed Mar 12 10:55:07 2014 Kevin Gay
-** Last update Mon Mar 17 12:53:43 2014 Kevin Gay
-*/
-
 #include <unistd.h>
 #include <sys/wait.h>
-#include "struct.h"
+#include "main.h"
 
 int	exec_cmd(char *path, char **cmd, char **env, int *ch)
 {

@@ -1,6 +1,12 @@
 #include <string.h>
 #include <stdlib.h>
-#include "struct.h"
+#include "main.h"
+#include "find_pwd.h"
+#include "my_strcmp.h"
+#include "my_malloc_pwd.h"
+#include "my_strcpy.h"
+#include "my_strcat.h"
+#include "my_put_tool.h"
 
 int	find_pwd_env(t_shell *sh)
 {
@@ -75,20 +81,23 @@ int	find_slash_2(t_shell *sh, int d, int i, char *cmd)
   return (0);
 }
 
-void	find_first_slash(t_shell *sh, int d, char *cmd)
+int	find_first_slash(t_shell *sh, int d, char *cmd)
 {
   char	*env;
   int	i;
 
   i = strlen(sh->env[d]) + strlen(cmd);
   sh->l = 0;
-  env = malloc(sizeof(char) * i);
+  if ((env = malloc(sizeof(char) * i)) == NULL)
+    return (1);
   memset(env, 0, i);
   free(sh->env[d]);
-  sh->env[d] = malloc(sizeof(char) * i);
+  if ((sh->env[d] = malloc(sizeof(char) * i)) == NULL)
+    return (1);
   memset(sh->env[d], 0, i);
   my_strcat_1(env, cmd);
   strcpy(sh->env[d], env);
   sh->j = 1;
   free(env);
+  return (0);
 }

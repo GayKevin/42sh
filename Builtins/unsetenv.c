@@ -1,5 +1,7 @@
 #include <stdlib.h>
-#include "struct.h"
+#include "main.h"
+#include "my_strcmp.h"
+#include "my_free.h"
 
 int	my_strcmp_unsetenv(char *str1, char *str2)
 {
@@ -15,7 +17,7 @@ int	my_strcmp_unsetenv(char *str1, char *str2)
   return (0);
 }
 
-int	find_unset_env(t_shell *sh ,int l, int i)
+int	find_unset_env(t_shell *sh, int l, int i)
 {
   if (my_strcmp_unsetenv(sh->cmd[i + 1], sh->env[l]) == 0)
     return (0);

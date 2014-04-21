@@ -1,6 +1,10 @@
 #include <signal.h>
 #include <unistd.h>
-#include "struct.h"
+#include "main.h"
+#include "my_put_tool.h"
+#include "env.h"
+#include "my_free.h"
+#include "shell.h"
 
 void	get_sigint(int sig)
 {
@@ -15,7 +19,7 @@ int	main(int ac, char **av, char **env)
   sh.cmd = NULL;
   signal(SIGINT, get_sigint);
   get_env(&sh, env);
-  if (shell(&sh, env) == 1)
+  if (shell(&sh) == 1)
     {
       my_free(sh.path);
       my_free(sh.env);

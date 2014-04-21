@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <unistd.h>
-#include "struct.h"
 
 void	my_free(char **str)
 {

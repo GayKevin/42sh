@@ -13,5 +13,4 @@ void		my_puterror(char c);
 void		my_putstr_e(char *str);
 void		my_put_nbr_e(int nb);
 
-
-#endif
+#endif /* FLAG_H_ */

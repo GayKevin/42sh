@@ -1,4 +1,4 @@
- #include "struct.h"
+#include "main.h"
 
 void	clear_str(t_shell *sh)
 {
