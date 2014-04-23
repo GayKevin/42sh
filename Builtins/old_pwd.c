@@ -2,9 +2,9 @@
 #include "main.h"
 #include "my_strcmp.h"
 #include "old_pwd.h"
+#include "pwd.h"
 #include "my_put_tool.h"
 #include "my_strcat.h"
-#include "find_pwd.h"
 
 int	find_old_pwd_env(t_shell *sh)
 {
@@ -54,7 +54,8 @@ int	old_pwd(t_shell *sh)
 
   l = 0;
   d = 0;
-  d = find_pwd_env(sh);
+  if ((d = find_pwd_env(sh)) == -1)
+    return (0);
   l = find_old_pwd_env(sh);
   if (find_old_pwd_env_1(sh) == 1)
     l = l - 1;

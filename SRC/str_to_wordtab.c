@@ -13,7 +13,7 @@ char	**clean_str(int nb, char **word, char *str)
   while (l < nb)
     {
       i = 0;
-      while (i != (my_strlen(str) + 5))
+      while (i != (my_strlen(str) + 6))
 	{
 	  word[l][i] = '\0';
 	  ++i;
