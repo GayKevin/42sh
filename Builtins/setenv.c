@@ -37,7 +37,7 @@ int	add_env(t_shell *sh, int i, int p)
   if (t == 1)
     {
       if ((sh->env = realloc(sh->env, sizeof(char *) * (p + 2))) == NULL)
-      return (-1);
+	return (-1);
       (sh->env)[p] = malloc(sizeof(char) * (strlen(sh->cmd[i + 1]) + 2));
       if ((sh->env)[p] == NULL)
 	return (-1);
