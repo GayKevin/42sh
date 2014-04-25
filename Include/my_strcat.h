@@ -4,5 +4,6 @@
 char	*my_strcat_1(char *dest, char *src);
 char	*my_strcat(char *dest, char *src);
 char	*my_strcat_(char *dest, char *src);
+char	*my_strcat_slash(char *dest, char *src);
 
 #endif /* MY_STRCAT */
