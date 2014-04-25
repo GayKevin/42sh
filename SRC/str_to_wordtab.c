@@ -4,48 +4,28 @@
 #include "main.h"
 #include "my_put_tool.h"
 
-char	**clean_str(int nb, char **word, char *str)
-{
-  int	l;
-  int	i;
-
-  l = 0;
-  while (l < nb)
-    {
-      i = 0;
-      while (i != (my_strlen(str) + 6))
-	{
-	  word[l][i] = '\0';
-	  ++i;
-	}
-      ++l;
-    }
-  return (word);
-}
-
 char	**malloc_tab(char *str)
 {
   int	i;
   int	nb;
   char	**word;
 
-  i = 0;
+  i = -1;
   nb = 1;
-  while (str[i] != '\0')
-    {
-      if ((str[i] == ' ' || str[i] == 9) && str[i + 1] > 32)
-	++nb;
-      ++i;
-    }
+  while (str[++i] != '\0')
+    if ((str[i] == ' ' || str[i] == 9) && str[i + 1] > 32)
+      ++nb;
   if (str[0] == ' ' || str[0] == 9)
     nb = nb - 1;
   if ((word = malloc(sizeof(char *) * (nb + 3))) == NULL)
     return (NULL);
   i = -1;
   while (++i < nb)
-    word[i] = malloc(sizeof(char) * my_strlen(str) + 6);
+    {
+      word[i] = malloc(sizeof(char) * (my_strlen(str) + 6));
+      memset(word[i], 0, (my_strlen(str) + 6));
+    }
   word[i] = NULL;
-  word = clean_str(nb, word, str);
   return (word);
 }
 

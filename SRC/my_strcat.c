@@ -60,3 +60,23 @@ char	*my_strcat_1(char *dest, char *src)
   dest[i] = '\0';
   return (dest);
 }
+
+char	*my_strcat_slash(char *dest, char *src)
+{
+  int	i;
+  int	k;
+
+  k = 2;
+  i = 0;
+  i = my_strlen(dest);
+  dest[i] = '/';
+  i++;
+  while (src[k] != '\0')
+    {
+      dest[i] = src[k];
+      i++;
+      k++;
+    }
+  dest[i] = '\0';
+  return (dest);
+}
