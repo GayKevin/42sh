@@ -1,6 +1,7 @@
-int main(int ac, char **av)
+int main()
 {
-  //  char *av;
+  char *av;
 
-  printf("%d\n", av[2]);
+  av = '1';
+  printf("%s", av);
 }
