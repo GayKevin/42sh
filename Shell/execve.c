@@ -1,11 +1,12 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <stdlib.h>
-#include "main.h"
-#include "my_put_tool.h"
 #include <stdio.h>
 #include <string.h>
+#include "main.h"
+#include "my_put_tool.h"
 #include "my_strcat.h"
+#include "my_printf_error.h"
 
 int	exec_cmd(char *path, char **cmd, char **env, int *ch)
 {
@@ -16,11 +17,14 @@ int	exec_cmd(char *path, char **cmd, char **env, int *ch)
   if ((pid = fork()) == -1)
     return (0);
   if (pid > 0)
-    wait(&status);
+    {
+      wait(&status);
+      if (status == 139)
+	printf_error("Segmentation Fault\n");
+    }
   else if (pid == 0)
     if ((execve(path, cmd, env)) == -1)
       {
-	//	  printf_error("Segmentation Fault\n");
 	printf("execve11 : %d\n", status);
 	exit (0);
       }
@@ -40,7 +44,11 @@ int	exec_slah_bin(char **cmd, int *ch)
 	if ((pid = fork()) == -1)
 	  return (0);
        	if (pid > 0)
-	  waitpid(pid, &status, 0);
+	  {
+	    wait(&status);
+	    if (status == 139)
+	      printf_error("Segmentation Fault\n");
+	  }
         else if (pid == 0)
 	  if ((execve(cmd[i], cmd, NULL)) == -1)
 	    {
@@ -72,7 +80,8 @@ int	check_point_slash(t_shell *sh, char **env)
 	      my_strcat_slash(path, sh->cmd[i]);
 	      exec_cmd(path, sh->cmd, env, &sh->ch);
 	      free(path);
-	      return (0);}
+	      return (0);
+	    }
 	}
     }
   return (0);
