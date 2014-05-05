@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:09:19 2014 Maxime Limone
-** Last update Mon May  5 11:11:20 2014 Maxime Limone
+** Last update Mon May  5 14:35:05 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -21,7 +21,7 @@ int		find_env(t_shell *sh, int i)
     {
       my_show_tab(sh->env);
       sh->ch = 1;
-      return (1);
+      return (-1);
     }
   return (0);
 }
@@ -32,7 +32,7 @@ int		find_unsetenv(t_shell *sh, int i)
     {
       unset_env(sh, i);
       sh->ch = 1;
-      return (1);
+      return (-1);
     }
   return (0);
 }
@@ -43,7 +43,7 @@ int		find_setenv(t_shell *sh, int i)
     {
       set_env(sh, i);
       sh->ch = 1;
-      return (1);
+      return (-1);
     }
   return (0);
 }

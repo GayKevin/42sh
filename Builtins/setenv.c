@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 x** Started on  Mon May  5 11:23:51 2014 Maxime Limone
-** Last update Mon May  5 13:25:03 2014 Kevin Gay
+** Last update Mon May  5 14:39:16 2014 Kevin Gay
 */
 
 #include <string.h>
@@ -17,7 +17,7 @@ int		compare_env(t_shell *sh, int i, int p)
 {
   if (my_strcmp_(sh->cmd[i + 1], sh->env[p]) == 0)
     return (0);
-  return (1);
+  return (-1);
 }
 
 int		edit_env(t_shell *sh, int l, int i, int p)
