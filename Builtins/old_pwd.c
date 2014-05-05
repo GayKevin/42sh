@@ -17,7 +17,7 @@ int	find_old_pwd_env(t_shell *sh)
 	return (i);
       ++i;
     }
-  return (1);
+  return (-1);
 }
 
 char	*clear_old_pwd(char *str, int d, t_shell *sh)
@@ -41,13 +41,13 @@ int	old_pwd(t_shell *sh)
   l = 0;
   d = 0;
   if ((d = find_pwd_env(sh)) == -1)
-    return (0);
-  if ((l = find_old_pwd_env(sh)) == 1)
+    return (-1);
+  if ((l = find_old_pwd_env(sh)) == -1)
     l = l - 1;
   free(sh->env[l]);
   sh->env[l] = malloc(sizeof(char) * (my_strlen(sh->env[d])  * 2));
   if (sh->env[l] == NULL)
-    return (1);
+    return (-1);
   sh->env[l] = clear_old_pwd(sh->env[l], d , sh);
   sh->env[l][0] = 'O';
   sh->env[l][1] = 'L';
