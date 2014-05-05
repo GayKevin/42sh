@@ -23,7 +23,7 @@ int	read_buffer(t_shell *sh)
       read_buffer(sh);
     }
   if (ret == 0)
-    return (1);
+    return (-1);
   sh->buffer[ret - 1] = '\0';
   return (0);
 }
@@ -36,14 +36,14 @@ int	shell(t_shell *sh)
     {
       i = 0;
       sh->ch = 0;
-      if (find_path(sh) == 1)
-	return (1);
-      if (read_buffer(sh) == 1)
-	return (1);
+      if (find_path(sh) == -1)
+	return (-1);
+      if (read_buffer(sh) == -1)
+	return (-1);
       sh->cmd = my_str_to_wordtab(sh->buffer);
       check_point_slash(sh, sh->env);
-      if (built_in(sh) == 1)
-	return (1);
+      if (built_in(sh) == -1)
+	return (-1);
       while (sh->path != NULL && sh->path[i] != NULL && sh->ch == 0)
 	if (access(my_strcat(sh->path[i++], sh->cmd[0]), X_OK) == 0)
 	  exec_cmd(sh->path[i - 1], sh->cmd, sh->env, &sh->ch);

@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 10:57:39 2014 Maxime Limone
-** Last update Mon May  5 14:35:14 2014 Kevin Gay
+** Last update Mon May  5 14:48:45 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -30,7 +30,7 @@ int		built_in(t_shell *sh)
 	  if (sh->cmd[i + 1] != NULL)
 	    sh->re = my_getnbr(sh->cmd[i + 1]);
 	  my_free(sh->cmd);
-	  return (1);
+	  return (-1);
 	}
       if (find_env(sh, i) == -1)
 	return (0);

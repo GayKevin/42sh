@@ -19,7 +19,7 @@ int	main(int ac, char **av, char **env)
   sh.cmd = NULL;
   signal(SIGINT, get_sigint);
   get_env(&sh, env);
-  if (shell(&sh) == 1)
+  if (shell(&sh) == -1)
     {
       my_free(sh.path);
       my_free(sh.env);
