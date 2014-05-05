@@ -1,3 +1,13 @@
+/*
+** find.c for 42sh in /home/limone_m/rendu/PSU_2013_42sh/Builtins
+** 
+** Made by Maxime Limone
+** Login   <limone_m@epitech.net>
+** 
+** Started on  Mon May  5 11:09:19 2014 Maxime Limone
+** Last update Mon May  5 11:11:20 2014 Maxime Limone
+*/
+
 #include <unistd.h>
 #include "main.h"
 #include "my_strcmp.h"
@@ -5,7 +15,7 @@
 #include "unsetenv.h"
 #include "setenv.h"
 
-int	find_env(t_shell *sh, int i)
+int		find_env(t_shell *sh, int i)
 {
   if (my_strcmp(sh->cmd[i], "env") == 0)
     {
@@ -16,7 +26,7 @@ int	find_env(t_shell *sh, int i)
   return (0);
 }
 
-int	find_unsetenv(t_shell *sh, int i)
+int		find_unsetenv(t_shell *sh, int i)
 {
   if (my_strcmp(sh->cmd[i], "unsetenv") == 0)
     {
@@ -27,7 +37,7 @@ int	find_unsetenv(t_shell *sh, int i)
   return (0);
 }
 
-int	find_setenv(t_shell *sh, int i)
+int		find_setenv(t_shell *sh, int i)
 {
   if (my_strcmp(sh->cmd[i], "setenv") == 0)
     {
