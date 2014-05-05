@@ -1,13 +1,3 @@
-## Makefile for Makefil in /home/gay_k/rendu/Piscine-C-lib
-## 
-## Made by Kévin Gay
-## Login   <gay_k@epitech.net>
-## 
-## Started on  Mon Oct 21 09:25:09 2013 Kévin Gay
-## Last update Sun Apr 27 15:01:11 2014 Kevin Gay
-# Last update Thu Mar 13 22:12:14 2014 Kevin Gay
-##
-
 SRC	= Print_error/function_tab.c \
 	  Print_error/my_printf_error.c \
 	  Print_error/my_put_error.c \

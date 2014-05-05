@@ -1,3 +1,13 @@
+/*
+** pwd.c for 42sh in /home/limone_m/rendu/PSU_2013_42sh/Builtins
+** 
+** Made by Maxime Limone
+** Login   <limone_m@epitech.net>
+** 
+** Started on  Mon May  5 11:18:16 2014 Maxime Limone
+** Last update Mon May  5 13:15:31 2014 Kevin Gay
+*/
+
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
@@ -7,9 +17,9 @@
 #include "my_strcmp.h"
 #include "my_put_tool.h"
 
-int	find_pwd_env(t_shell *sh)
+int		find_pwd_env(t_shell *sh)
 {
-  int	i;
+  int		i;
 
   i = -1;
   while (sh->env[++i] != NULL)
@@ -20,18 +30,17 @@ int	find_pwd_env(t_shell *sh)
   return (-1);
 }
 
-int	create_pwd(t_shell *sh)
+int		create_pwd(t_shell *sh)
 {
-  int	p;
-  int	i;
+  int		i;
+  int		p;
 
   i = 0;
   p = -1;
   while (sh->env[++p] != NULL);
   if ((sh->env = realloc(sh->env, sizeof(char *) * (p + 2))) == NULL)
     return (-1);
-  (sh->env)[p] = malloc(sizeof(char) * 1024);
-  if ((sh->env)[p] == NULL)
+  if (((sh->env)[p] = malloc(sizeof(char) * 1024)) == NULL)
     return (-1);
   memset(sh->env[p], 0, 1024);
   sh->env[p][0] = 'P';
@@ -42,17 +51,14 @@ int	create_pwd(t_shell *sh)
   return (0);
 }
 
-int	set_pwd(t_shell *sh, char *cmd)
+int		set_pwd(t_shell *sh, char *cmd)
 {
-  int	d;
-  int	i;
-  char	*str;
+  char		*str;
+  int		d;
+  int		i;
 
   d = 0;
   i = 0;
-  if ((str = malloc(sizeof(char) * 1024)) == NULL)
-    return (0);
-  memset(str, 0, 512);
   if ((d = find_pwd_env(sh)) == -1)
     {
       create_pwd(sh);
@@ -62,7 +68,8 @@ int	set_pwd(t_shell *sh, char *cmd)
   i = strlen(sh->env[d]) + strlen(cmd);
   sh->l = 0;
   sh->l = my_strlen(sh->env[d]);
-  str = getcwd(cmd, 1024);
+  if ((str = getcwd(cmd, 1024)) == NULL)
+    return (-1);
   memset(sh->env[d], 0, i);
   my_strcat_1(sh->env[d], str);
   return (0);

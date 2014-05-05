@@ -1,3 +1,13 @@
+/*
+** cd.c for 42sh in /home/limone_m/rendu/PSU_2013_42sh/Builtins
+** 
+** Made by Maxime Limone
+** Login   <limone_m@epitech.net>
+** 
+** Started on  Mon May  5 11:00:18 2014 Maxime Limone
+** Last update Mon May  5 11:10:33 2014 Maxime Limone
+*/
+
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -6,16 +16,16 @@
 #include "pwd.h"
 #include "old_pwd.h"
 
-int	cd_home(t_shell *sh, int i)
+int		cd_home(t_shell *sh, int i)
 {
-  int	l;
-  int	o;
-  char	*cd;
-  int	p;
+  char		*cd;
+  int		l;
+  int		o;
+  int		p;
 
-  p = -1;
   l = -1;
   o = 5;
+  p = -1;
   if ((cd = malloc(sizeof(char) * 512)) == NULL)
     return (1);
   memset(cd, 0, 512);
@@ -31,26 +41,25 @@ int	cd_home(t_shell *sh, int i)
   return (0);
 }
 
-int	cd_old_pwd(t_shell *sh, int i)
+int		cd_old_pwd(t_shell *sh, int i)
 {
-  int	o;
-  int	l;
-  int	p;
-  char	*cmd;
+  char		*cmd;
+  int		l;
+  int		o;
+  int		p;
 
   l = 6;
   o = -1;
   p = 0;
-  cmd = malloc(sizeof(char) * 512);
+  if ((cmd = malloc(sizeof(char) * 512)) == NULL)
+    return (1);
   memset(cmd, 0, 512);
   while (sh->env[++o] != NULL)
-    {
-      if (my_strcmp_nbr(sh->env[o], "OLDPWD=", 7) == 0)
-	{
-	  while (sh->env[o][++l] != '\0')
-	    cmd[p++] = sh->env[o][l];
-	}
-    }
+    if (my_strcmp_nbr(sh->env[o], "OLDPWD=", 7) == 0)
+      {
+	while (sh->env[o][++l] != '\0')
+	  cmd[p++] = sh->env[o][l];
+      }
   if (chdir(cmd) == -1)
     return (1);
   old_pwd(sh);
@@ -59,7 +68,7 @@ int	cd_old_pwd(t_shell *sh, int i)
   return (0);
 }
 
-int	find_cd(t_shell *sh, int i)
+int		find_cd(t_shell *sh, int i)
 {
   if (my_strcmp(sh->cmd[i], "cd") == 0)
     {

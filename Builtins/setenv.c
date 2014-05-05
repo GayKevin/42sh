@@ -1,16 +1,26 @@
+/*
+** setenv.c for 42sh in /home/limone_m/rendu/PSU_2013_42sh/Builtins
+** 
+** Made by Maxime Limone
+** Login   <limone_m@epitech.net>
+** 
+x** Started on  Mon May  5 11:23:51 2014 Maxime Limone
+** Last update Mon May  5 13:25:03 2014 Kevin Gay
+*/
+
 #include <string.h>
 #include <stdlib.h>
 #include "main.h"
 #include "my_strcmp.h"
 
-int	compare_env(t_shell *sh, int i, int p)
+int		compare_env(t_shell *sh, int i, int p)
 {
   if (my_strcmp_(sh->cmd[i + 1], sh->env[p]) == 0)
     return (0);
   return (1);
 }
 
-int	edit_env(t_shell *sh, int l, int i, int p)
+int		edit_env(t_shell *sh, int l, int i, int p)
 {
   while (sh->cmd[i + 1][l] != '\0')
     {
@@ -21,25 +31,24 @@ int	edit_env(t_shell *sh, int l, int i, int p)
   return (0);
 }
 
-int	add_env(t_shell *sh, int i, int p)
+int		add_env(t_shell *sh, int i, int p)
 {
-  int	l;
-  int	t;
+  char		t;
+  int		l;
 
   t = 0;
-  l = 0;
-  while (sh->cmd[i + 1][l] != '\0')
+  l = -1;
+  while (sh->cmd[i + 1][++l] != '\0')
     {
       if (sh->cmd[i + 1][l] == '=')
 	t = 1;
-      l++;
     }
   if (t == 1)
     {
       if ((sh->env = realloc(sh->env, sizeof(char *) * (p + 2))) == NULL)
 	return (-1);
-      (sh->env)[p] = malloc(sizeof(char) * (strlen(sh->cmd[i + 1]) + 2));
-      if ((sh->env)[p] == NULL)
+      if (((sh->env)[p] = malloc(sizeof(char) *
+				 (strlen(sh->cmd[i + 1]) + 2))) == NULL)
 	return (-1);
       memset(sh->env[p], 0, strlen(sh->cmd[i + 1]));
       sh->env[p] = strcpy(sh->env[p], sh->cmd[i + 1]);
@@ -48,14 +57,14 @@ int	add_env(t_shell *sh, int i, int p)
   return (0);
 }
 
-int	set_env(t_shell *sh, int i)
+int		set_env(t_shell *sh, int i)
 {
-  int	p;
-  int	l;
+  int		p;
+  int		l;
 
   p = -1;
   l = 0;
-  if (sh->cmd[i] == NULL)
+  if (sh->cmd[i + 1] == NULL)
     return (0);
   while (sh->env[++p] != NULL)
     {

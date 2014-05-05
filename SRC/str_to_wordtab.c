@@ -22,7 +22,8 @@ char	**malloc_tab(char *str)
   i = -1;
   while (++i < nb)
     {
-      word[i] = malloc(sizeof(char) * (my_strlen(str) + 6));
+      if ((word[i] = malloc(sizeof(char) * (my_strlen(str) + 6))) == NULL)
+	return (NULL);
       memset(word[i], 0, (my_strlen(str) + 6));
     }
   word[i] = NULL;
@@ -43,7 +44,7 @@ char	**my_str_to_wordtab(char *str)
     return (NULL);
   while (str[++i] != '\0')
     {
-      while (str[i] == ' ' || str[i] == 9)
+      while (str[i] == ' ' || str[i] == '\t')
 	{
 	  o = 0;
 	  ++i;
@@ -51,7 +52,7 @@ char	**my_str_to_wordtab(char *str)
       if (word[j] != NULL)
 	{
 	  word[j][o++] = str[i];
-	  if (str[i + 1] == ' ' || str[i + 1] == 9)
+	  if (str[i + 1] == ' ' || str[i + 1] == '\t')
 	    word[j++][o] = '\0';
 	}
     }
