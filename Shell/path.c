@@ -19,12 +19,12 @@ int	path(t_shell *sh, char *env)
     if (env[l] == 58)
       sh->a = sh->a + 1;
   if ((sh->path = malloc(sizeof(char *) * sh->a + 8)) == NULL)
-    return (1);
+    return (-1);
   while (env[sh->o++] != '\0')
     {
       l = 0;
       if ((sh->path[sh->j] = malloc(sizeof(char) * 1024)) == NULL)
-	return (1);
+	return (-1);
       memset(sh->path[sh->j], 0, 512);
       while ((env[sh->o] != ':') && (env[sh->o] != '\0'))
 	sh->path[sh->j][l++] = env[sh->o++];
@@ -49,7 +49,7 @@ int	find_path(t_shell *sh)
 	{
 	  if ((my_strcmp(sh->env[i], "PATH=")) == 0)
 	    if ((path(sh, sh->env[i])) == 1)
-	      return (1);
+	      return (-1);
 	  ++i;
 	}
     }
