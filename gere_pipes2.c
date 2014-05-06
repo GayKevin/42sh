@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Fri Mar  7 13:01:53 2014 Maxime Limone
-** Last update Tue May  6 14:16:33 2014 Kevin Gay
+** Last update Tue May  6 15:05:24 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -34,11 +34,13 @@ int	master_pipe(t_shell *sh, t_pip *p)
 int	son_pipe(t_shell *sh, t_pip *p)
 {
   close(p->pipefd[0]);
-  my_putstr("lol\n");
-  /* if ((p->data = dup(1)) == -1) */
-  /*   return (-1); */
-  if (dup2(p->pipefd[1], 1) == -1)
+  if ((p->data = dup(1)) == -1)
     return (-1);
+  if (dup2(p->pipefd[1], 1) == -1)
+    {
+      my_putstr("mlkmlkml");
+      return (-1);
+    }
   my_putstr("lol\n");
   if (exec_cmd_pipe(sh, p, p->cmd1, p->tb_cmd1) == -1)
     return (-1);
