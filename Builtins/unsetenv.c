@@ -5,31 +5,18 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:42:22 2014 Maxime Limone
-** Last update Mon May  5 14:40:03 2014 Kevin Gay
+** Last update Mon May  5 19:54:46 2014 Maxime Limone
 */
 
+#include <string.h>
 #include <stdlib.h>
 #include "main.h"
-#include "my_strcmp.h"
 #include "my_free.h"
-
-int		my_strcmp_unsetenv(char *str1, char *str2)
-{
-  int		i;
-
-  i = 0;
-  while (str2[i + 1] != '=')
-    {
-      if (str1[i] != str2[i])
-	return (-1);
-      ++i;
-    }
-  return (0);
-}
+#include "my_strcat.h"
 
 int		find_unset_env(t_shell *sh, int l, int i)
 {
-  if (my_strcmp_unsetenv(sh->cmd[i + 1], sh->env[l]) == 0)
+  if (my_strcmp_(sh->cmd[i + 1], sh->env[l]) == 0)
     return (0);
   return (-1);
 }
@@ -41,7 +28,7 @@ int		unset_env(t_shell *sh, int i)
   l = -1;
   if (sh->cmd[i + 1] == NULL)
     return (-1);
-  if (my_strcmp_nbr(sh->cmd[i + 1], "PATH", 4) == 0)
+  if (strncmp(sh->cmd[i + 1], "PATH", 4) == 0)
     {
       my_free(sh->path);
       sh->path = NULL;

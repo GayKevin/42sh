@@ -1,14 +1,23 @@
+/*
+** old_pwd.c for 42sh in /home/limone_m/rendu/PSU_2013_42sh
+** 
+** Made by Maxime Limone
+** Login   <limone_m@epitech.net>
+** 
+** Started on  Mon May  5 18:23:40 2014 Maxime Limone
+** Last update Mon May  5 19:36:03 2014 Maxime Limone
+*/
+
 #include <stdlib.h>
+#include <string.h>
 #include "main.h"
-#include "my_strcmp.h"
 #include "old_pwd.h"
 #include "pwd.h"
-#include "my_put_tool.h"
 #include "my_strcat.h"
 
-int	find_old_pwd_env(t_shell *sh)
+int		find_old_pwd_env(t_shell *sh)
 {
-  int	i;
+  int		i;
 
   i = 0;
   while (sh->env[i] != '\0')
@@ -20,12 +29,12 @@ int	find_old_pwd_env(t_shell *sh)
   return (-1);
 }
 
-char	*clear_old_pwd(char *str, int d, t_shell *sh)
+char		*clear_old_pwd(char *str, int d, t_shell *sh)
 {
-  int	i;
+  int		i;
 
   i = 0;
-  while (i != my_strlen(sh->env[d]) * 2)
+  while (i != strlen(sh->env[d]) * 2)
     {
       str[i] = '\0';
       ++i;
@@ -33,10 +42,10 @@ char	*clear_old_pwd(char *str, int d, t_shell *sh)
   return (str);
 }
 
-int	old_pwd(t_shell *sh)
+int		old_pwd(t_shell *sh)
 {
-  int	d;
-  int	l;
+  int		d;
+  int		l;
 
   l = 0;
   d = 0;
@@ -45,7 +54,7 @@ int	old_pwd(t_shell *sh)
   if ((l = find_old_pwd_env(sh)) == -1)
     l = l - 1;
   free(sh->env[l]);
-  sh->env[l] = malloc(sizeof(char) * (my_strlen(sh->env[d])  * 2));
+  sh->env[l] = malloc(sizeof(char) * (strlen(sh->env[d])  * 2));
   if (sh->env[l] == NULL)
     return (-1);
   sh->env[l] = clear_old_pwd(sh->env[l], d , sh);

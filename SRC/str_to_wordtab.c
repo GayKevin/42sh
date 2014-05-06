@@ -1,8 +1,17 @@
+/*
+** str_to_wordtab.c for 42sh in /home/limone_m/rendu/PSU_2013_42sh/SRC
+** 
+** Made by Maxime Limone
+** Login   <limone_m@epitech.net>
+** 
+** Started on  Mon May  5 18:18:16 2014 Maxime Limone
+** Last update Mon May  5 18:44:15 2014 Maxime Limone
+*/
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 #include "main.h"
-#include "my_put_tool.h"
 
 char	**malloc_tab(char *str)
 {
@@ -22,9 +31,9 @@ char	**malloc_tab(char *str)
   i = -1;
   while (++i < nb)
     {
-      if ((word[i] = malloc(sizeof(char) * (my_strlen(str) + 6))) == NULL)
+      if ((word[i] = malloc(sizeof(char) * (strlen(str) + 6))) == NULL)
 	return (NULL);
-      memset(word[i], 0, (my_strlen(str) + 6));
+      memset(word[i], 0, (strlen(str) + 6));
     }
   word[i] = NULL;
   return (word);

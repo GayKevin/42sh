@@ -1,17 +1,26 @@
+/*
+** execve.c for 42sh in /home/limone_m/rendu/PSU_2013_42sh/Shell
+** 
+** Made by Maxime Limone
+** Login   <limone_m@epitech.net>
+** 
+** Started on  Mon May  5 15:24:41 2014 Maxime Limone
+** Last update Tue May  6 14:41:55 2014 Kevin Gay
+*/
+
 #include <unistd.h>
 #include <sys/wait.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include "main.h"
-#include "my_put_tool.h"
 #include "my_strcat.h"
 #include "my_printf_error.h"
 
-int	exec_cmd(char *path, char **cmd, char **env, int *ch)
+int		exec_cmd(char *path, char **cmd, char **env, int *ch)
 {
-  pid_t	pid;
-  int	status;
+  pid_t		pid;
+  int		status;
 
   *ch = 1;
   if ((pid = fork()) == -1)
@@ -24,18 +33,15 @@ int	exec_cmd(char *path, char **cmd, char **env, int *ch)
     }
   else if (pid == 0)
     if ((execve(path, cmd, env)) == -1)
-      {
-	printf("execve11 : %d\n", status);
-	exit (0);
-      }
+      exit (0);
   return (0);
 }
 
-int	exec_slah_bin(char **cmd, int *ch)
+int		exec_slah_bin(char **cmd, int *ch)
 {
-  pid_t	pid;
-  int	status;
-  int	i;
+  pid_t		pid;
+  int		status;
+  int		i;
 
   i = -1;
   while (cmd[++i] != NULL)
@@ -51,10 +57,7 @@ int	exec_slah_bin(char **cmd, int *ch)
 	  }
         else if (pid == 0)
 	  if ((execve(cmd[i], cmd, NULL)) == -1)
-	    {
-	      printf("execve : %d\n", status);
-	      return (0);
-	    }
+	    return (0);
 	*ch = 1;
       }
   return (0);
@@ -72,9 +75,10 @@ int	check_point_slash(t_shell *sh, char **env)
       l  = -1;
       while (sh->cmd[i][++l] != '\0')
 	{
-	  if (sh->cmd[i][l] == '.' && sh->cmd[i][l + 1] == '/')
+	  if (sh->cmd[i][0] == '.' && sh->cmd[i][1] == '/')
 	    {
-	      path = malloc(sizeof(char) * 1024);
+	      if ((path = malloc(sizeof(char) * 1024)) == NULL)
+		return (-1);
 	      memset(path, 0, 1024);
 	      path = getcwd(path, 1024);
 	      my_strcat_slash(path, sh->cmd[i]);

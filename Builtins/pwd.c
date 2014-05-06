@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:18:16 2014 Maxime Limone
-** Last update Mon May  5 13:15:31 2014 Kevin Gay
+** Last update Tue May  6 14:55:17 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -14,8 +14,6 @@
 #include "main.h"
 #include "pwd.h"
 #include "my_strcat.h"
-#include "my_strcmp.h"
-#include "my_put_tool.h"
 
 int		find_pwd_env(t_shell *sh)
 {
@@ -32,10 +30,8 @@ int		find_pwd_env(t_shell *sh)
 
 int		create_pwd(t_shell *sh)
 {
-  int		i;
   int		p;
 
-  i = 0;
   p = -1;
   while (sh->env[++p] != NULL);
   if ((sh->env = realloc(sh->env, sizeof(char *) * (p + 2))) == NULL)
@@ -55,22 +51,19 @@ int		set_pwd(t_shell *sh, char *cmd)
 {
   char		*str;
   int		d;
-  int		i;
 
   d = 0;
-  i = 0;
   if ((d = find_pwd_env(sh)) == -1)
     {
       create_pwd(sh);
       set_pwd(sh, cmd);
       return (0);
     }
-  i = strlen(sh->env[d]) + strlen(cmd);
   sh->l = 0;
-  sh->l = my_strlen(sh->env[d]);
+  sh->l = strlen(sh->env[d]);
   if ((str = getcwd(cmd, 1024)) == NULL)
     return (-1);
-  memset(sh->env[d], 0, i);
+  memset(sh->env[d], 0, strlen(sh->env[d]));
   my_strcat_1(sh->env[d], str);
   return (0);
 }

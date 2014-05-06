@@ -1,10 +1,19 @@
+/*
+** path.c for 42sh in /home/limone_m/rendu/PSU_2013_42sh/Shell
+** 
+** Made by Maxime Limone
+** Login   <limone_m@epitech.net>
+** 
+** Started on  Mon May  5 15:53:58 2014 Maxime Limone
+** Last update Tue May  6 14:54:33 2014 Kevin Gay
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
 #include "main.h"
-#include "my_strcmp.h"
 
 int	path(t_shell *sh, char *env)
 {
@@ -47,8 +56,8 @@ int	find_path(t_shell *sh)
       i = 0;
       while (sh->env[i] != '\0')
 	{
-	  if ((my_strcmp(sh->env[i], "PATH=")) == 0)
-	    if ((path(sh, sh->env[i])) == 1)
+	  if ((strncmp(sh->env[i], "PATH=", 5)) == 0)
+	    if ((path(sh, sh->env[i])) == -1)
 	      return (-1);
 	  ++i;
 	}

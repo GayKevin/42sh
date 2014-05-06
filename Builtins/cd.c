@@ -5,14 +5,13 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:00:18 2014 Maxime Limone
-** Last update Mon May  5 14:35:55 2014 Kevin Gay
+** Last update Mon May  5 19:28:14 2014 Maxime Limone
 */
 
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include "main.h"
-#include "my_strcmp.h"
 #include "pwd.h"
 #include "old_pwd.h"
 
@@ -30,7 +29,7 @@ int		cd_home(t_shell *sh, int i)
     return (-1);
   memset(cd, 0, 512);
   while (sh->env[++l] != NULL)
-    if (my_strcmp_nbr(sh->env[l], "HOME=", 5) == 0)
+    if (strncmp(sh->env[l], "HOME=", 5) == 0)
       while (sh->env[l][o] != '\0')
 	cd[++p] = sh->env[l][o++];
   if (chdir(cd) == -1)
@@ -55,7 +54,7 @@ int		cd_old_pwd(t_shell *sh, int i)
     return (-1);
   memset(cmd, 0, 512);
   while (sh->env[++o] != NULL)
-    if (my_strcmp_nbr(sh->env[o], "OLDPWD=", 7) == 0)
+    if (strncmp(sh->env[o], "OLDPWD=", 7) == 0)
       {
 	while (sh->env[o][++l] != '\0')
 	  cmd[p++] = sh->env[o][l];
@@ -70,14 +69,14 @@ int		cd_old_pwd(t_shell *sh, int i)
 
 int		find_cd(t_shell *sh, int i)
 {
-  if (my_strcmp(sh->cmd[i], "cd") == 0)
+  if (strcmp(sh->cmd[i], "cd") == 0)
     {
       if (sh->cmd[i + 1] == NULL)
 	{
 	  if (cd_home(sh, i) == -1)
 	    return (-1);
 	}
-      else if (my_strcmp_nbr(sh->cmd[i + 1], "-", 1) == 0)
+      else if (strncmp(sh->cmd[i + 1], "-", 1) == 0)
 	cd_old_pwd(sh, i);
       else
       	{
@@ -89,4 +88,4 @@ int		find_cd(t_shell *sh, int i)
       sh->ch = 1;
     }
   return (0);
- }
+}
