@@ -5,13 +5,13 @@
 ** Login   <limone_m@epitech.net>
 ** 
 x** Started on  Mon May  5 11:23:51 2014 Maxime Limone
-** Last update Mon May  5 14:39:16 2014 Kevin Gay
+** Last update Mon May  5 19:35:42 2014 Maxime Limone
 */
 
 #include <string.h>
 #include <stdlib.h>
 #include "main.h"
-#include "my_strcmp.h"
+#include "my_strcat.h"
 
 int		compare_env(t_shell *sh, int i, int p)
 {

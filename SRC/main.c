@@ -1,14 +1,25 @@
+/*
+** main.c for 42sh in /home/limone_m/rendu/PSU_2013_42sh/SRC
+** 
+** Made by Maxime Limone
+** Login   <limone_m@epitech.net>
+** 
+** Started on  Mon May  5 16:15:36 2014 Maxime Limone
+** Last update Tue May  6 14:54:03 2014 Kevin Gay
+*/
+
 #include <signal.h>
+#include <stdio.h>
 #include <unistd.h>
 #include "main.h"
-#include "my_put_tool.h"
 #include "env.h"
 #include "my_free.h"
 #include "shell.h"
+#include "my_strcat.h"
 
 void	get_sigint(int sig)
 {
-  my_putstr("\n$>");
+  my_putstr("\n$> ");
 }
 
 int	main(int ac, char **av, char **env)

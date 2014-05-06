@@ -1,46 +1,55 @@
-SRC	= Print_error/function_tab.c \
-	  Print_error/my_printf_error.c \
-	  Print_error/my_put_error.c \
-	  Shell/shell.c \
-	  Shell/env.c \
-	  Shell/clean_str.c \
-	  Shell/path.c \
-	  Shell/execve.c\
-	  Builtins/find.c \
-	  Builtins/cd.c \
-	  Builtins/built_in.c \
-	  Builtins/unsetenv.c \
-	  Builtins/setenv.c \
-	  Builtins/pwd.c \
-	  Builtins/old_pwd.c \
-	  SRC/my_strcat.c \
-	  SRC/my_getnbr.c \
-	  SRC/my_free.c \
-	  SRC/my_strcpy.c \
-	  SRC/str_to_wordtab.c \
-	  SRC/my_malloc_pwd.c \
-	  SRC/my_show_tab.c \
-	  SRC/my_put_tool.c \
-	  SRC/my_strcmp.c \
-	  SRC/main.c
+##
+## Makefile for 42sh in /home/limone_m/rendu/PSU_2013_42sh
+## 
+## Made by Maxime Limone
+## Login   <limone_m@epitech.net>
+##  		  gere_cmd.c \
+		  gere_pipes.c \
+		  gere_pipes2.c \
 
-NAME	= 42sh
+## Started on  Mon May  5 14:54:13 2014 Maxime Limone
+## Last update Tue May  6 14:17:59 2014 Kevin Gay
+##
 
-CC	= cc
+SRC		= Print_error/function_tab.c \
+		  Print_error/my_printf_error.c \
+		  Print_error/my_put_error.c \
+		  Shell/shell.c \
+		  Shell/env.c \
+		  Shell/clean_str.c \
+		  Shell/path.c \
+		  Shell/execve.c\
+		  Builtins/find.c \
+		  Builtins/cd.c \
+		  Builtins/built_in.c \
+		  Builtins/unsetenv.c \
+		  Builtins/setenv.c \
+		  Builtins/pwd.c \
+		  Builtins/old_pwd.c \
+		  SRC/my_strcat.c \
+		  SRC/my_free.c \
+		  SRC/str_to_wordtab.c \
+		  SRC/my_malloc_pwd.c \
+		  SRC/my_show_tab.c \
+		  SRC/main.c
 
-OBJ	= $(SRC:.c=.o)
+NAME		= 42sh
 
-CFLAGS	= -IInclude -Wall -g
+CC		= cc
 
-all:	$(NAME)
+OBJ		= $(SRC:.c=.o)
+
+CFLAGS		= -IInclude -Wall -g
+
+all:		$(NAME)
 
 $(NAME):	$(OBJ)
-	$(CC) $(CFLAG) -o $(NAME) $(OBJ)
+		$(CC) $(CFLAG) -o $(NAME) $(OBJ)
 
 clean:
-	rm -f $(OBJ)
+		rm -f $(OBJ)
 
 fclean:		clean
-	rm -f $(NAME)
+		rm -f $(NAME)
 
 re:		fclean all
