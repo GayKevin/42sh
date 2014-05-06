@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 15:24:25 2014 Maxime Limone
-** Last update Mon May  5 15:24:26 2014 Maxime Limone
+** Last update Tue May  6 15:13:08 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -25,12 +25,13 @@ int	get_env(t_shell *sh, char **env)
       while (env[++i] != NULL)
       	l++;
       if ((sh->env = malloc(sizeof(char *) * (l + 2))) == NULL)
-	return (1);
+	return (-1);
       i = -1;
       while (env[++i] != NULL)
       	{
-      	  if ((sh->env[i] = malloc(sizeof(char) * (strlen(env[i]) + 2))) == NULL)
-	    return (1);
+      	  sh->env[i] = malloc(sizeof(char) * (strlen(env[i]) + 2));
+	  if (sh->env[i] == NULL)
+	    return (-1);
 	  memset(sh->env[i], 0, (strlen(env[i] + 2)));
       	  strcpy(sh->env[i], env[i]);
 	}
