@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 15:53:58 2014 Maxime Limone
-** Last update Tue May  6 14:54:33 2014 Kevin Gay
+** Last update Tue May  6 18:11:27 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -47,20 +47,23 @@ int	path(t_shell *sh, char *env)
 int	find_path(t_shell *sh)
 {
   int	i;
+  int	p;
 
-  i = 0;
+  p = 0;
+  i = -1;
   if (sh->env[0] == NULL)
     sh->path = NULL;
   else
-    {
-      i = 0;
-      while (sh->env[i] != '\0')
-	{
-	  if ((strncmp(sh->env[i], "PATH=", 5)) == 0)
+    while (sh->env[++i] != '\0')
+      {
+	if ((strncmp(sh->env[i], "PATH=", 5)) == 0)
+	  {
+	    p = 1;
 	    if ((path(sh, sh->env[i])) == -1)
 	      return (-1);
-	  ++i;
-	}
-    }
+	  }
+	if (p == 0)
+	  sh->path = NULL;
+      }
   return (0);
 }

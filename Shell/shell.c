@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Tue May  6 15:28:42 2014 Kevin Gay
+** Last update Wed May  7 13:51:35 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -27,7 +27,7 @@ int		read_buffer(t_shell *sh)
 
   my_putstr("$> ");
   clear_str(sh);
-  ret = read(0, sh->buffer, 512);
+  while ((ret = read(0, sh->buffer, 512)) == 512);
   if (ret == 1 || ret == -1)
     {
       read_buffer(sh);
