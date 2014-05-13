@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Tue May 13 21:32:23 2014 Maxime Limone
-** Last update Tue May 13 22:59:35 2014 Kevin Gay
+** Last update Tue May 13 23:35:23 2014 Kevin Gay
 */
 
 #ifndef OPERATOR_H_
@@ -21,5 +21,7 @@ int	and_simple(t_node *tree, t_shell *sh);
 int	db_left(t_node *tree, t_shell *sh);
 int	db_right(t_node *tree, t_shell *sh);
 int	dotcom(t_node *tree, t_shell *sh);
+int		master_pipe(int pipefd[2], t_node *tree, t_shell *sh);
+int		pipe_simple(t_node *tree, t_shell *sh);
 
 #endif /* OPERATOR_H_ */

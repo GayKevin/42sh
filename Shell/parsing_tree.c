@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 12 13:55:08 2014 Maxime Limone
-** Last update Tue May 13 23:22:04 2014 Kevin Gay
+** Last update Tue May 13 23:38:12 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -13,6 +13,8 @@
 #include "main.h"
 #include "tree.h"
 #include "main.h"
+#include "operator.h"
+#include "shell.h"
 #include "operator.h"
 
 int		stock_tree(char *buff, t_shell *sh)
@@ -73,11 +75,17 @@ int		gere_operator(t_node *tree, t_shell *sh)
   int		o;
 
   o = -1;
+  if (tree->chck_tree == 2)
+    {
+      pipe_simple(tree, sh);
+    }
+  else
+    check_cmd(sh, tree);
+  return (0);
   tab_tab = NULL;
   tab_tab = tab_(tab_tab);
   tab_function_read(tab_func);
   while (tab_tab[++o] != tree->op);
   if ((tab_func[o](tree, sh)) == 1)
     return (1);
-  return (0);
 }

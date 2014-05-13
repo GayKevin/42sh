@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 15:24:41 2014 Maxime Limone
-** Last update Tue May 13 13:39:11 2014 Kevin Gay
+** Last update Tue May 13 23:07:28 2014 Maxime Limone
 */
 
 #include <unistd.h>
@@ -32,8 +32,10 @@ int		exec_cmd(char *path, char **cmd, char **env, int *ch)
 	printf_error("Segmentation Fault\n");
     }
   else if (pid == 0)
-    if ((execve(path, cmd, env)) == -1)
-      exit (0);
+    {
+      if ((execve(path, cmd, env)) == -1)
+	exit (0);
+    }
   return (0);
 }
 

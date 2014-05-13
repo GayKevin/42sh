@@ -4,7 +4,7 @@
 ## Made by Maxime Limone
 ## Login   <limone_m@epitech.net>
 ## Started on  Mon May  5 14:54:13 2014 Maxime Limone
-## Last update Tue May 13 22:43:58 2014 Kevin Gay
+## Last update Tue May 13 23:36:51 2014 Kevin Gay
 ##
 
 SRC		= Print_error/function_tab.c \
@@ -43,7 +43,7 @@ SRC		= Print_error/function_tab.c \
 		  SRC/str_to_wordtab.c \
 		  SRC/my_malloc_pwd.c \
 		  SRC/my_show_tab.c \
-		  SRC/main.c 
+		  SRC/main.c
 #	  	  move.c \
 #	 	  termcaps.c
 
