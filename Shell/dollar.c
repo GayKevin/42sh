@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Tue May 13 02:29:24 2014 Kevin Gay
-** Last update Tue May 13 13:44:37 2014 Kevin Gay
+** Last update Tue May 13 14:36:53 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -19,7 +19,7 @@
 
 int	compare_env_dollar(char *tmp, t_shell *sh, int p)
 {
-  if(my_strcmp_(tmp, sh->env[p]) == 0)
+  if(my_strcmp_dollar(tmp, sh->env[p], strlen(tmp)) == 0)
     return (0);
   return(-1);
 }
@@ -40,30 +40,43 @@ int	find_dollar(t_shell *sh)
   return (0);
 }
 
+int	use_dollar(t_shell *sh, int i, int l, char *tmp)
+{
+  int	p;
+
+  p = -1;
+  while (sh->env[++p] != NULL)
+    {
+      if (compare_env_dollar(tmp, sh, p) == 0)
+	{
+	  while (sh->env[p][++l] != '=');
+	  if ((sh->cmd[i] = realloc(sh->cmd[i], sizeof(char *) *
+				    strlen(sh->env[p]))) == NULL)
+	    return (-1);
+	  memset(sh->cmd[i], 0, strlen(sh->env[p]));
+	  my_strncpy(sh->cmd[i], sh->env[p], (l + 1));
+	}
+    }
+  return (0);
+}
+
+
 int	dollar(t_shell *sh)
 {
   int	i;
-  int	p;
   int	l;
   char	*tmp;
 
   l = -1;
   i = -1;
-  p = -1;
   if ((i = find_dollar(sh)) == -1)
     return (1);
-  tmp = malloc(sizeof(char) * (strlen(sh->cmd[i]) + 2));
+  if ((tmp = malloc(sizeof(char) * (strlen(sh->cmd[i]) + 2))) == NULL)
+    return (-1);
   memset(tmp, 0, (strlen(sh->cmd[i]) + 2));
   my_strncpy(tmp ,sh->cmd[i], 1);
-    while (sh->env[++p] != NULL)
-    {
-      if (compare_env_dollar(tmp, sh, p) == 0)
-	{
-	  while (sh->env[p][++l] != '=');
-	  memset(sh->cmd[i], 0, strlen(sh->cmd[i]));
-	  my_strncpy(sh->cmd[i], sh->env[p], (l + 1));
-	}
-    }
-    free(tmp);
-    return (0);
+  printf("%s\n", tmp);
+  use_dollar(sh, i, l ,tmp);
+  free(tmp);
+  return (0);
 }

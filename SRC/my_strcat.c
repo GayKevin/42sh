@@ -5,21 +5,12 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 17:36:58 2014 Maxime Limone
-** Last update Tue May 13 11:54:41 2014 Kevin Gay
+** Last update Tue May 13 14:37:31 2014 Kevin Gay
 */
 
 #include <unistd.h>
 #include <string.h>
 #include "main.h"
-
-void		my_putstr(char *str)
-{
-  int		i;
-
-  i = -1;
-  while (str[++i] != '\0')
-    write(1, &str[i], 1);
-}
 
 char		*my_strcat_(char *dest, char *src)
 {
@@ -94,5 +85,16 @@ int		my_strcmp_(char *str1, char *str2)
     return (0);
   if (str1[i] != str2[i])
     return (1);
+  return (0);
+}
+
+int	my_strcmp_dollar(char *str1, char *str2, int i)
+{
+  int	p;
+
+  p = -1;
+  while (++p != i)
+    if (str1[p] != str2[p])
+      return (-1);
   return (0);
 }
