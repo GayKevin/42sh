@@ -5,7 +5,8 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May  8 15:12:42 2014 Maxime Limone
-** Last update Tue May 13 23:34:13 2014 Kevin Gay
+** Last update Wed May 14 00:19:16 2014 Kevin Gay
+** Last update Tue May 13 20:19:05 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -15,22 +16,6 @@
 #include "pars.h"
 #include "tree.h"
 #include "epur_str.h"
-#include "operator.h"
-
-int		clearTree(t_node **tree)
-{
-  t_node	*tmp;
-
-  tmp = *tree;
-  if(!tree)
-    return (0);
-  if(tmp->left)
-    clearTree(&tmp->left);
-  if(tmp->right)
-    clearTree(&tmp->right);
-  free(tmp);
-  *tree = NULL;
-}
 
 int             init_op_tab(char *buff, t_shell *sh)
 {
@@ -55,7 +40,8 @@ int             init_op_tab(char *buff, t_shell *sh)
   tree->right = NULL;
   if (check_op(buff, sh, tree) == 1);
     //display_tree(tree);
-  gere_operator(tree, sh);
+  if ((gere_operator(tree, sh)) == -1)
+      return (-1);
   clearTree(&tree);
   return (0);
 }
