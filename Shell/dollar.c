@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Tue May 13 02:29:24 2014 Kevin Gay
-** Last update Tue May 13 16:38:09 2014 Kevin Gay
+** Last update Tue May 13 20:24:24 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -15,6 +15,7 @@
 #include "main.h"
 #include "setenv.h"
 #include "my_strncpy.h"
+#include "my_putstr.h"
 #include "my_strcat.h"
 #include "my_putstr.h"
 
