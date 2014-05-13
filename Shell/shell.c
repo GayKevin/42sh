@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Tue May 13 13:44:05 2014 Kevin Gay
+** Last update Tue May 13 14:39:32 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -22,6 +22,7 @@
 #include "execve.h"
 #include "dollar.h"
 #include "pars.h"
+#include "my_putstr.h"
 
 int		read_buffer(t_shell *sh)
 {

@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 x** Started on  Mon May  5 11:23:51 2014 Maxime Limone
-** Last update Tue May 13 11:57:12 2014 Kevin Gay
+** Last update Tue May 13 14:18:49 2014 Kevin Gay
 */
 
 #include <string.h>

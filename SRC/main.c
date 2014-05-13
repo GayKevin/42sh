@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:15:36 2014 Maxime Limone
-** Last update Tue May 13 09:17:56 2014 Kevin Gay
+** Last update Tue May 13 14:40:06 2014 Kevin Gay
 */
 
 #include <signal.h>
@@ -17,6 +17,7 @@
 #include "my_free.h"
 #include "shell.h"
 #include "my_strcat.h"
+#include "my_putstr.h"
 
 void	get_sigint(int sig)
 {
