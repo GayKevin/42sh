@@ -1,11 +1,11 @@
 /*
-** pipe.c for 42sh in /home/limone_m/rendu/42sh/Operator
+** pipe_simple.c for 42sh in /home/limone_m/rendu/42sh/Operator
 ** 
 ** Made by Maxime Limone
 ** Login   <limone_m@epitech.net>
 ** 
-** Started on  Tue May 13 14:43:24 2014 Maxime Limone
-** Last update Tue May 13 21:52:43 2014 Maxime Limone
+** Started on  Tue May 13 23:59:52 2014 Maxime Limone
+** Last update Tue May 13 23:59:54 2014 Maxime Limone
 */
 
 #include <unistd.h>
