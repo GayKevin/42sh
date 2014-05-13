@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Tue May 13 02:29:24 2014 Kevin Gay
-** Last update Tue May 13 14:36:53 2014 Kevin Gay
+** Last update Tue May 13 16:17:22 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -32,7 +32,7 @@ int	find_dollar(t_shell *sh)
   while (sh->cmd[++i] != NULL)
     {
       if (strncmp(sh->cmd[i], "$", 1) == 0)
-	if (sh->cmd[i] != '\0')
+	if (sh->cmd[i][1] != '\0')
 	  return (i);
     }
   if (sh->cmd[i] == NULL)
@@ -43,7 +43,9 @@ int	find_dollar(t_shell *sh)
 int	use_dollar(t_shell *sh, int i, int l, char *tmp)
 {
   int	p;
+  int	r;
 
+  r = 0;
   p = -1;
   while (sh->env[++p] != NULL)
     {
@@ -55,7 +57,13 @@ int	use_dollar(t_shell *sh, int i, int l, char *tmp)
 	    return (-1);
 	  memset(sh->cmd[i], 0, strlen(sh->env[p]));
 	  my_strncpy(sh->cmd[i], sh->env[p], (l + 1));
+	  r = 1;
 	}
+    }
+  if (r != 1)
+    {
+      my_putstr("\n");
+      sh->ch = 1;
     }
   return (0);
 }
@@ -75,7 +83,6 @@ int	dollar(t_shell *sh)
     return (-1);
   memset(tmp, 0, (strlen(sh->cmd[i]) + 2));
   my_strncpy(tmp ,sh->cmd[i], 1);
-  printf("%s\n", tmp);
   use_dollar(sh, i, l ,tmp);
   free(tmp);
   return (0);
