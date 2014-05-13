@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Wed May  7 13:51:35 2014 Kevin Gay
+** Last update Tue May 13 02:50:49 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -20,6 +20,7 @@
 #include "my_strcat.h"
 #include "built_in.h"
 #include "execve.h"
+#include "pars.h"
 
 int		read_buffer(t_shell *sh)
 {
@@ -34,7 +35,10 @@ int		read_buffer(t_shell *sh)
       return (0);
     }
   if (ret == 0)
-    return (-1);
+    {
+      putchar(10);
+      return (-1);
+    }
   sh->buffer[ret - 1] = '\0';
   return (0);
 }
@@ -46,12 +50,15 @@ int		shell(t_shell *sh)
   while (42)
     {
       i = 0;
+      sh->i_tree = -1;
       sh->ch = 0;
       if (find_path(sh) == -1)
 	return (-1);
       if (read_buffer(sh) == -1)
 	return (-1);
       sh->cmd = my_str_to_wordtab(sh->buffer);
+      if (init_op_tab(sh->buffer, sh) == -1)
+	return (-1);
       check_point_slash(sh, sh->env);
       if (built_in(sh) == -1)
 	return (-1);

@@ -3,12 +3,8 @@
 ## 
 ## Made by Maxime Limone
 ## Login   <limone_m@epitech.net>
-##  		  gere_cmd.c \
-		  gere_pipes.c \
-		  gere_pipes2.c \
-
 ## Started on  Mon May  5 14:54:13 2014 Maxime Limone
-## Last update Tue May  6 15:25:09 2014 Kevin Gay
+## Last update Mon May 12 17:31:23 2014 Maxime Limone
 ##
 
 SRC		= Print_error/function_tab.c \
@@ -18,6 +14,8 @@ SRC		= Print_error/function_tab.c \
 		  Shell/env.c \
 		  Shell/clean_str.c \
 		  Shell/path.c \
+		  Shell/parsing.c \
+		  Shell/parsing_tree.c \
 		  Shell/execve.c\
 		  Builtins/find.c \
 		  Builtins/cd.c \
@@ -26,6 +24,8 @@ SRC		= Print_error/function_tab.c \
 		  Builtins/setenv.c \
 		  Builtins/pwd.c \
 		  Builtins/old_pwd.c \
+		  Tree/tree.c \
+		  SRC/epur_str.c \
 		  SRC/my_strcat.c \
 		  SRC/my_free.c \
 		  SRC/str_to_wordtab.c \
