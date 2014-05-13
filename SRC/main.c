@@ -5,12 +5,13 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:15:36 2014 Maxime Limone
-** Last update Tue May  6 14:54:03 2014 Kevin Gay
+** Last update Tue May 13 09:17:56 2014 Kevin Gay
 */
 
 #include <signal.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include "main.h"
 #include "env.h"
 #include "my_free.h"
@@ -27,6 +28,7 @@ int	main(int ac, char **av, char **env)
   t_shell sh;
 
   sh.re = 0;
+  sh.c_ch = 0;
   sh.cmd = NULL;
   signal(SIGINT, get_sigint);
   get_env(&sh, env);
@@ -34,6 +36,8 @@ int	main(int ac, char **av, char **env)
     {
       my_free(sh.path);
       my_free(sh.env);
+      if (sh.c_ch != 0)
+	free(sh.op_char);
       return (sh.re);
     }
   my_free(sh.path);
