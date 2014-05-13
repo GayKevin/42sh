@@ -5,6 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
+** Last update Tue May 13 23:06:22 2014 Maxime Limone
 ** Last update Tue May 13 19:53:22 2014 Kevin Gay
 */
 
@@ -22,6 +23,7 @@
 #include "execve.h"
 #include "dollar.h"
 #include "pars.h"
+#include "tree.h"
 #include "my_putstr.h"
 
 int		read_buffer(t_shell *sh)
@@ -45,7 +47,7 @@ int		read_buffer(t_shell *sh)
   return (0);
 }
 
-void	free_shell(t_shell *sh)
+void		free_shell(t_shell *sh)
 {
   my_free(sh->cmd);
   my_free(sh->path);
@@ -60,38 +62,44 @@ void	free_shell(t_shell *sh)
     free(sh->op_char);
 }
 
-void	number_reset(t_shell *sh)
+void		number_reset(t_shell *sh)
 {
   sh->ch = 0;
   sh->c_ch = 0;
-  sh->i_tree = -1;
 }
 
 int		shell(t_shell *sh)
 {
-  int		i;
-
   while (42)
     {
-      i = 0;
-      number_reset(sh);
+      sh->i_tree = -1;
       if (find_path(sh) == -1)
 	return (-1);
       if (read_buffer(sh) == -1)
 	return (-1);
-      sh->cmd = my_str_to_wordtab(sh->buffer);
       if (init_op_tab(sh->buffer, sh) == -1)
 	return (-1);
-      dollar(sh);
-      check_point_slash(sh, sh->env);
-      if (built_in(sh) == -1)
-	return (-1);
-      while (sh->path != NULL && sh->path[i] != NULL && sh->ch == 0)
-	if (access(strcat(sh->path[i++], sh->cmd[0]), X_OK) == 0)
-	  exec_cmd(sh->path[i - 1], sh->cmd, sh->env, &sh->ch);
-      if (sh->ch == 0)
-	exec_slah_bin(sh->cmd, &sh->ch);
-      sh->ch == 0 ? printf("Command not found\n") : 0;
       free_shell(sh);
     }
+  return (0);
+}
+
+int		check_cmd(t_shell *sh, t_node *tree)
+{
+  int		i;
+
+  i = 0;
+  number_reset(sh);
+  sh->cmd = my_str_to_wordtab(tree->str);
+  dollar(sh);
+  check_point_slash(sh, sh->env);
+  if (built_in(sh) == -1)
+    return (-1);
+  while (sh->path != NULL && sh->path[i] != NULL && sh->ch == 0)
+    if (access(strcat(sh->path[i++], sh->cmd[0]), X_OK) == 0)
+      exec_cmd(sh->path[i - 1], sh->cmd, sh->env, &sh->ch);
+  if (sh->ch == 0)
+    exec_slah_bin(sh->cmd, &sh->ch);
+  sh->ch == 0 ? printf("Command not found\n") : 0;
+  return (0);
 }

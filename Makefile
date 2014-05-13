@@ -4,7 +4,7 @@
 ## Made by Maxime Limone
 ## Login   <limone_m@epitech.net>
 ## Started on  Mon May  5 14:54:13 2014 Maxime Limone
-## Last update Tue May 13 22:43:58 2014 Kevin Gay
+## Last update Tue May 13 23:34:35 2014 Kevin Gay
 ##
 
 SRC		= Print_error/function_tab.c \
@@ -35,6 +35,7 @@ SRC		= Print_error/function_tab.c \
 		  Builtins/pwd.c \
 		  Builtins/old_pwd.c \
 		  Tree/tree.c \
+		  Operator/pipe.c \
 		  SRC/epur_str.c \
 	 	  SRC/my_putstr.c \
 		  SRC/my_strcat.c \
