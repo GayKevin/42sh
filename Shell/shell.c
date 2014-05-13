@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Tue May 13 04:02:11 2014 Kevin Gay
+** Last update Tue May 13 13:44:05 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -20,6 +20,7 @@
 #include "my_strcat.h"
 #include "built_in.h"
 #include "execve.h"
+#include "dollar.h"
 #include "pars.h"
 
 int		read_buffer(t_shell *sh)
@@ -43,6 +44,28 @@ int		read_buffer(t_shell *sh)
   return (0);
 }
 
+void	free_shell(t_shell *sh)
+{
+  my_free(sh->cmd);
+  my_free(sh->path);
+  if (sh->ch == 8)
+    {
+      free(sh->left);
+      free(sh->right);
+      free(sh->op_fnd);
+      free(sh->op_fnd_i);
+    }
+  if (sh->c_ch != 0)
+    free(sh->op_char);
+}
+
+void	number_reset(t_shell *sh)
+{
+  sh->ch = 0;
+  sh->c_ch = 0;
+  sh->i_tree = -1;
+}
+
 int		shell(t_shell *sh)
 {
   int		i;
@@ -50,9 +73,7 @@ int		shell(t_shell *sh)
   while (42)
     {
       i = 0;
-      sh->ch = 0;
-      sh->c_ch = 0;
-      sh->i_tree = -1;
+      number_reset(sh);
       if (find_path(sh) == -1)
 	return (-1);
       if (read_buffer(sh) == -1)
@@ -60,6 +81,7 @@ int		shell(t_shell *sh)
       sh->cmd = my_str_to_wordtab(sh->buffer);
       if (init_op_tab(sh->buffer, sh) == -1)
 	return (-1);
+      dollar(sh);
       check_point_slash(sh, sh->env);
       if (built_in(sh) == -1)
 	return (-1);
@@ -69,16 +91,6 @@ int		shell(t_shell *sh)
       if (sh->ch == 0)
 	exec_slah_bin(sh->cmd, &sh->ch);
       sh->ch == 0 ? printf("Command not found\n") : 0;
-      my_free(sh->cmd);
-      my_free(sh->path);
-      if (sh->ch == 8)
-	{
-	  free(sh->left);
-	  free(sh->right);
-	  free(sh->op_fnd);
-	  free(sh->op_fnd_i);
-	}
-      if (sh->c_ch != 0)
-	free(sh->op_char);
+      free_shell(sh);
     }
 }

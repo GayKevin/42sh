@@ -5,12 +5,13 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:15:36 2014 Maxime Limone
-** Last update Tue May 13 04:00:16 2014 Kevin Gay
+** Last update Tue May 13 09:17:56 2014 Kevin Gay
 */
 
 #include <signal.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include "main.h"
 #include "env.h"
 #include "my_free.h"

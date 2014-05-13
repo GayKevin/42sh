@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 x** Started on  Mon May  5 11:23:51 2014 Maxime Limone
-** Last update Mon May  5 19:35:42 2014 Maxime Limone
+** Last update Tue May 13 11:57:12 2014 Kevin Gay
 */
 
 #include <string.h>
@@ -75,4 +75,3 @@ int		set_env(t_shell *sh, int i)
   add_env(sh, i, p);
   return (0);
 }
-

@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May  8 15:12:42 2014 Maxime Limone
-** Last update Tue May 13 03:59:44 2014 Kevin Gay
+** Last update Tue May 13 11:23:56 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -42,6 +42,7 @@ int             init_op_tab(char *buff, t_shell *sh)
   display_tree(tree);
   free(tree->left);
   free(tree->right);
+  free(tree->str);
   free(tree);
   return (0);
 }
@@ -81,10 +82,8 @@ int		check_op_st(char *buff, int i, t_shell *sh)
     {
       if ((sh->op_fnd = realloc(sh->op_fnd, sizeof(char) * ++sh->r)) == NULL)
 	return (-1);
-      memset(sh->op_fnd, 0, sh->r);
       if ((sh->op_fnd_i = realloc(sh->op_fnd_i, sizeof(int) * sh->r)) == NULL)
 	return (-1);
-      memset(sh->op_fnd_i, 0, sh->r);
       if (buff[i + 1] == sh->op_char[t] && t < 4)
 	return(change_double_char(sh->op_char[t], i, t, sh));
       else

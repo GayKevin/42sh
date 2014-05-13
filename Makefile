@@ -4,7 +4,7 @@
 ## Made by Maxime Limone
 ## Login   <limone_m@epitech.net>
 ## Started on  Mon May  5 14:54:13 2014 Maxime Limone
-## Last update Mon May 12 17:31:23 2014 Maxime Limone
+## Last update Tue May 13 11:35:19 2014 Kevin Gay
 ##
 
 SRC		= Print_error/function_tab.c \
@@ -14,6 +14,7 @@ SRC		= Print_error/function_tab.c \
 		  Shell/env.c \
 		  Shell/clean_str.c \
 		  Shell/path.c \
+		  Shell/dollar.c \
 		  Shell/parsing.c \
 		  Shell/parsing_tree.c \
 		  Shell/execve.c\
@@ -27,6 +28,7 @@ SRC		= Print_error/function_tab.c \
 		  Tree/tree.c \
 		  SRC/epur_str.c \
 		  SRC/my_strcat.c \
+		  SRC/my_strncpy.c \
 		  SRC/my_free.c \
 		  SRC/str_to_wordtab.c \
 		  SRC/my_malloc_pwd.c \

@@ -5,26 +5,13 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Wed May  7 13:22:59 2014 Maxime Limone
-** Last update Tue May 13 02:56:59 2014 Kevin Gay
+** Last update Tue May 13 11:22:41 2014 Kevin Gay
 */
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "tree.h"
-
-t_node		*create_r(char op_r)
-{
-  t_node	*root;
-
-  if ((root = malloc(sizeof(t_node))) == NULL)
-    return (NULL);
-  memset(root, 0, sizeof(t_node));
-  root->op = op_r;
-  root->str = NULL;
-  root->left = NULL;
-  root->right = NULL;
-  return (root);
-}
 
 int		add_node(t_node *node, char *str_lf, char *str_rg)
 {

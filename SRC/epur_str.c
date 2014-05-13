@@ -5,12 +5,31 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Sun May 11 16:41:44 2014 Maxime Limone
-** Last update Tue May 13 03:54:25 2014 Kevin Gay
+** Last update Tue May 13 09:19:52 2014 Kevin Gay
 */
 
 #include <stdlib.h>
 #include <string.h>
 #include "epur_str.h"
+
+char	*epur_str2(int i, int id, char *dest, char *str)
+{
+  while ((str[i] == ' ') || (str[i] == '\t'))
+    i++;
+  while (str[i] != '\0')
+    if ((str[i] == ' ' || str[i] == '\t' || str[i] == '\n') &&
+        ((str[i + 1] == '\0') || (str[i + 1] == ' ' || str[i + 1] == '\t')))
+      i++;
+    else if ((str[i] == ' ' || str[i] == '\t') &&
+             (str[i + 1] != ' ' && str[i + 1] != '\t'))
+      {
+	dest[id++] = ' ';
+	i++;
+      }
+    else
+      dest[id++] = str[i++];
+  return (dest);
+}
 
 char		*epur_str(char *str)
 {
@@ -26,20 +45,7 @@ char		*epur_str(char *str)
     return (NULL);
   memset(dest, 0, (strlen(str) + 2));
   dest = clean_str(dest, strlen(str));
-  while ((str[i] == ' ') || (str[i] == '\t'))
-    i++;
-  while (str[i] != '\0')
-    if ((str[i] == ' ' || str[i] == '\t' || str[i] == '\n') &&
-        ((str[i + 1] == '\0') || (str[i + 1] == ' ' || str[i + 1] == '\t')))
-      i++;
-    else if ((str[i] == ' ' || str[i] == '\t') &&
-             (str[i + 1] != ' ' && str[i + 1] != '\t'))
-      {
-	dest[id++] = ' ';
-	i++;
-      }
-    else
-      dest[id++] = str[i++];
+  dest = epur_str2(i, id, dest, str);
   l = strlen(str);
   memset(str, 0, l);
   strcpy(str, dest);
