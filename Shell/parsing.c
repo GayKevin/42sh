@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May  8 15:12:42 2014 Maxime Limone
-** Last update Tue May 13 14:56:22 2014 Kevin Gay
+** Last update Tue May 13 22:46:57 2014 Maxime Limone
 */
 
 #include <stdlib.h>
@@ -40,10 +40,7 @@ int             init_op_tab(char *buff, t_shell *sh)
   if (check_op(buff, sh, tree) == 1)
     return (0);
   display_tree(tree);
-  free(tree->left);
-  free(tree->right);
-  free(tree->str);
-  free(tree);
+  gere_operator(tree, sh);
   return (0);
 }
 
@@ -64,6 +61,10 @@ int		check_op(char *buff, t_shell *sh, t_node *tree)
   sh->op_fnd_i[sh->r] = '\0';
   op_f = prio_op(buff, sh);
   stock_tree(buff, sh);
+  if (op_f == 0)
+    tree->chck_tree = 0;
+  else
+    tree->chck_tree = 2;
   tree->op = op_f;
   add_node(tree, epur_str(sh->left), epur_str(sh->right));
   printf("left -> %s \t right -> %s\n", tree->left->str, tree->right->str);

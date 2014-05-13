@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Wed May  7 13:15:35 2014 Maxime Limone
-** Last update Mon May 12 20:09:05 2014 Maxime Limone
+** Last update Tue May 13 22:38:16 2014 Maxime Limone
 */
 
 #ifndef TREE_H_
@@ -13,6 +13,7 @@
 
 typedef struct		s_node
 {
+  char			chck_tree;
   char			op;
   char			*str;
   struct s_node		*left;

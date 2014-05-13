@@ -5,10 +5,18 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Tue May 13 14:43:24 2014 Maxime Limone
-** Last update Tue May 13 20:01:20 2014 Maxime Limone
+** Last update Tue May 13 21:52:43 2014 Maxime Limone
 */
 
-int		master_pipe(int pipefd[2], t_node *tree)
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+#include "main.h"
+#include "tree.h"
+#include "pars.h"
+
+int		master_pipe(int pipefd[2], t_node *tree, t_shell *sh)
 {
   int		dp;
 
@@ -17,15 +25,15 @@ int		master_pipe(int pipefd[2], t_node *tree)
   if ((dp = dup(0)) == -1)
     return (-1);
   close(pipefd[1]);
-  if ((dub2(pipefd[0], 0)) == -1)
+  if ((dup2(pipefd[0], 0)) == -1)
     return (-1);
-  gere_operator(tree->right);
+  gere_operator(tree->right, sh);
   if ((dup2(dp, 0)) == -1)
     return (-1);
-  return (0)
+  return (0);
 }
 
-int		gere_pipe(t_node *tree)
+int		pipe_simple(t_node *tree, t_shell *sh)
 {
   pid_t		pid;
   int		pipefd[2];
@@ -42,13 +50,12 @@ int		gere_pipe(t_node *tree)
       close(pipefd[0]);
       if ((dup2(pipefd[1], 1)) == -1)
 	return (-1);
-      gere_operator(tree->left);
+      gere_operator(tree->left, sh);
       if ((dup2(dp, 1)) == -1)
 	return (-1);
       exit(1);
     }
   else
-    master_pipe(pipefd, tree);
+    master_pipe(pipefd, tree, sh);
   return (0);
 }
-

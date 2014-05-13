@@ -5,12 +5,15 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 12 13:55:08 2014 Maxime Limone
-** Last update Tue May 13 03:46:01 2014 Kevin Gay
+** Last update Tue May 13 22:44:09 2014 Maxime Limone
 */
 
 #include <stdlib.h>
 #include <string.h>
 #include "main.h"
+#include "tree.h"
+#include "shell.h"
+#include "operator.h"
 
 int		stock_tree(char *buff, t_shell *sh)
 {
@@ -31,5 +34,19 @@ int		stock_tree(char *buff, t_shell *sh)
   while (buff[++j] != '\0')
     sh->right[++k] = buff[j];
   sh->ch = 8;
+  return (0);
+}
+
+int		gere_operator(t_node *tree, t_shell *sh)
+{
+  if (tree->chck_tree == 2)
+    {
+      pipe_simple(tree, sh);
+    }
+  else
+    {
+      printf("i pass\n");
+      check_cmd(sh, tree);
+    }
   return (0);
 }
