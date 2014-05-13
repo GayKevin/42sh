@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 15:53:58 2014 Maxime Limone
-** Last update Tue May  6 18:11:27 2014 Kevin Gay
+** Last update Tue May 13 20:07:53 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -32,7 +32,7 @@ int	path(t_shell *sh, char *env)
   while (env[sh->o++] != '\0')
     {
       l = 0;
-      if ((sh->path[sh->j] = malloc(sizeof(char) * 1024)) == NULL)
+      if ((sh->path[sh->j] = malloc(sizeof(char) * 2048)) == NULL)
 	return (-1);
       memset(sh->path[sh->j], 0, 512);
       while ((env[sh->o] != ':') && (env[sh->o] != '\0'))
