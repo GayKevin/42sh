@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 12 13:55:08 2014 Maxime Limone
-** Last update Wed May 14 00:11:23 2014 Kevin Gay
+** Last update Wed May 14 00:17:48 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -99,6 +99,7 @@ int		gere_operator(t_node *tree, t_shell *sh)
       pipe_simple(tree, sh);
     }
   else
-    check_cmd(sh, tree);
+    if ((check_cmd(sh, tree)) == -1)
+      return (-1);
   return (0);
 }

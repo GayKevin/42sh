@@ -1,0 +1,117 @@
+Shell/clean_str.c:    sh->buffer[i] = '\0';
+Shell/dollar.c:  if(my_strcmp_dollar(tmp, sh->env[p], strlen(tmp)) == 0)
+Shell/dollar.c:  while (sh->cmd[++i] != NULL)
+Shell/dollar.c:      if (strncmp(sh->cmd[i], "$", 1) == 0)
+Shell/dollar.c:	if (sh->cmd[i][1] != '\0')
+Shell/dollar.c:  if (sh->cmd[i] == NULL)
+Shell/dollar.c:  while (sh->env[++p] != NULL)
+Shell/dollar.c:	  while (sh->env[p][++l] != '=');
+Shell/dollar.c:	  if ((sh->cmd[i] = realloc(sh->cmd[i], sizeof(char *) *
+Shell/dollar.c:				    strlen(sh->env[p]))) == NULL)
+Shell/dollar.c:	  memset(sh->cmd[i], 0, strlen(sh->env[p]));
+Shell/dollar.c:	  my_strncpy(sh->cmd[i], sh->env[p], (l + 1));
+Shell/dollar.c:      sh->ch = 1;
+Shell/dollar.c:  if ((tmp = malloc(sizeof(char) * (strlen(sh->cmd[i]) + 2))) == NULL)
+Shell/dollar.c:  memset(tmp, 0, (strlen(sh->cmd[i]) + 2));
+Shell/dollar.c:  my_strncpy(tmp ,sh->cmd[i], 1);
+Shell/env.c:      if ((sh->env = malloc(sizeof(char *) * (l + 2))) == NULL)
+Shell/env.c:      	  sh->env[i] = malloc(sizeof(char) * (strlen(env[i]) + 2));
+Shell/env.c:	  if (sh->env[i] == NULL)
+Shell/env.c:	  memset(sh->env[i], 0, (strlen(env[i] + 2)));
+Shell/env.c:      	  strcpy(sh->env[i], env[i]);
+Shell/env.c:      sh->env[i] = NULL;
+Shell/execve.c:  while (sh->cmd[++i] != NULL)
+Shell/execve.c:      while (sh->cmd[i][++l] != '\0')
+Shell/execve.c:	  if (sh->cmd[i][0] == '.' && sh->cmd[i][1] == '/')
+Shell/execve.c:	      my_strcat_slash(path, sh->cmd[i]);
+Shell/execve.c:	      exec_cmd(path, sh->cmd, env, &sh->ch);
+Shell/parsing.c:  if ((sh->op_char = malloc(sizeof(char) * 6)) == NULL)
+Shell/parsing.c:  memset(sh->op_char, 0, 6);
+Shell/parsing.c:  sh->c_ch = 1;
+Shell/parsing.c:  sh->op_char[0] = '|';
+Shell/parsing.c:  sh->op_char[1] = '&';
+Shell/parsing.c:  sh->op_char[2] = '>';
+Shell/parsing.c:  sh->op_char[3] = '<';
+Shell/parsing.c:  sh->op_char[4] = ';';
+Shell/parsing.c:  sh->op_char[5] = '\0';
+Shell/parsing.c:  sh->op_fnd = NULL;
+Shell/parsing.c:  sh->op_fnd_i = NULL;
+Shell/parsing.c:  sh->r = 0;
+Shell/parsing.c:  sh->db_op = 0;
+Shell/parsing.c:  if (sh->r == 0)
+Shell/parsing.c:  sh->op_fnd[sh->r] = '\0';
+Shell/parsing.c:  sh->op_fnd_i[sh->r] = '\0';
+Shell/parsing.c:  add_node(tree, epur_str(sh->left), epur_str(sh->right));
+Shell/parsing.c:  while ((buff[i] != sh->op_char[++t]) && sh->op_char[t] != '\0');
+Shell/parsing.c:  if (sh->op_char[t] != '\0')
+Shell/parsing.c:      if ((sh->op_fnd = realloc(sh->op_fnd, sizeof(char) * ++sh->r)) == NULL)
+Shell/parsing.c:      if ((sh->op_fnd_i = realloc(sh->op_fnd_i, sizeof(int) * sh->r)) == NULL)
+Shell/parsing.c:      if (buff[i + 1] == sh->op_char[t] && t < 4)
+Shell/parsing.c:	return(change_double_char(sh->op_char[t], i, t, sh));
+Shell/parsing.c:	  sh->op_fnd[sh->r - 1] = sh->op_char[t];
+Shell/parsing.c:          sh->op_fnd_i[sh->r - 1] = i;
+Shell/parsing.c:    sh->op_fnd[sh->r - 1] = '-';
+Shell/parsing.c:    sh->op_fnd[sh->r - 1] = sh->op_char[t] + 5;
+Shell/parsing.c:  sh->op_fnd_i[sh->r - 1] = i++;
+Shell/parsing.c:  sh->op_i = -1;
+Shell/parsing.c:  ++sh->i_tree;
+Shell/parsing.c:  while (brk == 0 && (sh->op_fnd[++i] != '\0'))
+Shell/parsing.c:    if (sh->op_fnd[i] == ';')
+Shell/parsing.c:	op_f = sh->op_fnd[i];
+Shell/parsing.c:	sh->op_i = i;
+Shell/parsing.c:      if (sh->op_fnd[i] < op_f && sh->op_fnd[i] != '\0')
+Shell/parsing.c:	  op_f = sh->op_fnd[i];
+Shell/parsing.c:	  sh->op_i = i;
+Shell/parsing.c:    sh->db_op = 2;
+Shell/parsing_tree.c:  if (((sh->left = malloc(sizeof(char) * strlen(buff))) == NULL)
+Shell/parsing_tree.c:      || ((sh->right = malloc(sizeof(char) * strlen(buff))) == NULL))
+Shell/parsing_tree.c:  memset(sh->left, 0, strlen(buff));
+Shell/parsing_tree.c:  memset(sh->right, 0, strlen(buff));
+Shell/parsing_tree.c:  while (++j != sh->op_fnd_i[sh->op_i])
+Shell/parsing_tree.c:    sh->left[j] = buff[j];
+Shell/parsing_tree.c:  if (sh->db_op != 0)
+Shell/parsing_tree.c:    sh->right[++k] = buff[j];
+Shell/parsing_tree.c:  sh->ch = 8;
+Shell/path.c:  sh->o = 4;
+Shell/path.c:  sh->j = 0;
+Shell/path.c:  sh->p = 0;
+Shell/path.c:  sh->a = 1;
+Shell/path.c:      sh->a = sh->a + 1;
+Shell/path.c:  if ((sh->path = malloc(sizeof(char *) * sh->a + 8)) == NULL)
+Shell/path.c:  while (env[sh->o++] != '\0')
+Shell/path.c:      if ((sh->path[sh->j] = malloc(sizeof(char) * 2048)) == NULL)
+Shell/path.c:      memset(sh->path[sh->j], 0, 512);
+Shell/path.c:      while ((env[sh->o] != ':') && (env[sh->o] != '\0'))
+Shell/path.c:	sh->path[sh->j][l++] = env[sh->o++];
+Shell/path.c:      sh->path[sh->j][l++] = '/';
+Shell/path.c:      sh->path[sh->j++][l] = '\0';
+Shell/path.c:  sh->path[sh->j] = NULL;
+Shell/path.c:  if (sh->env[0] == NULL)
+Shell/path.c:    sh->path = NULL;
+Shell/path.c:    while (sh->env[++i] != '\0')
+Shell/path.c:	if ((strncmp(sh->env[i], "PATH=", 5)) == 0)
+Shell/path.c:	    if ((path(sh, sh->env[i])) == -1)
+Shell/path.c:	  sh->path = NULL;
+Shell/shell.c:  while ((ret = read(0, sh->buffer, 512)) == 512);
+Shell/shell.c:  sh->buffer[ret - 1] = '\0';
+Shell/shell.c:  my_free(sh->cmd);
+Shell/shell.c:  my_free(sh->path);
+Shell/shell.c:  if (sh->ch == 8)
+Shell/shell.c:      free(sh->left);
+Shell/shell.c:      free(sh->right);
+Shell/shell.c:      free(sh->op_fnd);
+Shell/shell.c:      free(sh->op_fnd_i);
+Shell/shell.c:  if (sh->c_ch != 0)
+Shell/shell.c:    free(sh->op_char);
+Shell/shell.c:  sh->ch = 0;
+Shell/shell.c:  sh->c_ch = 0;
+Shell/shell.c:      sh->i_tree = -1;
+Shell/shell.c:      if (init_op_tab(sh->buffer, sh) == -1)
+Shell/shell.c:  sh->cmd = my_str_to_wordtab(tree->str);
+Shell/shell.c:  check_point_slash(sh, sh->env);
+Shell/shell.c:  while (sh->path != NULL && sh->path[i] != NULL && sh->ch == 0)
+Shell/shell.c:    if (access(strcat(sh->path[i++], sh->cmd[0]), X_OK) == 0)
+Shell/shell.c:      exec_cmd(sh->path[i - 1], sh->cmd, sh->env, &sh->ch);
+Shell/shell.c:  if (sh->ch == 0)
+Shell/shell.c:    exec_slah_bin(sh->cmd, &sh->ch);
+Shell/shell.c:  sh->ch == 0 ? printf("Command not found\n") : 0;
