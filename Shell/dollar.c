@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Tue May 13 02:29:24 2014 Kevin Gay
-** Last update Tue May 13 16:40:19 2014 Maxime Limone
+** Last update Tue May 13 20:24:24 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -17,6 +17,7 @@
 #include "my_strncpy.h"
 #include "my_putstr.h"
 #include "my_strcat.h"
+#include "my_putstr.h"
 
 int	compare_env_dollar(char *tmp, t_shell *sh, int p)
 {
