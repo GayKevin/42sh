@@ -5,11 +5,8 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May  8 15:12:42 2014 Maxime Limone
-<<<<<<< HEAD
-** Last update Tue May 13 22:46:57 2014 Maxime Limone
-=======
+** Last update Tue May 13 22:56:31 2014 Maxime Limone
 ** Last update Tue May 13 20:19:05 2014 Kevin Gay
->>>>>>> da3bfc56e9ddfe91b0593a70731e5028b4df6a59
 */
 
 #include <stdlib.h>
@@ -58,11 +55,8 @@ int             init_op_tab(char *buff, t_shell *sh)
   if (check_op(buff, sh, tree) == 1)
     return (0);
   display_tree(tree);
-<<<<<<< HEAD
   gere_operator(tree, sh);
-=======
   clearTree(&tree);
->>>>>>> da3bfc56e9ddfe91b0593a70731e5028b4df6a59
   return (0);
 }
 

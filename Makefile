@@ -4,11 +4,8 @@
 ## Made by Maxime Limone
 ## Login   <limone_m@epitech.net>
 ## Started on  Mon May  5 14:54:13 2014 Maxime Limone
-<<<<<<< HEAD
-## Last update Tue May 13 21:36:13 2014 Maxime Limone
-=======
+## Last update Tue May 13 22:56:04 2014 Maxime Limone
 ## Last update Tue May 13 19:52:00 2014 Kevin Gay
->>>>>>> da3bfc56e9ddfe91b0593a70731e5028b4df6a59
 ##
 
 SRC		= Print_error/function_tab.c \
