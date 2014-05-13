@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 15:24:41 2014 Maxime Limone
-** Last update Tue May 13 22:52:51 2014 Maxime Limone
+** Last update Tue May 13 23:07:28 2014 Maxime Limone
 */
 
 #include <unistd.h>
@@ -33,7 +33,6 @@ int		exec_cmd(char *path, char **cmd, char **env, int *ch)
     }
   else if (pid == 0)
     {
-      printf("path:%s \tcmd:%s\n", path, cmd);
       if ((execve(path, cmd, env)) == -1)
 	exit (0);
     }

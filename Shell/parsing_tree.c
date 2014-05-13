@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 12 13:55:08 2014 Maxime Limone
-** Last update Tue May 13 22:44:09 2014 Maxime Limone
+** Last update Tue May 13 23:24:16 2014 Maxime Limone
 */
 
 #include <stdlib.h>
@@ -14,6 +14,22 @@
 #include "tree.h"
 #include "shell.h"
 #include "operator.h"
+
+int		clearTree(t_node **tree)
+{
+  t_node	*tmp;
+
+  tmp = *tree;
+  if(!tree)
+    return (0);
+  if(tmp->left)
+    clearTree(&tmp->left);
+  if(tmp->right)
+    clearTree(&tmp->right);
+  free(tmp);
+  *tree = NULL;
+  return (0);
+}
 
 int		stock_tree(char *buff, t_shell *sh)
 {
@@ -44,9 +60,6 @@ int		gere_operator(t_node *tree, t_shell *sh)
       pipe_simple(tree, sh);
     }
   else
-    {
-      printf("i pass\n");
-      check_cmd(sh, tree);
-    }
+    check_cmd(sh, tree);
   return (0);
 }

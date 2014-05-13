@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May  8 15:12:42 2014 Maxime Limone
-** Last update Tue May 13 22:56:31 2014 Maxime Limone
+** Last update Tue May 13 23:24:05 2014 Maxime Limone
 ** Last update Tue May 13 20:19:05 2014 Kevin Gay
 */
 
@@ -17,20 +17,6 @@
 #include "tree.h"
 #include "epur_str.h"
 
-int clearTree(t_node **tree)
-{
-  t_node *tmp;
-
-  tmp = *tree;
-  if(!tree)
-    return (0);
-  if(tmp->left)
-    clearTree(&tmp->left);
-  if(tmp->right)
-    clearTree(&tmp->right);
-  free(tmp);
-  *tree = NULL;
-}
 int             init_op_tab(char *buff, t_shell *sh)
 {
   t_node	*tree;
@@ -52,9 +38,8 @@ int             init_op_tab(char *buff, t_shell *sh)
   memset(tree, 0, sizeof(t_node));
   tree->left = NULL;
   tree->right = NULL;
-  if (check_op(buff, sh, tree) == 1)
-    return (0);
-  display_tree(tree);
+  if (check_op(buff, sh, tree) == 1);
+    //display_tree(tree);
   gere_operator(tree, sh);
   clearTree(&tree);
   return (0);
@@ -70,9 +55,9 @@ int		check_op(char *buff, t_shell *sh, t_node *tree)
   sh->db_op = 0;
   while (buff[++i] != '\0')
     i = check_op_st(buff, i, sh);
+  tree->str = epur_str(buff);
   if (sh->r == 0)
     return (1);
-  printf("%s\n", sh->op_fnd);
   sh->op_fnd[sh->r] = '\0';
   sh->op_fnd_i[sh->r] = '\0';
   op_f = prio_op(buff, sh);
@@ -83,7 +68,7 @@ int		check_op(char *buff, t_shell *sh, t_node *tree)
     tree->chck_tree = 2;
   tree->op = op_f;
   add_node(tree, epur_str(sh->left), epur_str(sh->right));
-  printf("left -> %s \t right -> %s\n", tree->left->str, tree->right->str);
+  //  printf("left -> %s \t right -> %s\n", tree->left->str, tree->right->str);
   check_op(tree->left->str, sh, tree->left);
   check_op(tree->right->str, sh, tree->right);
   return (0);

@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Wed May  7 13:15:35 2014 Maxime Limone
-** Last update Tue May 13 22:38:16 2014 Maxime Limone
+** Last update Tue May 13 22:59:39 2014 Maxime Limone
 */
 
 #ifndef TREE_H_
@@ -21,6 +21,7 @@ typedef struct		s_node
 }			t_node;
 
 int			add_node(t_node *node, char *str_lf, char *str_rg);
+int			clearTree(t_node **tree);
 t_node			*create_r(char op_r);
 void			display_tree(t_node *root);
 
