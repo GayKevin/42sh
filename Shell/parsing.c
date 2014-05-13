@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May  8 15:12:42 2014 Maxime Limone
-** Last update Mon May 12 21:51:30 2014 Maxime Limone
+** Last update Tue May 13 03:59:44 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -20,8 +20,10 @@ int             init_op_tab(char *buff, t_shell *sh)
 {
   t_node	*tree;
 
-  if ((sh->op_char = malloc(sizeof(char) * 5)) == NULL)
+  if ((sh->op_char = malloc(sizeof(char) * 6)) == NULL)
     return (-1);
+  memset(sh->op_char, 0, 6);
+  sh->c_ch = 1;
   sh->op_char[0] = '|';
   sh->op_char[1] = '&';
   sh->op_char[2] = '>';
@@ -32,11 +34,14 @@ int             init_op_tab(char *buff, t_shell *sh)
   sh->op_fnd_i = NULL;
   if ((tree = malloc(sizeof(t_node))) == NULL)
     return (-1);
+  memset(tree, 0, sizeof(t_node));
   tree->left = NULL;
   tree->right = NULL;
   if (check_op(buff, sh, tree) == 1)
     return (0);
   display_tree(tree);
+  free(tree->left);
+  free(tree->right);
   free(tree);
   return (0);
 }
@@ -74,14 +79,17 @@ int		check_op_st(char *buff, int i, t_shell *sh)
   while ((buff[i] != sh->op_char[++t]) && sh->op_char[t] != '\0');
   if (sh->op_char[t] != '\0')
     {
-      if (((sh->op_fnd = realloc(sh->op_fnd, sizeof(char) * ++sh->r)) == NULL)
-          || ((sh->op_fnd_i = realloc(sh->op_fnd_i, sizeof(int) * sh->r)) == NULL))
+      if ((sh->op_fnd = realloc(sh->op_fnd, sizeof(char) * ++sh->r)) == NULL)
 	return (-1);
+      memset(sh->op_fnd, 0, sh->r);
+      if ((sh->op_fnd_i = realloc(sh->op_fnd_i, sizeof(int) * sh->r)) == NULL)
+	return (-1);
+      memset(sh->op_fnd_i, 0, sh->r);
       if (buff[i + 1] == sh->op_char[t] && t < 4)
 	return(change_double_char(sh->op_char[t], i, t, sh));
       else
-        {
-          sh->op_fnd[sh->r - 1] = sh->op_char[t];
+	{
+	  sh->op_fnd[sh->r - 1] = sh->op_char[t];
           sh->op_fnd_i[sh->r - 1] = i;
 	}
     }

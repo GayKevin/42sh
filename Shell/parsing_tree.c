@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 12 13:55:08 2014 Maxime Limone
-** Last update Mon May 12 21:52:37 2014 Maxime Limone
+** Last update Tue May 13 03:46:01 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -30,5 +30,6 @@ int		stock_tree(char *buff, t_shell *sh)
     j++;
   while (buff[++j] != '\0')
     sh->right[++k] = buff[j];
+  sh->ch = 8;
   return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Sun May 11 16:41:44 2014 Maxime Limone
-** Last update Sun May 11 16:56:51 2014 Maxime Limone
+** Last update Tue May 13 03:54:25 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -17,11 +17,14 @@ char		*epur_str(char *str)
   int		i;
   int		id;
   char		*dest;
+  int		l;
 
+  l = 0;
   i = 0;
   id = 0;
-  if ((dest = malloc(sizeof(char) * strlen(str))) == NULL)
+  if ((dest = malloc(sizeof(char) * (strlen(str) + 2))) == NULL)
     return (NULL);
+  memset(dest, 0, (strlen(str) + 2));
   dest = clean_str(dest, strlen(str));
   while ((str[i] == ' ') || (str[i] == '\t'))
     i++;
@@ -37,7 +40,11 @@ char		*epur_str(char *str)
       }
     else
       dest[id++] = str[i++];
-  return (dest);
+  l = strlen(str);
+  memset(str, 0, l);
+  strcpy(str, dest);
+  free(dest);
+  return (str);
 }
 
 char		*clean_str(char *str, int size)
