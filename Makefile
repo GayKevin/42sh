@@ -4,21 +4,13 @@
 ## Made by Maxime Limone
 ## Login   <limone_m@epitech.net>
 ## Started on  Mon May  5 14:54:13 2014 Maxime Limone
-## Last update Tue May 13 23:36:51 2014 Kevin Gay
+## Last update Tue May 13 22:56:04 2014 Maxime Limone
+## Last update Tue May 13 19:52:00 2014 Kevin Gay
 ##
 
 SRC		= Print_error/function_tab.c \
 		  Print_error/my_printf_error.c \
 		  Print_error/my_put_error.c \
-		  Operator/dotcom.c \
-		  Operator/and_simple.c \
-		  Operator/and_and.c \
-		  Operator/db_left.c \
-		  Operator/db_right.c \
-		  Operator/right_chevron.c \
-		  Operator/left_chevron.c \
-		  Operator/pipe_simple.c \
-		  Operator/db_pipe.c \
 		  Shell/shell.c \
 		  Shell/env.c \
 		  Shell/clean_str.c \
@@ -35,6 +27,7 @@ SRC		= Print_error/function_tab.c \
 		  Builtins/pwd.c \
 		  Builtins/old_pwd.c \
 		  Tree/tree.c \
+		  Operator/pipe.c \
 		  SRC/epur_str.c \
 	 	  SRC/my_putstr.c \
 		  SRC/my_strcat.c \
