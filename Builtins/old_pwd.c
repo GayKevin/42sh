@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 18:23:40 2014 Maxime Limone
-** Last update Mon May  5 19:36:03 2014 Maxime Limone
+** Last update Wed May 14 11:31:58 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -19,13 +19,10 @@ int		find_old_pwd_env(t_shell *sh)
 {
   int		i;
 
-  i = 0;
-  while (sh->env[i] != '\0')
-    {
-      if (my_strcmp_("OLDPWD=", sh->env[i]) == 0)
-	return (i);
-      ++i;
-    }
+  i = -1;
+  while (sh->env[++i] != '\0')
+    if (my_strcmp_("OLDPWD=", sh->env[i]) == 0)
+      return (i);
   return (-1);
 }
 

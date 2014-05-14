@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:00:18 2014 Maxime Limone
-** Last update Mon May  5 19:28:14 2014 Maxime Limone
+** Last update Wed May 14 13:47:32 2014 Kevin Gay
 */
 
 #include <string.h>
@@ -71,21 +71,21 @@ int		find_cd(t_shell *sh, int i)
 {
   if (strcmp(sh->cmd[i], "cd") == 0)
     {
+      sh->ch = 1;
       if (sh->cmd[i + 1] == NULL)
-	{
-	  if (cd_home(sh, i) == -1)
-	    return (-1);
-	}
+      	{
+      	  if (cd_home(sh, i) == -1)
+      	    return (-1);
+      	}
       else if (strncmp(sh->cmd[i + 1], "-", 1) == 0)
-	cd_old_pwd(sh, i);
+      	cd_old_pwd(sh, i);
       else
       	{
-	  if (chdir(sh->cmd[i + 1]) == -1)
+      	  if (chdir(sh->cmd[i + 1]) == -1)
       	    return (-1);
       	  old_pwd(sh);
       	  set_pwd(sh, sh->cmd[i + 1]);
-        }
-      sh->ch = 1;
+	}
     }
   return (0);
 }
