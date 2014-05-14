@@ -5,12 +5,14 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Tue May 13 21:32:23 2014 Maxime Limone
-** Last update Wed May 14 00:08:18 2014 Kevin Gay
+** Last update Wed May 14 13:50:47 2014 Maxime Limone
 */
 
 #ifndef OPERATOR_H_
 # define OPERATOR_H_
+# include "tree.h"
 
+char		*stock_name(char *str);
 int		master_pipe(int pipefd[2], t_node *tree, t_shell *sh);
 int		pipe_simple(t_node *tree, t_shell *sh);
 int		master_pipe(int pipefd[2], t_node *tree, t_shell *sh);
