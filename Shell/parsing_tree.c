@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 12 13:55:08 2014 Maxime Limone
-** Last update Wed May 14 02:39:58 2014 Kevin Gay
+** Last update Wed May 14 11:26:01 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -68,8 +68,6 @@ void	tab_function_read(int (*tab_func[9])(t_node *tree, t_shell *sh))
 
 char		*tab_(char *tab)
 {
-  if ((tab = malloc(sizeof(char) * 9)) == NULL)
-    return (NULL);
   tab[0] = ';';
   tab[1] = '&';
   tab[2] = '+';
@@ -89,7 +87,8 @@ int		gere_operator(t_node *tree, t_shell *sh)
   int		o;
 
   o = -1;
-  tab_tab = NULL;
+  if ((tab_tab = malloc(sizeof(char) * 9)) == NULL)
+    return (-1);
   tab_tab = tab_(tab_tab);
   tab_function_read(tab_func);
   if (tree->chck_tree == 2)
@@ -101,5 +100,6 @@ int		gere_operator(t_node *tree, t_shell *sh)
   else
     if ((check_cmd(sh, tree)) == -1)
       return (-1);
+  free(tab_tab);
   return (0);
 }

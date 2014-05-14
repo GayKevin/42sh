@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Wed May 14 02:47:52 2014 Kevin Gay
+** Last update Wed May 14 13:52:28 2014 Kevin Gay
 ** Last update Tue May 13 19:53:22 2014 Kevin Gay
 */
 
@@ -31,8 +31,8 @@ int		read_buffer(t_shell *sh)
 {
   int		ret;
 
-  find_ps1(sh);
-  my_putstr("$>");
+  //  find_ps1(sh);
+  my_putstr("$> ");
   clear_str(sh);
   while ((ret = read(0, sh->buffer, 512)) == 512);
   if (ret == 1 || ret == -1)

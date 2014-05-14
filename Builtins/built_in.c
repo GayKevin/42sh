@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 10:57:39 2014 Maxime Limone
-** Last update Tue May  6 15:28:50 2014 Kevin Gay
+** Last update Wed May 14 13:52:48 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -26,18 +26,18 @@ int		built_in(t_shell *sh)
       if (find_cd(sh, i) == -1)
 	return (0);
       if (strncmp(sh->cmd[i], "exit", 4) == 0)
-	{
-	  if (sh->cmd[i + 1] != NULL)
-	    sh->re = atoi(sh->cmd[i + 1]);
-	  my_free(sh->cmd);
-	  return (-1);
-	}
+      	{
+      	  if (sh->cmd[i + 1] != NULL)
+      	    sh->re = atoi(sh->cmd[i + 1]);
+      	  my_free(sh->cmd);
+      	  return (-1);
+      	}
       if (find_env(sh, i) == -1)
-	return (0);
+      	return (0);
       if (find_unsetenv(sh, i) == -1)
-	return (0);
+      	return (0);
       if (find_setenv(sh, i) == -1)
-	return (0);
+      	return (0);
     }
   return (0);
 }
