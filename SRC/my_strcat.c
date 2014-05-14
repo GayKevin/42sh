@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 17:36:58 2014 Maxime Limone
-** Last update Tue May 13 14:37:31 2014 Kevin Gay
+** Last update Wed May 14 11:45:46 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -37,10 +37,6 @@ char		*my_strcat_1(char *dest, char *src)
 
   k = 0;
   i = 0;
-  dest[0] = 'P';
-  dest[1] = 'W';
-  dest[2] = 'D';
-  dest[3] = '=';
   i = strlen(dest);
   while (src[k] != '\0')
     {
