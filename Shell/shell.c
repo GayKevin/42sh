@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Wed May 14 02:35:14 2014 Kevin Gay
+** Last update Wed May 14 02:47:52 2014 Kevin Gay
 ** Last update Tue May 13 19:53:22 2014 Kevin Gay
 */
 
@@ -51,7 +51,6 @@ int		read_buffer(t_shell *sh)
 
 void		free_shell(t_shell *sh)
 {
-  my_free(sh->cmd);
   my_free(sh->path);
   if (sh->ch == 8)
     {
@@ -103,5 +102,6 @@ int		check_cmd(t_shell *sh, t_node *tree)
   if (sh->ch == 0)
     exec_slah_bin(sh->cmd, &sh->ch);
   sh->ch == 0 ? printf("Command not found\n") : 0;
+  my_free(sh->cmd);
   return (0);
 }
