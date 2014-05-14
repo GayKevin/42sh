@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Wed May 14 00:16:43 2014 Kevin Gay
+** Last update Wed May 14 02:35:14 2014 Kevin Gay
 ** Last update Tue May 13 19:53:22 2014 Kevin Gay
 */
 
@@ -25,12 +25,14 @@
 #include "pars.h"
 #include "tree.h"
 #include "my_putstr.h"
+#include "ps1.h"
 
 int		read_buffer(t_shell *sh)
 {
   int		ret;
 
-  my_putstr("$> ");
+  find_ps1(sh);
+  my_putstr("$>");
   clear_str(sh);
   while ((ret = read(0, sh->buffer, 512)) == 512);
   if (ret == 1 || ret == -1)

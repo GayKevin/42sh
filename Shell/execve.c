@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 15:24:41 2014 Maxime Limone
-** Last update Tue May 13 23:07:28 2014 Maxime Limone
+** Last update Wed May 14 01:28:45 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -16,6 +16,7 @@
 #include "main.h"
 #include "my_strcat.h"
 #include "my_printf_error.h"
+#include "tree.h"
 
 int		exec_cmd(char *path, char **cmd, char **env, int *ch)
 {
@@ -34,7 +35,7 @@ int		exec_cmd(char *path, char **cmd, char **env, int *ch)
   else if (pid == 0)
     {
       if ((execve(path, cmd, env)) == -1)
-	exit (0);
+	  exit (0);
     }
   return (0);
 }

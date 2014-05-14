@@ -4,7 +4,7 @@
 ## Made by Maxime Limone
 ## Login   <limone_m@epitech.net>
 ## Started on  Mon May  5 14:54:13 2014 Maxime Limone
-## Last update Wed May 14 00:10:31 2014 Kevin Gay
+## Last update Wed May 14 01:48:06 2014 Kevin Gay
 ## Last update Tue May 13 19:52:00 2014 Kevin Gay
 ##
 
@@ -21,6 +21,7 @@ SRC		= Print_error/function_tab.c \
 		  Operator/db_left.c \
 		  Operator/db_right.c \
 		  Shell/shell.c \
+		  Shell/ps1.c \
 		  Shell/env.c \
 		  Shell/clean_str.c \
 		  Shell/path.c \
