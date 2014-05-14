@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 12 13:55:08 2014 Maxime Limone
-** Last update Wed May 14 00:17:48 2014 Kevin Gay
+** Last update Wed May 14 00:35:36 2014 Maxime Limone
 */
 
 #include <stdlib.h>
@@ -84,19 +84,19 @@ char		*tab_(char *tab)
 
 int		gere_operator(t_node *tree, t_shell *sh)
 {
-  /* int		(*tab_func[9])(t_node *tree, t_shell *sh); */
-  /* char		*tab_tab; */
-  /* int		o; */
+  int		(*tab_func[9])(t_node *tree, t_shell *sh);
+  char		*tab_tab;
+  int		o;
 
-  /* tab_tab = NULL; */
-  /* tab_tab = tab_(tab_tab); */
-  /* tab_function_read(tab_func); */
-  /* while (tab_tab[++o] != tree->op); */
-  /* if ((tab_func[o](tree, sh)) == 1) */
-  /*   return (1); */
+  o = -1;
+  tab_tab = NULL;
+  tab_tab = tab_(tab_tab);
+  tab_function_read(tab_func);
   if (tree->chck_tree == 2)
     {
-      pipe_simple(tree, sh);
+      while (tab_tab[++o] != tree->op);
+      if ((tab_func[o](tree, sh)) == 1)
+	return (1);
     }
   else
     if ((check_cmd(sh, tree)) == -1)
