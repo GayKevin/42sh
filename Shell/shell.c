@@ -5,9 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Thu May 15 13:24:58 2014 Kevin Gay
-** Last update Wed May 14 11:11:54 2014 Maxime Limone
-** Last update Tue May 13 19:53:22 2014 Kevin Gay
+** Last update Thu May 15 13:48:57 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -54,6 +52,7 @@ int		shell(t_shell *sh)
 {
   while (42)
     {
+      sh->ok_cmd = 0;
       sh->i_tree = -1;
       sh->check_l = 0;
       if (find_path(sh) == -1)
@@ -81,9 +80,9 @@ int		check_cmd(t_shell *sh, t_node *tree)
     return (-1);
   while (sh->path != NULL && sh->path[i] != NULL && sh->ch == 0)
     if (access(strcat(sh->path[i++], sh->cmd[0]), X_OK) == 0)
-      exec_cmd(sh->path[i - 1], sh->cmd, sh->env, &sh->ch);
+      exec_cmd(sh->path[i - 1], sh->cmd, sh->env, sh);
   if (sh->ch == 0)
-    exec_slah_bin(sh->cmd, &sh->ch);
+    exec_slah_bin(sh->cmd, sh);
   sh->ch == 0 ? printf("Command not found\n") : 0;
   my_free(sh->cmd);
   return (0);

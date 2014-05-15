@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Tue May 13 22:39:53 2014 Kevin Gay
-** Last update Wed May 14 13:50:11 2014 Maxime Limone
+** Last update Wed May 14 14:11:40 2014 Maxime Limone
 */
 
 #include <stdlib.h>
@@ -34,7 +34,7 @@ int		db_right(t_node *tree, t_shell *sh)
     {
       if ((dup_fd[1] = dup(1)) == -1)
 	return (-1);
-      if ((dup2(dup_fd[1], 1)) == -1)
+      if ((dup2(dup_fd[0], 1)) == -1)
 	return (-1);
       gere_operator(tree->left, sh);
       exit(1);
