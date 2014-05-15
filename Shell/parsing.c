@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May  8 15:12:42 2014 Maxime Limone
-** Last update Wed May 14 13:33:31 2014 Maxime Limone
+** Last update Thu May 15 22:03:43 2014 Maxime Limone
 ** Last update Wed May 14 02:15:16 2014 Maxime Limone
 */
 
@@ -17,29 +17,18 @@
 #include "tree.h"
 #include "epur_str.h"
 
-int             init_op_tab(char *buff, t_shell *sh)
+int             parsing_main(char *buff, t_shell *sh)
 {
   t_node	*tree;
 
-  if ((sh->op_char = malloc(sizeof(char) * 6)) == NULL)
-    return (-1);
-  memset(sh->op_char, 0, 6);
-  sh->c_ch = 1;
-  sh->op_char[0] = '|';
-  sh->op_char[1] = '&';
-  sh->op_char[2] = '>';
-  sh->op_char[3] = '<';
-  sh->op_char[4] = ';';
-  sh->op_char[5] = '\0';
-  sh->op_fnd = NULL;
-  sh->op_fnd_i = NULL;
+  init_op_tab(sh);
   if ((tree = malloc(sizeof(t_node))) == NULL)
     return (-1);
   memset(tree, 0, sizeof(t_node));
   tree->left = NULL;
   tree->right = NULL;
   if (check_op(buff, sh, tree) == 1);
-  //  display_tree(tree);
+  display_tree(tree);
   if ((gere_operator(tree, sh)) == -1)
     {
       clearTree(&tree);
@@ -57,6 +46,8 @@ int		check_op(char *buff, t_shell *sh, t_node *tree)
   i = -1;
   sh->r = 0;
   sh->db_op = 0;
+  if (check_syntax_error(sh, tree) == -1)
+    return (-1);
   while (buff[++i] != '\0')
     i = check_op_st(buff, i, sh);
   tree->str = epur_str(buff);

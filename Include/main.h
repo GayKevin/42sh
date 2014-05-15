@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:47:14 2014 Maxime Limone
-** Last update Thu May 15 11:49:16 2014 Maxime Limone
+** Last update Thu May 15 20:27:35 2014 Maxime Limone
 */
 
 #ifndef MAIN_H_
@@ -58,5 +58,7 @@ typedef struct		s_pip
   int			pi2;
   pid_t			pid;
 }			t_pip;
+
+void		get_sigint(int sig);
 
 #endif /* MAIN */
