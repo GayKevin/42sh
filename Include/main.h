@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:47:14 2014 Maxime Limone
-** Last update Thu May 15 11:49:16 2014 Maxime Limone
+** Last update Thu May 15 13:49:24 2014 Kevin Gay
 */
 
 #ifndef MAIN_H_
@@ -30,10 +30,11 @@ typedef struct		s_shell
   int			op_i;
   int			free_path;
   int			i_tree;
-  int			c_ch;
   int			r;
   int			re;
   int			ch;
+  int			c_ch;
+  int			check_l;
   int			d;
   int			j;
   int			o;

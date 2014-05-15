@@ -5,9 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Thu May 15 12:06:20 2014 Maxime Limone
-** Last update Wed May 14 11:11:54 2014 Maxime Limone
-** Last update Tue May 13 19:53:22 2014 Kevin Gay
+** Last update Thu May 15 13:48:57 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -50,39 +48,20 @@ int		read_buffer(t_shell *sh)
   return (0);
 }
 
-void		free_shell(t_shell *sh)
-{
-  my_free(sh->path);
-  if (sh->ch == 8)
-    {
-      free(sh->left);
-      free(sh->right);
-      free(sh->op_fnd);
-      free(sh->op_fnd_i);
-    }
-  if (sh->c_ch != 0)
-    free(sh->op_char);
-}
-
-void		number_reset(t_shell *sh)
-{
-  sh->ch = 0;
-  sh->c_ch = 0;
-}
-
 int		shell(t_shell *sh)
 {
   while (42)
     {
       sh->ok_cmd = 0;
       sh->i_tree = -1;
+      sh->check_l = 0;
       if (find_path(sh) == -1)
 	return (-1);
       if (read_buffer(sh) == -1)
 	return (-1);
       if (init_op_tab(sh->buffer, sh) == -1)
 	return (-1);
-      free_shell(sh);
+      my_free(sh->path);
     }
   return (0);
 }
@@ -92,7 +71,8 @@ int		check_cmd(t_shell *sh, t_node *tree)
   int		i;
 
   i = 0;
-  number_reset(sh);
+  sh->ch = 0;
+  sh->c_ch = 0;
   sh->cmd = my_str_to_wordtab(tree->str);
   dollar(sh);
   check_point_slash(sh, sh->env);
