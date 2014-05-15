@@ -5,11 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 15:24:41 2014 Maxime Limone
-<<<<<<< HEAD
-** Last update Thu May 15 13:49:15 2014 Kevin Gay
-=======
-** Last update Wed May 14 16:38:06 2014 Kevin Gay
->>>>>>> Kevin
+** Last update Thu May 15 14:45:32 2014 Kevin Gay
 */
 
 #include <unistd.h>
