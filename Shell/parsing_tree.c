@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 12 13:55:08 2014 Maxime Limone
-** Last update Wed May 14 11:26:01 2014 Kevin Gay
+** Last update Thu May 15 14:35:43 2014 Maxime Limone
 */
 
 #include <stdlib.h>
@@ -98,8 +98,10 @@ int		gere_operator(t_node *tree, t_shell *sh)
 	return (1);
     }
   else
-    if ((check_cmd(sh, tree)) == -1)
-      return (-1);
+    {
+      if ((check_cmd(sh, tree)) == -1)
+	return (-1);
+    }
   free(tab_tab);
   return (0);
 }

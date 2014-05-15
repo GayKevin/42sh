@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Thu May 15 12:06:20 2014 Maxime Limone
+** Last update Thu May 15 14:38:43 2014 Maxime Limone
 ** Last update Wed May 14 11:11:54 2014 Maxime Limone
 ** Last update Tue May 13 19:53:22 2014 Kevin Gay
 */
@@ -68,13 +68,13 @@ void		number_reset(t_shell *sh)
 {
   sh->ch = 0;
   sh->c_ch = 0;
+  sh->ok_cmd = 0;
 }
 
 int		shell(t_shell *sh)
 {
   while (42)
     {
-      sh->ok_cmd = 0;
       sh->i_tree = -1;
       if (find_path(sh) == -1)
 	return (-1);
@@ -91,19 +91,24 @@ int		check_cmd(t_shell *sh, t_node *tree)
 {
   int		i;
 
-  i = 0;
+  i = -1;
   number_reset(sh);
   sh->cmd = my_str_to_wordtab(tree->str);
   dollar(sh);
   check_point_slash(sh, sh->env);
   if (built_in(sh) == -1)
     return (-1);
-  while (sh->path != NULL && sh->path[i] != NULL && sh->ch == 0)
-    if (access(strcat(sh->path[i++], sh->cmd[0]), X_OK) == 0)
-      exec_cmd(sh->path[i - 1], sh->cmd, sh->env, sh);
+  while (sh->path != NULL && sh->path[++i] != NULL && sh->ch == 0)
+    if (access(strcat(sh->path[i], sh->cmd[0]), X_OK) == 0)
+      exec_cmd(sh->path[i], sh->cmd, sh->env, sh);
   if (sh->ch == 0)
     exec_slah_bin(sh->cmd, sh);
-  sh->ch == 0 ? printf("Command not found\n") : 0;
+  if (sh->ch == 0)
+    {
+      printf("Command not found\n");
+      sh->ok_cmd = -1;
+      return (0);
+    }
   my_free(sh->cmd);
   return (0);
 }
