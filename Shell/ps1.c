@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Wed May 14 01:35:25 2014 Kevin Gay
-** Last update Wed May 14 02:32:55 2014 Kevin Gay
+** Last update Wed May 14 14:12:16 2014 Maxime Limone
 */
 
 #include <string.h>
@@ -42,4 +42,5 @@ int	*find_ps1(t_shell *sh)
       /* sh->ps_1[0] = '$'; */
       /* sh->ps_1[1] = '>'; */
     }
+  return (0);
 }

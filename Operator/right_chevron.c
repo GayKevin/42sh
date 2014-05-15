@@ -1,11 +1,11 @@
 /*
-** right_chevron.c for right_chevron in /home/gay_k/42sh
+** right_chevron.c for 42sh in /home/limone_m/rendu/42sh/Operator
 ** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
+** Made by Maxime Limone
+** Login   <limone_m@epitech.net>
 ** 
-** Started on  Tue May 13 22:38:59 2014 Kevin Gay
-** Last update Wed May 14 13:28:23 2014 Maxime Limone
+** Started on  Wed May 14 14:24:39 2014 Maxime Limone
+** Last update Wed May 14 14:24:40 2014 Maxime Limone
 */
 
 #include <stdlib.h>

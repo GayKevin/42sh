@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:47:14 2014 Maxime Limone
-** Last update Wed May 14 02:25:45 2014 Kevin Gay
+** Last update Thu May 15 11:49:16 2014 Maxime Limone
 */
 
 #ifndef MAIN_H_
@@ -26,6 +26,7 @@ typedef struct		s_shell
   char			*right;
   int			*op_fnd_i;
   char			db_op;
+  char			ok_cmd;
   int			op_i;
   int			free_path;
   int			i_tree;

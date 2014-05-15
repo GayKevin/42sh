@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 15:24:41 2014 Maxime Limone
-** Last update Wed May 14 01:28:45 2014 Kevin Gay
+** Last update Thu May 15 12:08:11 2014 Maxime Limone
 */
 
 #include <unistd.h>
@@ -18,19 +18,21 @@
 #include "my_printf_error.h"
 #include "tree.h"
 
-int		exec_cmd(char *path, char **cmd, char **env, int *ch)
+int		exec_cmd(char *path, char **cmd, char **env, t_shell *sh)
 {
   pid_t		pid;
   int		status;
 
-  *ch = 1;
+  sh->ch = 1;
   if ((pid = fork()) == -1)
     return (0);
   if (pid > 0)
     {
       wait(&status);
+      if (WIFEXITED(status) && WEXITSTATUS(status) == 0)
+	sh->ok_cmd = 1;
       if (status == 139)
-	printf_error("Segmentation Fault\n");
+      	printf_error("Segmentation Fault\n");
     }
   else if (pid == 0)
     {
@@ -40,7 +42,7 @@ int		exec_cmd(char *path, char **cmd, char **env, int *ch)
   return (0);
 }
 
-int		exec_slah_bin(char **cmd, int *ch)
+int		exec_slah_bin(char **cmd, t_shell *sh)
 {
   pid_t		pid;
   int		status;
@@ -55,13 +57,15 @@ int		exec_slah_bin(char **cmd, int *ch)
        	if (pid > 0)
 	  {
 	    wait(&status);
+	    if (WIFEXITED(status) && WEXITSTATUS(status) == 0)
+	      sh->ok_cmd = 1;
 	    if (status == 139)
 	      printf_error("Segmentation Fault\n");
 	  }
         else if (pid == 0)
 	  if ((execve(cmd[i], cmd, NULL)) == -1)
 	    return (0);
-	*ch = 1;
+	sh->ch = 1;
       }
   return (0);
 }
@@ -85,7 +89,7 @@ int	check_point_slash(t_shell *sh, char **env)
 	      memset(path, 0, 1024);
 	      path = getcwd(path, 1024);
 	      my_strcat_slash(path, sh->cmd[i]);
-	      exec_cmd(path, sh->cmd, env, &sh->ch);
+	      exec_cmd(path, sh->cmd, env, sh);
 	      free(path);
 	      return (0);
 	    }

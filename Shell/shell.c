@@ -5,11 +5,8 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-<<<<<<< HEAD
-** Last update Wed May 14 13:52:28 2014 Kevin Gay
-=======
+** Last update Thu May 15 12:06:20 2014 Maxime Limone
 ** Last update Wed May 14 11:11:54 2014 Maxime Limone
->>>>>>> Maxime
 ** Last update Tue May 13 19:53:22 2014 Kevin Gay
 */
 
@@ -35,11 +32,7 @@ int		read_buffer(t_shell *sh)
 {
   int		ret;
 
-<<<<<<< HEAD
   //  find_ps1(sh);
-=======
-  find_ps1(sh);
->>>>>>> Maxime
   my_putstr("$> ");
   clear_str(sh);
   while ((ret = read(0, sh->buffer, 512)) == 512);
@@ -81,6 +74,7 @@ int		shell(t_shell *sh)
 {
   while (42)
     {
+      sh->ok_cmd = 0;
       sh->i_tree = -1;
       if (find_path(sh) == -1)
 	return (-1);
@@ -106,9 +100,9 @@ int		check_cmd(t_shell *sh, t_node *tree)
     return (-1);
   while (sh->path != NULL && sh->path[i] != NULL && sh->ch == 0)
     if (access(strcat(sh->path[i++], sh->cmd[0]), X_OK) == 0)
-      exec_cmd(sh->path[i - 1], sh->cmd, sh->env, &sh->ch);
+      exec_cmd(sh->path[i - 1], sh->cmd, sh->env, sh);
   if (sh->ch == 0)
-    exec_slah_bin(sh->cmd, &sh->ch);
+    exec_slah_bin(sh->cmd, sh);
   sh->ch == 0 ? printf("Command not found\n") : 0;
   my_free(sh->cmd);
   return (0);
