@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 15:24:41 2014 Maxime Limone
-** Last update Wed May 14 01:28:45 2014 Kevin Gay
+** Last update Wed May 14 16:38:06 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -29,6 +29,8 @@ int		exec_cmd(char *path, char **cmd, char **env, int *ch)
   if (pid > 0)
     {
       wait(&status);
+      if (WIFSIGNALED(status)) {
+	printf("tué par le signal %d\n", WTERMSIG(status));}
       if (status == 139)
 	printf_error("Segmentation Fault\n");
     }
@@ -55,6 +57,8 @@ int		exec_slah_bin(char **cmd, int *ch)
        	if (pid > 0)
 	  {
 	    wait(&status);
+      if (WIFSIGNALED(status)) {
+	printf("tué par le signal %d\n", WTERMSIG(status));}
 	    if (status == 139)
 	      printf_error("Segmentation Fault\n");
 	  }

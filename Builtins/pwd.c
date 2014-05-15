@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:18:16 2014 Maxime Limone
-** Last update Wed May 14 13:52:14 2014 Kevin Gay
+** Last update Thu May 15 13:37:31 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -51,6 +51,7 @@ int		set_pwd(t_shell *sh, char *cmd)
 {
   char		*str;
   int		d;
+  char		cmd1[1024];
 
   d = 0;
   if ((d = find_pwd_env(sh)) == -1)
@@ -61,8 +62,8 @@ int		set_pwd(t_shell *sh, char *cmd)
     }
   sh->l = 0;
   sh->l = strlen(sh->env[d]);
-  if ((str = getcwd(cmd, strlen(cmd))) == NULL)
-    return (-1);
+  if ((str = getcwd(cmd1, 1024)) == NULL)
+      return (-1);
   memset(sh->env[d], 0, strlen(sh->env[d]));
   my_strcat_1(sh->env[d], str);
   return (0);
