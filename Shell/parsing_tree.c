@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 12 13:55:08 2014 Maxime Limone
-** Last update Wed May 14 11:26:01 2014 Kevin Gay
+** Last update Thu May 15 13:24:25 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -49,7 +49,7 @@ int		stock_tree(char *buff, t_shell *sh)
     j++;
   while (buff[++j] != '\0')
     sh->right[++k] = buff[j];
-  sh->ch = 8;
+  sh->check_l = 1;
   return (0);
 }
 
@@ -99,7 +99,10 @@ int		gere_operator(t_node *tree, t_shell *sh)
     }
   else
     if ((check_cmd(sh, tree)) == -1)
-      return (-1);
+      {
+	free(tab_tab);
+  	return (-1);
+      }
   free(tab_tab);
   return (0);
 }

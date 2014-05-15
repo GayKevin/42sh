@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May  8 15:12:42 2014 Maxime Limone
-** Last update Wed May 14 13:33:31 2014 Maxime Limone
+** Last update Thu May 15 13:55:52 2014 Kevin Gay
 ** Last update Wed May 14 02:15:16 2014 Maxime Limone
 */
 
@@ -16,6 +16,7 @@
 #include "pars.h"
 #include "tree.h"
 #include "epur_str.h"
+#include "free_stuff.h"
 
 int             init_op_tab(char *buff, t_shell *sh)
 {
@@ -39,13 +40,12 @@ int             init_op_tab(char *buff, t_shell *sh)
   tree->left = NULL;
   tree->right = NULL;
   if (check_op(buff, sh, tree) == 1);
-  //  display_tree(tree);
   if ((gere_operator(tree, sh)) == -1)
     {
-      clearTree(&tree);
+      free_stuff(sh, tree);
       return (-1);
     }
-  clearTree(&tree);
+  free_stuff(sh, tree);
   return (0);
 }
 
