@@ -5,7 +5,11 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 12 13:55:08 2014 Maxime Limone
-** Last update Thu May 15 13:24:25 2014 Kevin Gay
+<<<<<<< HEAD
+** Last update Thu May 15 14:45:09 2014 Kevin Gay
+=======
+** Last update Thu May 15 14:35:43 2014 Maxime Limone
+>>>>>>> 4334916c12130c541c652ec3c2ccfc46e294221a
 */
 
 #include <stdlib.h>
@@ -103,6 +107,10 @@ int		gere_operator(t_node *tree, t_shell *sh)
 	free(tab_tab);
   	return (-1);
       }
+    {
+      if ((check_cmd(sh, tree)) == -1)
+	return (-1);
+    }
   free(tab_tab);
   return (0);
 }
