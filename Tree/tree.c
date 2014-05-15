@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Wed May  7 13:22:59 2014 Maxime Limone
-** Last update Thu May 15 13:37:07 2014 Kevin Gay
+** Last update Thu May 15 13:51:00 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -19,7 +19,7 @@ int		add_node(t_node *node, char *str_lf, char *str_rg)
   char	*strrf;
 
   strlf = str_lf;
-  strrf = str_lf;
+  strrf = str_rg;
   if ((node->left = malloc(sizeof(t_node))) == NULL)
     return (-1);
   memset(node->left, 0, sizeof(t_node));
