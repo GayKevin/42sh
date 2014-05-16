@@ -5,12 +5,13 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May 15 21:42:10 2014 Maxime Limone
-** Last update Thu May 15 22:01:58 2014 Maxime Limone
+** Last update Fri May 16 14:03:19 2014 Kevin Gay
 */
 
 #include <stdlib.h>
 #include <string.h>
 #include "main.h"
+#include "tree.h"
 
 int		init_op_tab(t_shell *sh)
 {
