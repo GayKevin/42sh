@@ -5,8 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May  8 15:12:42 2014 Maxime Limone
-** Last update Thu May 15 22:03:43 2014 Maxime Limone
-** Last update Wed May 14 02:15:16 2014 Maxime Limone
+** Last update Fri May 16 14:01:18 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -31,10 +30,10 @@ int             parsing_main(char *buff, t_shell *sh)
   display_tree(tree);
   if ((gere_operator(tree, sh)) == -1)
     {
-      clearTree(&tree);
+      free_stuff(sh, tree);
       return (-1);
     }
-  clearTree(&tree);
+  free_stuff(sh, tree);
   return (0);
 }
 

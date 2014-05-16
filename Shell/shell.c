@@ -5,9 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Thu May 15 21:44:05 2014 Maxime Limone
-** Last update Wed May 14 11:11:54 2014 Maxime Limone
-** Last update Tue May 13 19:53:22 2014 Kevin Gay
+** Last update Fri May 16 14:01:08 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -50,20 +48,6 @@ int		read_buffer(t_shell *sh)
   return (0);
 }
 
-void		free_shell(t_shell *sh)
-{
-  my_free(sh->path);
-  if (sh->ch == 8)
-    {
-      free(sh->left);
-      free(sh->right);
-      free(sh->op_fnd);
-      free(sh->op_fnd_i);
-    }
-  if (sh->c_ch != 0)
-    free(sh->op_char);
-}
-
 void		number_reset(t_shell *sh)
 {
   sh->ch = 0;
@@ -76,13 +60,14 @@ int		shell(t_shell *sh)
   while (42)
     {
       sh->i_tree = -1;
+      sh->check = 0;
       if (find_path(sh) == -1)
 	return (-1);
       if (read_buffer(sh) == -1)
 	return (-1);
       if (parsing_main(sh->buffer, sh) == -1)
 	return (-1);
-      free_shell(sh);
+      my_free(sh->path);
     }
   return (0);
 }
