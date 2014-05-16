@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Wed May  7 13:22:59 2014 Maxime Limone
-** Last update Tue May 13 11:22:41 2014 Kevin Gay
+** Last update Fri May 16 14:29:28 2014 Maxime Limone
 */
 
 #include <stdlib.h>
@@ -34,10 +34,11 @@ void		display_tree(t_node *root)
 {
   static int	i = -1;
 
+  i = -1;
   if (root != NULL)
     {
       printf("%d\t ## String ==> %s \t## Op ==> %c\n"
-	     , ++i, root->str, root->op);
+      	     , ++i, root->str, root->op);
       display_tree(root->left);
       display_tree(root->right);
     }

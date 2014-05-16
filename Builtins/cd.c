@@ -5,11 +5,12 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:00:18 2014 Maxime Limone
-** Last update Thu May 15 21:18:22 2014 Maxime Limone
+** Last update Fri May 16 14:17:20 2014 Maxime Limone
 */
 
 #include <string.h>
 #include <stdlib.h>
+#include <errno.h>
 #include <unistd.h>
 #include "main.h"
 #include "my_printf_error.h"
@@ -62,7 +63,10 @@ int		cd_old_pwd(t_shell *sh, int i)
       }
   if (chdir(cmd) == -1)
     {
-      printf_err("cd: %s: inaccessible directory\n", cmd);
+      if (errno == EACCES)
+	printf_err("cd: %s: you have not the permission\n", cmd);
+      else if (errno == ENOENT)
+	printf_err("cd: %s: the directory doesn't exist\n", cmd);
       return (-1);
     }
   old_pwd(sh);
@@ -87,7 +91,10 @@ int		find_cd(t_shell *sh, int i)
       	{
       	  if (chdir(sh->cmd[i + 1]) == -1)
 	    {
-	      printf_err("cd: %s: inaccessible directory\n", sh->cmd[i + 1]);
+	      if (errno == EACCES)
+		printf_err("cd: %s: you have not the permission\n", sh->cmd[i + 1]);
+	      else if (errno == ENOENT)
+		printf_err("cd: %s: the directory doesn't exist\n", sh->cmd[i + 1]);
 	      return (-1);
 	    }
       	  old_pwd(sh);

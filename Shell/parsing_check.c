@@ -5,12 +5,16 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May 15 21:42:10 2014 Maxime Limone
-** Last update Thu May 15 22:01:58 2014 Maxime Limone
+** Last update Fri May 16 14:31:17 2014 Maxime Limone
 */
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "main.h"
+#include "tree.h"
+#include "my_printf_error.h"
+#include "epur_str.h"
 
 int		init_op_tab(t_shell *sh)
 {
@@ -31,5 +35,7 @@ int		init_op_tab(t_shell *sh)
 
 int		check_syntax_error(t_shell *sh, t_node *tree)
 {
+  if (tree == NULL)
+    printf_err("invalid syntax\n");
   return (0);
 }

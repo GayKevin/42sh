@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Thu May 15 21:44:05 2014 Maxime Limone
+** Last update Fri May 16 14:32:07 2014 Maxime Limone
 ** Last update Wed May 14 11:11:54 2014 Maxime Limone
 ** Last update Tue May 13 19:53:22 2014 Kevin Gay
 */
@@ -25,6 +25,7 @@
 #include "dollar.h"
 #include "pars.h"
 #include "tree.h"
+#include "my_printf_error.h"
 #include "my_putstr.h"
 #include "ps1.h"
 
@@ -105,7 +106,7 @@ int		check_cmd(t_shell *sh, t_node *tree)
     exec_slah_bin(sh->cmd, sh);
   if (sh->ch == 0)
     {
-      printf("Command not found\n");
+      printf_err("'%s' command not found\n", sh->cmd[0]);
       sh->ok_cmd = -1;
       return (0);
     }
