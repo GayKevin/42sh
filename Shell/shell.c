@@ -5,9 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Thu May 15 15:48:01 2014 Kevin Gay
-** Last update Wed May 14 11:11:54 2014 Maxime Limone
-** Last update Tue May 13 19:53:22 2014 Kevin Gay
+** Last update Fri May 16 14:01:08 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -67,7 +65,7 @@ int		shell(t_shell *sh)
 	return (-1);
       if (read_buffer(sh) == -1)
 	return (-1);
-      if (init_op_tab(sh->buffer, sh) == -1)
+      if (parsing_main(sh->buffer, sh) == -1)
 	return (-1);
       my_free(sh->path);
     }

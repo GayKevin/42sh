@@ -5,10 +5,11 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 14:58:31 2014 Maxime Limone
-** Last update Mon May  5 15:00:29 2014 Maxime Limone
+** Last update Thu May 15 21:29:11 2014 Maxime Limone
 */
 
 #include <stdarg.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include "flag.h"
 
@@ -56,20 +57,24 @@ void		compare(va_list ap, const  char *format, flag *tab_func, char *tab_tab)
     }
 }
 
-int		printf_error(const char *format, ...)
+void		printf_err(const char *format, ...)
 {
   va_list	ap;
   flag		*tab_func;
   char		*tab_tab;
 
+  printf("\e[1;31mError: ");
+  fflush(stdout);
   tab_func = NULL;
   tab_tab = NULL;
   va_start(ap, format);
   tab_tab = tab(tab_tab);
   tab_func = tab_function(tab_func);
   compare(ap, format, tab_func, tab_tab);
+  fflush(stdout);
+  printf("\e[0m");
+  fflush(stdout);
   free(tab_tab);
   free(tab_func);
   va_end(ap);
-  return (0);
 }

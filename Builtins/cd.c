@@ -5,13 +5,14 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:00:18 2014 Maxime Limone
-** Last update Fri May 16 13:45:47 2014 Kevin Gay
+** Last update Fri May 16 14:01:54 2014 Kevin Gay
 */
 
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include "main.h"
+#include "my_printf_error.h"
 #include "pwd.h"
 #include "old_pwd.h"
 
@@ -60,7 +61,10 @@ int		cd_old_pwd(t_shell *sh, int i)
 	  cmd[p++] = sh->env[o][l];
       }
   if (chdir(cmd) == -1)
-    return (-1);
+    {
+      printf_err("cd: %s: inaccessible directory\n", cmd);
+      return (-1);
+    }
   old_pwd(sh);
   set_pwd(sh, cmd);
   free(cmd);
@@ -82,7 +86,10 @@ int		find_cd(t_shell *sh, int i)
       else
       	{
       	  if (chdir(sh->cmd[i + 1]) == -1)
-      	    return (-1);
+	    {
+	      printf_err("cd: %s: inaccessible directory\n", sh->cmd[i + 1]);
+	      return (-1);
+	    }
       	  old_pwd(sh);
       	  set_pwd(sh, sh->cmd[i + 1]);
 	}

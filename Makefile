@@ -4,8 +4,7 @@
 ## Made by Maxime Limone
 ## Login   <limone_m@epitech.net>
 ## Started on  Mon May  5 14:54:13 2014 Maxime Limone
-## Last update Thu May 15 15:43:42 2014 Kevin Gay
-## Last update Tue May 13 19:52:00 2014 Kevin Gay
+## Last update Fri May 16 14:01:41 2014 Kevin Gay
 ##
 
 SRC		= Print_error/function_tab.c \
@@ -29,6 +28,7 @@ SRC		= Print_error/function_tab.c \
 		  Shell/dollar.c \
 		  Shell/parsing.c \
 		  Shell/parsing_tree.c \
+		  Shell/parsing_check.c \
 		  Shell/execve.c\
 		  Builtins/find.c \
 		  Builtins/cd.c \
@@ -56,12 +56,12 @@ CC		= cc
 
 OBJ		= $(SRC:.c=.o)
 
-CFLAGS		= -IInclude -Wall -g
+CFLAGS		= -g -IInclude -Wall
 
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
-		$(CC) $(CFLAG) -o $(NAME) $(OBJ) -lncurses
+		$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -lncurses
 
 clean:
 		rm -f $(OBJ)

@@ -5,9 +5,10 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 15:24:41 2014 Maxime Limone
-** Last update Thu May 15 14:39:05 2014 Maxime Limone
+** Last update Thu May 15 21:11:27 2014 Maxime Limone
 */
 
+#include <signal.h>
 #include <unistd.h>
 #include <sys/wait.h>
 #include <stdlib.h>
@@ -32,12 +33,14 @@ int		exec_cmd(char *path, char **cmd, char **env, t_shell *sh)
       if (WIFEXITED(status) && WEXITSTATUS(status) == 0)
 	sh->ok_cmd = 1;
       if (status == 139)
-      	printf_error("Segmentation Fault\n");
+      	printf_err("Segmentation Fault\n");
     }
   else if (pid == 0)
     {
-      if ((execve(path, cmd, env)) == -1)
-	  exit (0);
+      /* if (setpgid(0, 0) == -1) */
+      /* 	return (-1); */
+      if (execve(path, cmd, env) == -1)
+	exit (0);
     }
   return (0);
 }
@@ -54,17 +57,21 @@ int		exec_slah_bin(char **cmd, t_shell *sh)
       {
 	if ((pid = fork()) == -1)
 	  return (0);
-       	if (pid > 0)
+	if (pid > 0)
 	  {
 	    wait(&status);
 	    if (WIFEXITED(status) && WEXITSTATUS(status) == 0)
 	      sh->ok_cmd = 1;
 	    if (status == 139)
-	      printf_error("Segmentation Fault\n");
+	      printf_err("Segmentation Fault\n");
 	  }
         else if (pid == 0)
-	  if ((execve(cmd[i], cmd, NULL)) == -1)
-	    return (0);
+	  {
+	    /* if (setpgid(0, 0) == -1) */
+	    /*   return (-1); */
+	    if ((execve(cmd[i], cmd, NULL)) == -1)
+	      return (0);
+	  }
 	sh->ch = 1;
       }
   return (0);
