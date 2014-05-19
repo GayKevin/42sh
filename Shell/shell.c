@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Mon May 19 11:33:08 2014 Kevin Gay
+** Last update Mon May 19 13:42:26 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -25,6 +25,7 @@
 #include "tree.h"
 #include "my_printf_error.h"
 #include "my_putstr.h"
+#include "epur_str.h"
 #include "ps1.h"
 
 int		read_buffer(t_shell *sh)
@@ -66,7 +67,7 @@ int		shell(t_shell *sh)
 	return (-1);
       if (read_buffer(sh) == -1)
 	return (-1);
-      if (parsing_main(sh->buffer, sh) == -1)
+      if (parsing_main(epur_str(sh->buffer), sh) == -1)
 	return (-1);
       my_free(sh->path);
     }
