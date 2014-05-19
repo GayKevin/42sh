@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:15:36 2014 Maxime Limone
-** Last update Fri May 16 14:51:38 2014 Kevin Gay
+** Last update Mon May 19 13:29:28 2014 Kevin Gay
 */
 
 #include <signal.h>
@@ -38,7 +38,6 @@ int	main(int ac, char **av, char **env)
     {
       my_free(sh.path);
       my_free(sh.env);
-      my_free(sh.cmd);
       if (sh.c_ch != 0)
 	free(sh.op_char);
       return (sh.re);
