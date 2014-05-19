@@ -5,12 +5,13 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Tue May 13 14:38:58 2014 Kevin Gay
-** Last update Tue May 13 14:39:53 2014 Kevin Gay
+** Last update Mon May 19 12:09:17 2014 Maxime Limone
 */
 
 #ifndef  MY_PUTSTR_H_
 # define  MY_PUTSTR_H_
 
 char	*my_putstr(char *str);
+char	*my_strcut_char(char *str, char cut);
 
 #endif /* MY_STRCAT */
