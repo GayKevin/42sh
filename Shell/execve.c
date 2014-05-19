@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 15:24:41 2014 Maxime Limone
-** Last update Thu May 15 21:11:27 2014 Maxime Limone
+** Last update Mon May 19 17:49:13 2014 Maxime Limone
 */
 
 #include <signal.h>
@@ -16,7 +16,6 @@
 #include <string.h>
 #include "main.h"
 #include "my_strcat.h"
-#include "my_printf_error.h"
 #include "tree.h"
 
 int		exec_cmd(char *path, char **cmd, char **env, t_shell *sh)
@@ -33,7 +32,7 @@ int		exec_cmd(char *path, char **cmd, char **env, t_shell *sh)
       if (WIFEXITED(status) && WEXITSTATUS(status) == 0)
 	sh->ok_cmd = 1;
       if (status == 139)
-      	printf_err("Segmentation Fault\n");
+      	fprintf(stderr, "Segmentation Fault\n");
     }
   else if (pid == 0)
     {
@@ -63,12 +62,12 @@ int		exec_slah_bin(char **cmd, t_shell *sh)
 	    if (WIFEXITED(status) && WEXITSTATUS(status) == 0)
 	      sh->ok_cmd = 1;
 	    if (status == 139)
-	      printf_err("Segmentation Fault\n");
+	      fprintf(stderr, "Segmentation Fault\n");
 	  }
         else if (pid == 0)
 	  {
-	    /* if (setpgid(0, 0) == -1) */
-	    /*   return (-1); */
+	    if (setpgid(0, 0) == -1)
+	      return (-1);
 	    if ((execve(cmd[i], cmd, NULL)) == -1)
 	      return (0);
 	  }

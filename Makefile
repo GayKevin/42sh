@@ -4,13 +4,10 @@
 ## Made by Maxime Limone
 ## Login   <limone_m@epitech.net>
 ## Started on  Mon May  5 14:54:13 2014 Maxime Limone
-## Last update Mon May 19 14:00:15 2014 Maxime Limone
+## Last update Mon May 19 17:56:49 2014 Maxime Limone
 ##
 
-SRC		= Print_error/function_tab.c \
-		  Print_error/my_printf_error.c \
-		  Print_error/my_put_error.c \
-		  Operator/pipe_simple.c \
+SRC		= Operator/pipe_simple.c \
 		  Operator/dotcom.c \
 		  Operator/db_pipe.c \
 		  Operator/and_simple.c \

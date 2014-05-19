@@ -5,16 +5,16 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:00:18 2014 Maxime Limone
-** Last update Mon May 19 13:59:24 2014 Maxime Limone
+** Last update Mon May 19 17:54:21 2014 Maxime Limone
 */
 
 #include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <unistd.h>
 #include "main.h"
 #include "my_errno.h"
-#include "my_printf_error.h"
 #include "pwd.h"
 #include "old_pwd.h"
 
@@ -64,10 +64,8 @@ int		cd_old_pwd(t_shell *sh, int i)
       }
   if (chdir(cmd) == -1)
     {
-      if (errno == EACCES)
-	printf_err("cd: %s: you have not the permission\n", cmd);
-      else if (errno == ENOENT)
-	printf_err("cd: %s: the directory doesn't exist\n", cmd);
+      if (find_errno(sh) == -1)
+	printf("KO\n");
       return (-1);
     }
   old_pwd(sh);

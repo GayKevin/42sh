@@ -5,13 +5,13 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 19 14:00:47 2014 Maxime Limone
-** Last update Mon May 19 14:20:03 2014 Maxime Limone
+** Last update Mon May 19 17:58:55 2014 Maxime Limone
 */
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 #include "tree.h"
-#include "my_printf_error.h"
 #include "main.h"
 
 char	**tab_function_errno(char *tab_fun[19])
@@ -79,6 +79,6 @@ int		find_errno(t_shell *sh)
   if (tab_tab[i] == 0)
     return (-1);
   else
-    printf_err("%s\n", tab_fun[i]);
+    fprintf(stderr, "Error: %s\n", tab_fun[i]);
   return (0);
 }
