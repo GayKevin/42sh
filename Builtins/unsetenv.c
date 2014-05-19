@@ -5,16 +5,16 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:42:22 2014 Maxime Limone
-** Last update Mon May 19 12:54:50 2014 Maxime Limone
+** Last update Mon May 19 17:57:24 2014 Maxime Limone
 */
 
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "main.h"
 #include "my_free.h"
 #include "my_strcat.h"
 #include "unsetenv.h"
-#include "my_printf_error.h"
 #include "my_putstr.h"
 
 int		find_unset_env(t_shell *sh, int l, int i)
@@ -27,8 +27,8 @@ int		find_unset_env(t_shell *sh, int l, int i)
 int		unset_env(t_shell *sh, int i)
 {
   if (sh->cmd[i + 1] == NULL)
-    printf_err("Usage: unsetenv [variable name1] %s\n"
-	       , "[variable name2] ...");
+    fprintf(stderr, "Usage: unsetenv [variable name1] %s\n"
+	    , "[variable name2] ...");
   while (sh->cmd[i + 1] != NULL)
     {
       if (strncmp(sh->cmd[i + 1], "PATH", 4) == 0)
@@ -61,7 +61,7 @@ int		unset_var(int i, t_shell *sh)
 	}
     }
   if (sh->env[l] == NULL)
-    printf_err("'%s' environment variable not found\n"
-	       , my_strcut_char(sh->cmd[i + 1], '='));
+    fprintf(stderr, "Error: '%s' environment variable not found\n"
+	    , my_strcut_char(sh->cmd[i + 1], '='));
   return (0);
 }
