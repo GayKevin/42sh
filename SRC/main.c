@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:15:36 2014 Maxime Limone
-** Last update Wed May 14 11:52:44 2014 Kevin Gay
+** Last update Mon May 19 13:29:28 2014 Kevin Gay
 */
 
 #include <signal.h>
@@ -31,6 +31,7 @@ int	main(int ac, char **av, char **env)
   sh.re = 0;
   sh.c_ch = 0;
   sh.cmd = NULL;
+  sh.left = NULL;
   signal(SIGINT, get_sigint);
   get_env(&sh, env);
   if (shell(&sh) == -1)

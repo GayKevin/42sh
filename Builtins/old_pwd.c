@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 18:23:40 2014 Maxime Limone
-** Last update Thu May 15 18:06:25 2014 Maxime Limone
+** Last update Fri May 16 14:49:37 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -26,19 +26,6 @@ int		find_old_pwd_env(t_shell *sh)
   return (-1);
 }
 
-char		*clear_old_pwd(char *str, int d, t_shell *sh)
-{
-  int		i;
-
-  i = 0;
-  while (i != strlen(sh->env[d]) * 2)
-    {
-      str[i] = '\0';
-      ++i;
-    }
-  return (str);
-}
-
 int		old_pwd(t_shell *sh)
 {
   int		d;
@@ -49,12 +36,12 @@ int		old_pwd(t_shell *sh)
   if ((d = find_pwd_env(sh)) == -1)
     return (-1);
   if ((l = find_old_pwd_env(sh)) == -1)
-    l = l - 1;
+    while (sh->env[++l] != '\0');
   free(sh->env[l]);
   sh->env[l] = malloc(sizeof(char) * (strlen(sh->env[d])  * 2));
   if (sh->env[l] == NULL)
     return (-1);
-  sh->env[l] = clear_old_pwd(sh->env[l], d , sh);
+  memset(sh->env[l], 0, (strlen(sh->env[d]) * 2));
   sh->env[l][0] = 'O';
   sh->env[l][1] = 'L';
   sh->env[l][2] = 'D';

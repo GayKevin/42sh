@@ -5,8 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May  8 15:12:42 2014 Maxime Limone
-** Last update Fri May 16 14:29:58 2014 Maxime Limone
-** Last update Wed May 14 02:15:16 2014 Maxime Limone
+** Last update Mon May 19 11:35:10 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -16,6 +15,7 @@
 #include "pars.h"
 #include "tree.h"
 #include "epur_str.h"
+#include "free_stuff.h"
 
 int             parsing_main(char *buff, t_shell *sh)
 {
@@ -31,10 +31,10 @@ int             parsing_main(char *buff, t_shell *sh)
   //display_tree(tree);
   if ((gere_operator(tree, sh)) == -1)
     {
-      clearTree(&tree);
+      free_stuff(sh, tree);
       return (-1);
     }
-  clearTree(&tree);
+  free_stuff(sh, tree);
   return (0);
 }
 

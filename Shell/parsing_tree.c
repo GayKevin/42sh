@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 12 13:55:08 2014 Maxime Limone
-** Last update Thu May 15 14:35:43 2014 Maxime Limone
+** Last update Fri May 16 14:13:31 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -36,9 +36,20 @@ int		stock_tree(char *buff, t_shell *sh)
   int		j;
   int		k;
 
-  if (((sh->left = malloc(sizeof(char) * strlen(buff))) == NULL)
-      || ((sh->right = malloc(sizeof(char) * strlen(buff))) == NULL))
-    return (-1);
+  if (sh->left == NULL)
+    {
+      if (((sh->left = malloc(sizeof(char) * strlen(buff))) == NULL)
+	  || ((sh->right = malloc(sizeof(char) * strlen(buff))) == NULL))
+	return (-1);
+    }
+  else
+    {
+      free(sh->left);
+      free(sh->right);
+      sh->left = NULL;
+      stock_tree(buff, sh);
+      return (0);
+    }
   memset(sh->left, 0, strlen(buff));
   memset(sh->right, 0, strlen(buff));
   j = -1;
@@ -49,7 +60,7 @@ int		stock_tree(char *buff, t_shell *sh)
     j++;
   while (buff[++j] != '\0')
     sh->right[++k] = buff[j];
-  sh->ch = 8;
+  sh->check = 8;
   return (0);
 }
 
@@ -98,10 +109,11 @@ int		gere_operator(t_node *tree, t_shell *sh)
 	return (1);
     }
   else
-    {
-      if ((check_cmd(sh, tree)) == -1)
+    if ((check_cmd(sh, tree)) == -1)
+      {
+	free(tab_tab);
 	return (-1);
-    }
+      }
   free(tab_tab);
   return (0);
 }
