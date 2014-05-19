@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Fri May 16 17:10:01 2014 Kevin Gay
-** Last update Mon May 19 11:22:40 2014 Kevin Gay
+** Last update Mon May 19 13:54:08 2014 Kevin Gay
 */
 
 void	tab_function_errno(int (*tab_fun[18])(t_node *tree, t_shell *sh))
@@ -28,6 +28,7 @@ void	tab_function_errno(int (*tab_fun[18])(t_node *tree, t_shell *sh))
   tab_fun[15] = "Read-only file system";
   tab_fun[16] = "No such process";
   tab_fun[17] = "Connection timed out";
+  tab_fun[18] = NULL;
 }
 
 int		*tab_errno(char *tab)
@@ -50,16 +51,24 @@ int		*tab_errno(char *tab)
   tab[15] = EROFS;
   tab[16] = ESRCH;
   tab[17] = ETIMEOUT;
+  tab[18] = NULL;
   return (tab);
 }
 
 void		find_errno(t_shell *sh)
 {
-  void		(*tab_fun[18])(t_node *tree, t_shell *sh);
-  int		*tab_tab[18];
+  void		(*tab_fun[19])(t_node *tree, t_shell *sh);
+  int		*tab_tab[19];
+  int		i;
 
+  i = -1;
   if ((tab_tab = malloc(sizeof(char) * 9)) == NULL)
     return (-1);
   tab_tab = tab_errno(tab_tab);
   tab_function_errno(tab_fun);
+  while (errno != tab[++i] && tab[i] != NULL);
+  if (tab[i] == NULL)
+    return (-1);
+  else
+    printf("%s\n", tab_fun[i]);
 }
