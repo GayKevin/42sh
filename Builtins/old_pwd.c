@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 18:23:40 2014 Maxime Limone
-** Last update Fri May 16 14:02:05 2014 Kevin Gay
+** Last update Fri May 16 14:49:37 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -41,7 +41,7 @@ int		old_pwd(t_shell *sh)
   sh->env[l] = malloc(sizeof(char) * (strlen(sh->env[d])  * 2));
   if (sh->env[l] == NULL)
     return (-1);
-  memset(sh->env[l], 0, (strlen(sh->env[l]) * 2));
+  memset(sh->env[l], 0, (strlen(sh->env[d]) * 2));
   sh->env[l][0] = 'O';
   sh->env[l][1] = 'L';
   sh->env[l][2] = 'D';

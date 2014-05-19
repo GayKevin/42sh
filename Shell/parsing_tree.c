@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 12 13:55:08 2014 Maxime Limone
-** Last update Thu May 15 16:21:41 2014 Kevin Gay
+** Last update Fri May 16 14:13:31 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -41,11 +41,9 @@ int		stock_tree(char *buff, t_shell *sh)
       if (((sh->left = malloc(sizeof(char) * strlen(buff))) == NULL)
 	  || ((sh->right = malloc(sizeof(char) * strlen(buff))) == NULL))
 	return (-1);
-      printf("mlklmkmklk\n");
     }
   else
     {
-      printf("loooooooooooool");
       free(sh->left);
       free(sh->right);
       sh->left = NULL;

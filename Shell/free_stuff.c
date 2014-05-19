@@ -5,15 +5,15 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Thu May 15 15:41:45 2014 Kevin Gay
-** Last update Thu May 15 16:17:06 2014 Kevin Gay
+** Last update Fri May 16 14:11:31 2014 Kevin Gay
 */
 
+#include <stdlib.h>
 #include "main.h"
 #include "tree.h"
 
 void	free_stuff(t_shell *sh, t_node *tree)
 {
-  printf("%d\n", sh->check);
   clearTree(&tree);
   if (sh->check == 8)
     {

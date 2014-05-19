@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May  8 15:12:42 2014 Maxime Limone
-** Last update Fri May 16 14:01:18 2014 Kevin Gay
+** Last update Fri May 16 14:13:17 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -15,6 +15,7 @@
 #include "pars.h"
 #include "tree.h"
 #include "epur_str.h"
+#include "free_stuff.h"
 
 int             parsing_main(char *buff, t_shell *sh)
 {
