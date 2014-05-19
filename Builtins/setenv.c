@@ -5,14 +5,14 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:23:51 2014 Maxime Limone
-** Last update Mon May 19 12:59:38 2014 Maxime Limone
+** Last update Mon May 19 17:57:52 2014 Maxime Limone
 */
 
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "main.h"
 #include "my_putstr.h"
-#include "my_printf_error.h"
 #include "my_strcat.h"
 
 int		compare_env(t_shell *sh, int i, int p)
@@ -57,7 +57,7 @@ int		add_env(t_shell *sh, int i, int p)
       sh->env[p + 1] = NULL;
     }
   else
-    printf_err("Usage: setenv [variable name1]=[variable1] %s\n"
+    fprintf(stderr, "Usage: setenv [variable name1]=[variable1] %s\n"
                , "[variable name2]=[variable2] ...");
   return (0);
 }
@@ -70,7 +70,7 @@ int		set_env(t_shell *sh, int i)
   p = -1;
   l = 0;
   if (sh->cmd[i + 1] == NULL)
-    printf_err("Usage: setenv [variable name1]=[variable1] %s\n"
+    fprintf(stderr, "Usage: setenv [variable name1]=[variable1] %s\n"
                , "[variable name2]=[variable2] ...");
   while (sh->cmd[i + 1] != NULL)
     {

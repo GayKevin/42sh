@@ -1,18 +1,24 @@
 /*
-** errno_cd.c for pointer errno in /home/gay_k/rendu/42sh
+** my_errno.c for 42sh in /home/limone_m/rendu/42sh/Builtins
 ** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
+** Made by Maxime Limone
+** Login   <limone_m@epitech.net>
 ** 
-** Started on  Fri May 16 17:10:01 2014 Kevin Gay
-** Last update Mon May 19 11:22:40 2014 Kevin Gay
+** Started on  Mon May 19 14:00:47 2014 Maxime Limone
+** Last update Mon May 19 17:58:55 2014 Maxime Limone
 */
 
-void	tab_function_errno(int (*tab_fun[18])(t_node *tree, t_shell *sh))
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include "tree.h"
+#include "main.h"
+
+char	**tab_function_errno(char *tab_fun[19])
 {
   tab_fun[0] = "Permission Denied";
   tab_fun[1] = "Operation canceled";
-  tab_fun[2] = "File existS";
+  tab_fun[2] = "File exists";
   tab_fun[3] = "File too large";
   tab_fun[4] = "Interrupted function call";
   tab_fun[5] = "Invalid argument";
@@ -28,9 +34,11 @@ void	tab_function_errno(int (*tab_fun[18])(t_node *tree, t_shell *sh))
   tab_fun[15] = "Read-only file system";
   tab_fun[16] = "No such process";
   tab_fun[17] = "Connection timed out";
+  tab_fun[18] = NULL;
+  return (tab_fun);
 }
 
-int		*tab_errno(char *tab)
+int		*tab_errno(int *tab)
 {
   tab[0] = EACCES;
   tab[1] = ECANCELED;
@@ -49,17 +57,28 @@ int		*tab_errno(char *tab)
   tab[14] = EPIPE;
   tab[15] = EROFS;
   tab[16] = ESRCH;
-  tab[17] = ETIMEOUT;
+  tab[17] = ETIMEDOUT;
+  tab[18] = 0;
   return (tab);
 }
 
-void		find_errno(t_shell *sh)
+int		find_errno(t_shell *sh)
 {
-  void		(*tab_fun[18])(t_node *tree, t_shell *sh);
-  int		*tab_tab[18];
+  char		**tab_fun;
+  int		*tab_tab;
+  int		i;
 
-  if ((tab_tab = malloc(sizeof(char) * 9)) == NULL)
+  i = -1;
+  if ((tab_tab = malloc(sizeof(int) * 19)) == NULL)
+    return (-1);
+  if ((tab_fun = malloc(sizeof(char) * 19)) == NULL)
     return (-1);
   tab_tab = tab_errno(tab_tab);
-  tab_function_errno(tab_fun);
+  tab_fun = tab_function_errno(tab_fun);
+  while (errno != tab_tab[++i] && tab_tab[i] != 0);
+  if (tab_tab[i] == 0)
+    return (-1);
+  else
+    fprintf(stderr, "Error: %s\n", tab_fun[i]);
+  return (0);
 }

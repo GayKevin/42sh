@@ -4,13 +4,10 @@
 ## Made by Maxime Limone
 ## Login   <limone_m@epitech.net>
 ## Started on  Mon May  5 14:54:13 2014 Maxime Limone
-## Last update Fri May 16 14:01:41 2014 Kevin Gay
+## Last update Mon May 19 17:56:49 2014 Maxime Limone
 ##
 
-SRC		= Print_error/function_tab.c \
-		  Print_error/my_printf_error.c \
-		  Print_error/my_put_error.c \
-		  Operator/pipe_simple.c \
+SRC		= Operator/pipe_simple.c \
 		  Operator/dotcom.c \
 		  Operator/db_pipe.c \
 		  Operator/and_simple.c \
@@ -30,13 +27,14 @@ SRC		= Print_error/function_tab.c \
 		  Shell/parsing_tree.c \
 		  Shell/parsing_check.c \
 		  Shell/execve.c\
-		  Builtins/find.c \
+	  	  Builtins/find.c \
 		  Builtins/cd.c \
 		  Builtins/built_in.c \
 		  Builtins/unsetenv.c \
 		  Builtins/setenv.c \
 		  Builtins/pwd.c \
 		  Builtins/old_pwd.c \
+		  Builtins/my_errno.c \
 		  Tree/tree.c \
 		  SRC/epur_str.c \
 	 	  SRC/my_putstr.c \
