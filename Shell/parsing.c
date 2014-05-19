@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May  8 15:12:42 2014 Maxime Limone
-** Last update Fri May 16 14:13:17 2014 Kevin Gay
+** Last update Mon May 19 11:35:10 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -28,7 +28,7 @@ int             parsing_main(char *buff, t_shell *sh)
   tree->left = NULL;
   tree->right = NULL;
   if (check_op(buff, sh, tree) == 1);
-  display_tree(tree);
+  //display_tree(tree);
   if ((gere_operator(tree, sh)) == -1)
     {
       free_stuff(sh, tree);
@@ -45,11 +45,12 @@ int		check_op(char *buff, t_shell *sh, t_node *tree)
 
   i = -1;
   sh->r = 0;
+  ++sh->i_tree;
   sh->db_op = 0;
-  if (check_syntax_error(sh, tree) == -1)
-    return (-1);
   while (buff[++i] != '\0')
     i = check_op_st(buff, i, sh);
+  if (check_syntax_error(sh, tree) == -1)
+    return (-1);
   tree->str = epur_str(buff);
   if (sh->r == 0)
     return (1);
@@ -111,7 +112,6 @@ char		prio_op(char *buff, t_shell *sh)
   i = -1;
   sh->op_i = -1;
   brk = 0;
-  ++sh->i_tree;
   op_f = '~';
   while (brk == 0 && (sh->op_fnd[++i] != '\0'))
     if (sh->op_fnd[i] == ';')
