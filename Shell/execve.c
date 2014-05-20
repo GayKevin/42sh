@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 15:24:41 2014 Maxime Limone
-** Last update Mon May 19 17:49:13 2014 Maxime Limone
+** Last update Mon May 19 18:41:13 2014 Maxime Limone
 */
 
 #include <signal.h>
@@ -36,8 +36,8 @@ int		exec_cmd(char *path, char **cmd, char **env, t_shell *sh)
     }
   else if (pid == 0)
     {
-      /* if (setpgid(0, 0) == -1) */
-      /* 	return (-1); */
+      if (setpgid(0, 0) == -1)
+      	return (-1);
       if (execve(path, cmd, env) == -1)
 	exit (0);
     }

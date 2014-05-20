@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Mon May 19 18:24:30 2014 Maxime Limone
+** Last update Mon May 19 21:51:46 2014 Maxime Limone
 */
 
 #include <unistd.h>
@@ -35,18 +35,13 @@ int		read_buffer(t_shell *sh)
   my_putstr("$> ");
   clear_str(sh);
   while ((ret = read(0, sh->buffer, 512)) == 512);
-  if (ret == 1 || ret == -1)
-    {
-      read_buffer(sh);
-      return (0);
-    }
   if (ret == 0)
     {
       putchar(10);
       return (-1);
     }
   sh->buffer[ret - 1] = '\0';
-  return (0);
+  return (ret);
 }
 
 void		number_reset(t_shell *sh)
@@ -58,15 +53,20 @@ void		number_reset(t_shell *sh)
 
 int		shell(t_shell *sh)
 {
+  int		r;
+
   while (42)
     {
       sh->i_tree = -1;
       sh->check = 0;
       if (find_path(sh) == -1)
 	return (-1);
-      if (read_buffer(sh) == -1)
-	return (-1);
-      if (parsing_main(epur_str(sh->buffer), sh) == -1)
+      if ((r = read_buffer(sh)) > 1)
+	{
+	  if (parsing_main(epur_str(sh->buffer), sh) == -1)
+	    return (-1);
+	}
+      else if (r == -1)
 	return (-1);
       my_free(sh->path);
     }
