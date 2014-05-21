@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Tue May 13 21:32:23 2014 Maxime Limone
-** Last update Wed May 21 16:16:38 2014 Maxime Limone
+** Last update Thu May 22 00:47:35 2014 Maxime Limone
 */
 
 #ifndef OPERATOR_H_
@@ -13,6 +13,7 @@
 # include "tree.h"
 
 char		*stock_name(char *str);
+int		check_error_pipe(t_node *tree, t_shell *sh);
 int		master_pipe(int pipefd[2], t_node *tree, t_shell *sh);
 int		pipe_simple(t_node *tree, t_shell *sh);
 int		master_pipe(int pipefd[2], t_node *tree, t_shell *sh);

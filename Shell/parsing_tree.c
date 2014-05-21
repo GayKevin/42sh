@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 12 13:55:08 2014 Maxime Limone
-** Last update Fri May 16 14:13:31 2014 Kevin Gay
+** Last update Thu May 22 01:19:38 2014 Maxime Limone
 */
 
 #include <stdlib.h>
@@ -36,20 +36,20 @@ int		stock_tree(char *buff, t_shell *sh)
   int		j;
   int		k;
 
-  if (sh->left == NULL)
-    {
+  /* if (sh->left == NULL) */
+  /*   { */
       if (((sh->left = malloc(sizeof(char) * strlen(buff))) == NULL)
 	  || ((sh->right = malloc(sizeof(char) * strlen(buff))) == NULL))
 	return (-1);
-    }
-  else
-    {
-      free(sh->left);
-      free(sh->right);
-      sh->left = NULL;
-      stock_tree(buff, sh);
-      return (0);
-    }
+  /*   } */
+  /* else */
+  /*   { */
+  /*     free(sh->left); */
+  /*     free(sh->right); */
+  /*     sh->left = NULL; */
+  /*     stock_tree(buff, sh); */
+  /*     return (0); */
+  /*   } */
   memset(sh->left, 0, strlen(buff));
   memset(sh->right, 0, strlen(buff));
   j = -1;
