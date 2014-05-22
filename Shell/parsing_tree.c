@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 12 13:55:08 2014 Maxime Limone
-** Last update Fri May 16 14:13:31 2014 Kevin Gay
+** Last update Thu May 22 18:20:08 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -26,6 +26,8 @@ int		clearTree(t_node **tree)
     clearTree(&tmp->left);
   if(tmp->right)
     clearTree(&tmp->right);
+  if (tmp->str)
+    free(tmp->str);
   free(tmp);
   *tree = NULL;
   return (0);
@@ -36,20 +38,10 @@ int		stock_tree(char *buff, t_shell *sh)
   int		j;
   int		k;
 
-  if (sh->left == NULL)
-    {
-      if (((sh->left = malloc(sizeof(char) * strlen(buff))) == NULL)
-	  || ((sh->right = malloc(sizeof(char) * strlen(buff))) == NULL))
-	return (-1);
-    }
-  else
-    {
-      free(sh->left);
-      free(sh->right);
-      sh->left = NULL;
-      stock_tree(buff, sh);
-      return (0);
-    }
+
+  if (((sh->left = realloc(sh->left, sizeof(char) * strlen(buff))) == NULL)
+      || ((sh->right = realloc(sh->right,sizeof(char) * strlen(buff))) == NULL))
+    return (-1);
   memset(sh->left, 0, strlen(buff));
   memset(sh->right, 0, strlen(buff));
   j = -1;
@@ -93,7 +85,7 @@ char		*tab_(char *tab)
 
 int		gere_operator(t_node *tree, t_shell *sh)
 {
-  int		(*tab_func[9])(t_node *tree, t_shell *sh);
+   int		(*tab_func[9])(t_node *tree, t_shell *sh);
   char		*tab_tab;
   int		o;
 
@@ -102,6 +94,7 @@ int		gere_operator(t_node *tree, t_shell *sh)
     return (-1);
   tab_tab = tab_(tab_tab);
   tab_function_read(tab_func);
+  printf("test\n");
   if (tree->chck_tree == 2)
     {
       while (tab_tab[++o] != tree->op);

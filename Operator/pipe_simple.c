@@ -5,15 +5,17 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Tue May 13 23:59:52 2014 Maxime Limone
-** Last update Tue May 13 23:59:54 2014 Maxime Limone
+** Last update Thu May 22 16:22:27 2014 Kevin Gay
 */
 
+#include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <stdlib.h>
 #include "main.h"
 #include "tree.h"
+#include "operator.h"
 #include "pars.h"
 
 int		master_pipe(int pipefd[2], t_node *tree, t_shell *sh)
@@ -39,6 +41,8 @@ int		pipe_simple(t_node *tree, t_shell *sh)
   int		pipefd[2];
   int		dp;
 
+  /* if (check_error_pipe(tree, sh) == -1) */
+  /*   return (-1); */
   if ((pipe(pipefd)) == -1)
     return (-1);
   if ((pid = fork()) == -1)
@@ -57,5 +61,31 @@ int		pipe_simple(t_node *tree, t_shell *sh)
     }
   else
     master_pipe(pipefd, tree, sh);
+  return (0);
+}
+
+int		check_error_pipe(t_node *tree, t_shell *sh)
+{
+  int		t;
+
+  t = -1;
+  if (tree->left->str[0] == '\0' || tree->right->str[0] == '\0')
+    {
+      fprintf(stderr, "Syntax error: about the symbol '|'\n");
+      return (-1);
+    }
+  while ((tree->left->op != sh->op_char[++t]) && sh->op_char[t] != '\0');
+  if (sh->op_char[t] != '\0' && sh->op_char[t] != '<' && sh->op_char[t] != '>')
+    {
+      fprintf(stderr, "Syntax error: about the symbol '%c'\n", sh->op_char[t]);
+      return (-1);
+    }
+  t = -1;
+  while ((tree->right->op != sh->op_char[++t]) && sh->op_char[t] != '\0');
+  if (sh->op_char[t] != '\0' && sh->op_char[t] != '<' && sh->op_char[t] != '>')
+    {
+      fprintf(stderr, "Syntax error: about the symbol '%c'\n", sh->op_char[t]);
+      return (-1);
+    }
   return (0);
 }

@@ -4,7 +4,7 @@
 ## Made by Maxime Limone
 ## Login   <limone_m@epitech.net>
 ## Started on  Mon May  5 14:54:13 2014 Maxime Limone
-## Last update Wed May 21 15:24:59 2014 Kevin Gay
+## Last update Thu May 22 18:32:49 2014 Kevin Gay
 ##
 
 SRC		= Operator/pipe_simple.c \
@@ -57,7 +57,7 @@ CC		= cc
 
 OBJ		= $(SRC:.c=.o)
 
-CFLAGS		= -g -IInclude -Wall
+CFLAGS		= -ggdb3 -IInclude -Wall
 
 all:		$(NAME)
 
