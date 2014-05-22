@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Mon May 19 18:24:30 2014 Maxime Limone
+** Last update Thu May 22 09:50:38 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -30,14 +30,16 @@
 int		read_buffer(t_shell *sh)
 {
   int		ret;
+  int i = 0;
 
-  //  find_ps1(sh);
-  my_putstr("$> ");
+  /* find_ps1(sh); */
+  /* my_putstr(sh->ps1); */
+  my_putstr("$>");
   clear_str(sh);
   while ((ret = read(0, sh->buffer, 512)) == 512);
   if (ret == 1 || ret == -1)
     {
-      read_buffer(sh);
+      /* read_buffer(sh); */
       return (0);
     }
   if (ret == 0)
@@ -79,6 +81,7 @@ int		check_cmd(t_shell *sh, t_node *tree)
 
   i = -1;
   number_reset(sh);
+  /* printf("mlkmlk"); */
   sh->cmd = my_str_to_wordtab(tree->str);
   dollar(sh);
   check_point_slash(sh, sh->env);
