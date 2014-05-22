@@ -4,7 +4,7 @@
 ## Made by Maxime Limone
 ## Login   <limone_m@epitech.net>
 ## Started on  Mon May  5 14:54:13 2014 Maxime Limone
-## Last update Thu May 22 10:45:48 2014 Kevin Gay
+## Last update Thu May 22 18:32:49 2014 Kevin Gay
 ##
 
 SRC		= Operator/pipe_simple.c \

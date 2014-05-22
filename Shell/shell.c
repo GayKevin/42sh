@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Thu May 22 18:23:50 2014 Kevin Gay
+** Last update Thu May 22 18:32:15 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -83,6 +83,7 @@ int		check_cmd(t_shell *sh, t_node *tree)
 
   i = -1;
   number_reset(sh);
+  /* printf("mlkmlk"); */
   sh->cmd = my_str_to_wordtab(tree->str);
   dollar(sh);
   check_point_slash(sh, sh->env);
