@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May 15 21:42:10 2014 Maxime Limone
-** Last update Mon May 19 17:51:27 2014 Maxime Limone
+** Last update Thu May 22 00:14:07 2014 Maxime Limone
 */
 
 #include <stdio.h>
@@ -34,7 +34,7 @@ int		init_op_tab(t_shell *sh)
 
 int		check_syntax_error(t_shell *sh, t_node *tree)
 {
-  if (tree == NULL)
-    fprintf(stderr, "invalid syntax\n");
+  /* if (tree->left->str == NULL ) */
+  /*   fprintf(stderr, "invalid syntax\n"); */
   return (0);
 }
