@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:00:18 2014 Maxime Limone
-** Last update Mon May 19 17:54:21 2014 Maxime Limone
+** Last update Wed May 21 21:14:12 2014 Maxime Limone
 */
 
 #include <string.h>
@@ -36,7 +36,12 @@ int		cd_home(t_shell *sh, int i)
       while (sh->env[l][o] != '\0')
 	cd[++p] = sh->env[l][o++];
   if (chdir(cd) == -1)
-    return (-1);
+    {
+      sh->ok_cmd = -1;
+      if (find_errno(sh) == -1)
+      	printf("KO\n");
+      return (-1);
+    }
   old_pwd(sh);
   set_pwd(sh, cd);
   free(cd);
@@ -64,8 +69,9 @@ int		cd_old_pwd(t_shell *sh, int i)
       }
   if (chdir(cmd) == -1)
     {
+      sh->ok_cmd = -1;
       if (find_errno(sh) == -1)
-	printf("KO\n");
+      	printf("KO\n");
       return (-1);
     }
   old_pwd(sh);
@@ -90,6 +96,7 @@ int		find_cd(t_shell *sh, int i)
       	{
       	  if (chdir(sh->cmd[i + 1]) == -1)
 	    {
+	      sh->ok_cmd = -1;
 	      if (find_errno(sh) == -1)
 		printf("KO\n");
 	      return (-1);

@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 15:24:41 2014 Maxime Limone
-** Last update Mon May 19 17:49:13 2014 Maxime Limone
+** Last update Thu May 22 09:56:25 2014 Kevin Gay
 */
 
 #include <signal.h>
@@ -28,9 +28,13 @@ int		exec_cmd(char *path, char **cmd, char **env, t_shell *sh)
     return (0);
   if (pid > 0)
     {
+      //      printf("1\n");
       wait(&status);
+      //printf("2\n");
       if (WIFEXITED(status) && WEXITSTATUS(status) == 0)
 	sh->ok_cmd = 1;
+      else
+	sh->ok_cmd = -1;
       if (status == 139)
       	fprintf(stderr, "Segmentation Fault\n");
     }
