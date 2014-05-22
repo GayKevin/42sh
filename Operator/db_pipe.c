@@ -5,10 +5,9 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Tue May 13 22:36:10 2014 Kevin Gay
-** Last update Wed May 21 22:00:46 2014 Maxime Limone
+** Last update Thu May 22 14:17:17 2014 Maxime Limone
 */
 
-#include <stdlib.h>
 #include "main.h"
 #include "tree.h"
 #include "pars.h"

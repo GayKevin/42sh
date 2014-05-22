@@ -1,24 +1,41 @@
-/*
-** my_strcmp.c for strcmp in /home/gay_k/rendu/42sh
-** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
-** 
-** Started on  Wed May 21 12:04:01 2014 Kevin Gay
-** Last update Wed May 21 15:25:14 2014 Kevin Gay
-*/
+#include "main.h"
+#include "env.h"
+#include "my_free.h"
+#include "shell.h"
 
-int	my_strncmp_nbr(char *str1, char *str2, int o, int i)
+int	my_strcmp(char *str1, char *str2)
 {
-  int	p;
+  int	i;
 
-  p = 0;
-  while (i != (o + 1))
-    {
-      if (str1[i] != str2[p])
-	return (1);
-      ++p;
-      ++i;
-    }
+  i = 0;
+  while (str1[i] == str2[i] && str2[i + 1] != '\0')
+      i++;
+  if (str1[i] != str2[i])
+    return (1);
+  return (0);
+}
+
+int	my_strcmp_(char *str1, char *str2)
+{
+  int	i;
+
+  i = 0;
+  while (str1[i] == str2[i] && str2[i + 1] != '=')
+    i++;
+  if (str1[i] == '=' && str2[i] == '=')
+    return (0);
+  if (str1[i] != str2[i])
+    return (1);
+  return (0);
+}
+
+int	my_strcmp_nbr(char *str1, char *str2, int o)
+{
+  int	i;
+
+  i = -1;
+  while (++i != o)
+    if (str1[i] != str2[i])
+      return (1);
   return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 15:24:41 2014 Maxime Limone
-** Last update Thu May 22 09:56:25 2014 Kevin Gay
+** Last update Thu May 22 01:25:22 2014 Maxime Limone
 */
 
 #include <signal.h>
