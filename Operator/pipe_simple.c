@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Tue May 13 23:59:52 2014 Maxime Limone
-** Last update Thu May 22 01:27:57 2014 Maxime Limone
+** Last update Thu May 22 16:22:27 2014 Kevin Gay
 */
 
 #include <stdio.h>
@@ -41,8 +41,8 @@ int		pipe_simple(t_node *tree, t_shell *sh)
   int		pipefd[2];
   int		dp;
 
-  if (check_error_pipe(tree, sh) == -1)
-    return (-1);
+  /* if (check_error_pipe(tree, sh) == -1) */
+  /*   return (-1); */
   if ((pipe(pipefd)) == -1)
     return (-1);
   if ((pid = fork()) == -1)
