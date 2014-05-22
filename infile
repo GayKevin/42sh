@@ -1,0 +1,42 @@
+total 156
+-rwxr-xr-x 1 limone_m users 95182 22 mai   09:43 42sh
+-rw------- 1 limone_m users    32 13 mai   23:44 auteur
+drwx------ 2 limone_m users  4096 22 mai   09:43 Builtins
+drwx------ 2 limone_m users  4096 22 mai   00:47 Include
+-rw-r--r-- 1 limone_m users     0 22 mai   09:55 infile
+-rw-r--r-- 1 limone_m users  1398 19 mai   17:56 Makefile
+-rw-r--r-- 1 limone_m users     2 22 mai   09:48 note
+drwx------ 2 limone_m users  4096 22 mai   09:43 Operator
+drwx------ 2 limone_m users  4096 22 mai   09:43 Shell
+drwx------ 2 limone_m users  4096 22 mai   09:43 SRC
+-rw------- 1 limone_m users  1282 13 mai   23:44 termcaps.c
+-rw-r--r-- 1 limone_m users     5 22 mai   09:49 test
+drwx------ 2 limone_m users  4096 22 mai   09:43 Tree
+-rwxr-xr-x 1 limone_m users 12646 15 mai   11:33 tstsig
+total 104
+drwxr-xr-x  3 limone_m users 4096  7 mai   10:42 108monstre
+drwxr-xr-x  3 limone_m users 4096  6 avril 18:26 109titrage
+drwxr-xr-x  3 limone_m users 4096 18 avril 10:35 110borwein
+drwxr-xr-x  9 limone_m users 4096 22 mai   09:55 42sh
+drwxr-xr-x  3 limone_m users 4096 23 mars  17:06 Aeroport
+drwxr-xr-x  3 limone_m users 4096 20 avril 19:16 B2Preciser
+drwxr-xr-x  3 limone_m users 4096 10 mai   17:25 B2Vente
+drwxr-xr-x  3 limone_m users 4096  7 mai   18:35 Colle
+drwxr-xr-x  6 limone_m users 4096 27 mars  17:23 corewar
+drwxr-xr-x  6 limone_m users 4096 14 avril 10:32 CPE_2014_corewar
+drwxr-xr-x  7 limone_m users 4096 14 mars  18:01 C Prog Elem
+drwxr-xr-x  8 limone_m users 4096 14 mars  18:06 Divers
+drwxr-xr-x  4 limone_m users 4096 12 févr. 20:26 Exam
+drwxr-xr-x  6 limone_m users 4096 14 mars  17:59 Expr_Ecrite
+drwxr-xr-x  6 limone_m users 4096 19 mars  09:52 IGraph
+drwxr-xr-x  2 limone_m users 4096 12 févr. 20:26 JD
+drwxr-xr-x  3 limone_m users 4096 14 mars  17:59 LabTXT
+drwxr-xr-x  8 limone_m users 4096 14 mars  17:55 Math
+drwxr-xr-x  4 limone_m users 4096 15 avril 09:49 Pepito
+drwxr-xr-x 22 limone_m users 4096 14 mars  17:58 Piscine-C
+drwxr-xr-x  4 limone_m users 4096  3 mai   15:51 prog_elem
+drwxr-xr-x  8 limone_m users 4096  8 mai   16:52 PSU_2013_42sh
+drwxr-xr-x  5 limone_m users 4096 23 mars  20:21 PSU_2013_minitalk
+drwxr-xr-x  4 limone_m users 4096 14 mars  18:05 Rush
+drwxr-xr-x  7 limone_m users 4096  5 mai   15:09 System Unix
+drwxr-xr-x  2 limone_m users 4096 19 mai   14:41 test

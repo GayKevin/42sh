@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Tue May 13 23:59:52 2014 Maxime Limone
-** Last update Thu May 22 01:27:57 2014 Maxime Limone
+** Last update Thu May 22 11:44:18 2014 Maxime Limone
 */
 
 #include <stdio.h>
@@ -74,14 +74,14 @@ int		check_error_pipe(t_node *tree, t_shell *sh)
       fprintf(stderr, "Syntax error: about the symbol '|'\n");
       return (-1);
     }
-  while ((tree->left->op != sh->op_char[++t]) && sh->op_char[t] != '\0');
+  while ((tree->left->str[0] != sh->op_char[++t]) && sh->op_char[t] != '\0');
   if (sh->op_char[t] != '\0' && sh->op_char[t] != '<' && sh->op_char[t] != '>')
     {
       fprintf(stderr, "Syntax error: about the symbol '%c'\n", sh->op_char[t]);
       return (-1);
     }
   t = -1;
-  while ((tree->right->op != sh->op_char[++t]) && sh->op_char[t] != '\0');
+  while ((tree->right->str[0] != sh->op_char[++t]) && sh->op_char[t] != '\0');
   if (sh->op_char[t] != '\0' && sh->op_char[t] != '<' && sh->op_char[t] != '>')
     {
       fprintf(stderr, "Syntax error: about the symbol '%c'\n", sh->op_char[t]);

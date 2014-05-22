@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Tue May 13 22:38:27 2014 Kevin Gay
-** Last update Wed May 14 02:30:58 2014 Maxime Limone
+** Last update Thu May 22 10:20:51 2014 Maxime Limone
 */
 
 #include <stdlib.h>
@@ -15,6 +15,7 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 #include "main.h"
+#include "operator.h"
 #include "tree.h"
 #include "pars.h"
 #include "epur_str.h"
@@ -38,11 +39,15 @@ int		left_chevron(t_node *tree, t_shell *sh)
       exit(1);
     }
   else
-    {
-      if ((wait(NULL)) == -1)
-	exit(0);
-      if ((dup2(dup_fd[1], 0)) == -1)
-	return (0);
-    }
+    left_chevron_afterpart(dup_fd, tree, sh);
+  return (0);
+}
+
+int		left_chevron_afterpart(int dup_fd[2], t_node *tree, t_shell *sh)
+{
+  if ((wait(NULL)) == -1)
+    exit(0);
+  if ((dup2(dup_fd[1], 0)) == -1)
+    return (0);
   return (0);
 }
