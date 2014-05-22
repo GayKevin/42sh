@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 12 13:55:08 2014 Maxime Limone
-** Last update Thu May 22 01:19:38 2014 Maxime Limone
+** Last update Thu May 22 21:52:39 2014 Maxime Limone
 */
 
 #include <stdlib.h>
@@ -36,20 +36,9 @@ int		stock_tree(char *buff, t_shell *sh)
   int		j;
   int		k;
 
-  /* if (sh->left == NULL) */
-  /*   { */
-      if (((sh->left = malloc(sizeof(char) * strlen(buff))) == NULL)
-	  || ((sh->right = malloc(sizeof(char) * strlen(buff))) == NULL))
-	return (-1);
-  /*   } */
-  /* else */
-  /*   { */
-  /*     free(sh->left); */
-  /*     free(sh->right); */
-  /*     sh->left = NULL; */
-  /*     stock_tree(buff, sh); */
-  /*     return (0); */
-  /*   } */
+  if (((sh->left = malloc(sizeof(char) * strlen(buff))) == NULL)
+      || ((sh->right = malloc(sizeof(char) * strlen(buff))) == NULL))
+    return (-1);
   memset(sh->left, 0, strlen(buff));
   memset(sh->right, 0, strlen(buff));
   j = -1;
@@ -82,12 +71,12 @@ char		*tab_(char *tab)
   tab[0] = ';';
   tab[1] = '&';
   tab[2] = '+';
-  tab[3] = '-';
+  tab[3] = '*';
   tab[4] = '<';
   tab[5] = '>';
   tab[6] = 'A';
   tab[7] = 'C';
-  tab[8] = '|';
+  tab[8] = '9';
   return (tab);
 }
 

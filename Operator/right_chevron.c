@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Wed May 14 14:24:39 2014 Maxime Limone
-** Last update Wed May 14 14:24:40 2014 Maxime Limone
+** Last update Thu May 22 22:08:39 2014 Maxime Limone
 */
 
 #include <stdlib.h>
@@ -39,6 +39,8 @@ int		right_chevron(t_node *tree, t_shell *sh)
   int		dup_fd[2];
   pid_t		pid;
 
+  if (check_err_chevron(tree, sh) == -1)
+    return (-1);
   if ((dup_fd[0] = open(stock_name(epur_str(tree->right->str))
 		    , O_TRUNC | O_RDWR | O_CREAT, 0644)) == -1)
     return (-1);

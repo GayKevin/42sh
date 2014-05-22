@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May  8 15:12:42 2014 Maxime Limone
-** Last update Thu May 22 11:43:04 2014 Maxime Limone
+** Last update Thu May 22 21:53:29 2014 Maxime Limone
 */
 
 #include <stdlib.h>
@@ -44,21 +44,29 @@ int		check_op(char *buff, t_shell *sh, t_node *tree)
   int		i;
   char		op_f;
 
-  buf = malloc(sizeof(char) * strlen(buff));
+  buf = malloc(sizeof(char) * (strlen(buff) + 5));
+  memset(buf, 0, (strlen(buff) + 5));
   strcpy(buf, buff);
+  tree->str = malloc(sizeof(char) * (strlen(buf) + 5));
+  memset(tree->str, 0, (strlen(buf) + 5));
   i = -1;
   sh->r = 0;
   ++sh->i_tree;
   sh->db_op = 0;
   while (buff[++i] != '\0')
     i = check_op_st(buf, i, sh);
-  tree->str = epur_str(buf);
+  strcpy(tree->str, buf);
+  tree->str = epur_str(tree->str);
   if (sh->r == 0)
-    return (1);
+    {
+      free(buf);
+      return (1);
+    }
   sh->op_fnd[sh->r] = '\0';
   sh->op_fnd_i[sh->r] = '\0';
   op_f = prio_op(buf, sh);
   stock_tree(buf, sh);
+  free(buf);
   if (op_f == 0)
     tree->chck_tree = 0;
   else
@@ -97,7 +105,7 @@ int		check_op_st(char *buff, int i, t_shell *sh)
 int		change_double_char(char op, int i, int t, t_shell *sh)
 {
   if (op == '|')
-    sh->op_fnd[sh->r - 1] = '-';
+    sh->op_fnd[sh->r - 1] = '*';
   else
     sh->op_fnd[sh->r - 1] = sh->op_char[t] + 5;
   sh->op_fnd_i[sh->r - 1] = i++;
@@ -115,19 +123,23 @@ char		prio_op(char *buff, t_shell *sh)
   brk = 0;
   op_f = '~';
   while (brk == 0 && (sh->op_fnd[++i] != '\0'))
-    if (sh->op_fnd[i] == ';')
-      {
-	op_f = sh->op_fnd[i];
-	sh->op_i = i;
-	brk = 1;
-      }
-    else
-      if (sh->op_fnd[i] < op_f && sh->op_fnd[i] != '\0')
+    {
+      if (sh->op_fnd[i] == '|')
+	sh->op_fnd[i] = '9';
+      if (sh->op_fnd[i] == ';')
 	{
 	  op_f = sh->op_fnd[i];
 	  sh->op_i = i;
+	  brk = 1;
 	}
-  if (op_f == '-' || op_f == '+' || op_f == 'A' || op_f == 'C')
+      else
+	if (sh->op_fnd[i] < op_f && sh->op_fnd[i] != '\0')
+	  {
+	    op_f = sh->op_fnd[i];
+	    sh->op_i = i;
+	  }
+    }
+  if (op_f == '*' || op_f == '+' || op_f == 'A' || op_f == 'C')
     sh->db_op = 2;
   return (op_f);
 }

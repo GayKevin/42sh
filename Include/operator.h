@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Tue May 13 21:32:23 2014 Maxime Limone
-** Last update Thu May 22 16:05:16 2014 Maxime Limone
+** Last update Thu May 22 22:04:43 2014 Maxime Limone
 */
 
 #ifndef OPERATOR_H_
@@ -15,7 +15,7 @@
 char		*stock_name(char *str);
 int		check_err_pipe(t_node *tree, t_shell *sh);
 int		check_err_chevron(t_node *tree, t_shell *sh);
-int		change_left_chevron(t_node *tree, t_shell *sh);
+int		change_chevron(t_node *tree, t_shell *sh);
 int		master_pipe(int pipefd[2], t_node *tree, t_shell *sh);
 int		pipe_simple(t_node *tree, t_shell *sh);
 int		master_pipe(int pipefd[2], t_node *tree, t_shell *sh);
