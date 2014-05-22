@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Wed May 14 01:35:25 2014 Kevin Gay
-** Last update Thu May 22 20:29:48 2014 Kevin Gay
+** Last update Thu May 22 01:09:57 2014 Kevin Gay
 */
 
 #include <string.h>
@@ -110,11 +110,6 @@ void	find_ps1_stuff(t_shell *sh)
       else if ((my_strncmp_nbr(sh->ps_1, "\\#" , (i + 1), i)) == 0)
 	{
 	  /* get_nbr(sh); */
-	  ++i;
-	}
-      else if ((my_strncmp_nbr(sh->ps_1, "\\n" , (i + 1), i)) == 0)
-	{
-	  strcat(sh->ps1, "\n");
 	  ++i;
 	}
       else if (sh->ps_1[i] != '\\')

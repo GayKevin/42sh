@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 12 13:55:08 2014 Maxime Limone
-** Last update Thu May 22 18:42:10 2014 Kevin Gay
+** Last update Thu May 22 18:20:08 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -94,6 +94,7 @@ int		gere_operator(t_node *tree, t_shell *sh)
     return (-1);
   tab_tab = tab_(tab_tab);
   tab_function_read(tab_func);
+  printf("test\n");
   if (tree->chck_tree == 2)
     {
       while (tab_tab[++o] != tree->op);
