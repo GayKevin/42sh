@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May  8 15:12:42 2014 Maxime Limone
-** Last update Thu May 22 01:17:25 2014 Maxime Limone
+** Last update Thu May 22 18:23:17 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -28,7 +28,7 @@ int             parsing_main(char *buff, t_shell *sh)
   tree->left = NULL;
   tree->right = NULL;
   if (check_op(buff, sh, tree) == 1);
-  display_tree(tree);
+  /* display_tree(tree); */
   if ((gere_operator(tree, sh)) == -1)
     {
       free_stuff(sh, tree);
@@ -42,27 +42,37 @@ int		check_op(char *buff, t_shell *sh, t_node *tree)
 {
   int		i;
   char		op_f;
+  char		*buf;
 
+  buf = malloc(sizeof(char) * (strlen(buff) + 5));
+  memset(buf, 0, strlen(buff));
+  strcpy(buf, buff);
+  tree->str = malloc(sizeof(char) * (strlen(buf) + 5));
+  memset(tree->str, 0, (strlen(buf) + 5));
+  strcpy(tree->str, buf);
+  tree->str = epur_str(tree->str);
   i = -1;
   sh->r = 0;
   ++sh->i_tree;
   sh->db_op = 0;
-  while (buff[++i] != '\0')
-    i = check_op_st(buff, i, sh);
-  tree->str = epur_str(buff);
+  while (buf[++i] != '\0')
+    i = check_op_st(buf, i, sh);
   if (sh->r == 0)
-    return (1);
+    {
+      free(buf);
+      return (1);
+    }
   sh->op_fnd[sh->r] = '\0';
   sh->op_fnd_i[sh->r] = '\0';
-  op_f = prio_op(buff, sh);
-  stock_tree(buff, sh);
+  op_f = prio_op(buf, sh);
+  stock_tree(buf, sh);
+  free(buf);
   if (op_f == 0)
     tree->chck_tree = 0;
   else
     tree->chck_tree = 2;
   tree->op = op_f;
   add_node(tree, epur_str(sh->left), epur_str(sh->right));
-  //printf("left -> %s \t right -> %s\n", tree->left->str, tree->right->str);
   check_op(tree->left->str, sh, tree->left);
   check_op(tree->right->str, sh, tree->right);
   return (0);
