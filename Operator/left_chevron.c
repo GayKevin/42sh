@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Tue May 13 22:38:27 2014 Kevin Gay
-** Last update Thu May 22 22:17:22 2014 Maxime Limone
+** Last update Thu May 22 22:43:08 2014 Maxime Limone
 */
 
 #include <string.h>
@@ -17,6 +17,8 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 #include "main.h"
+#include "errno.h"
+#include "my_errno.h"
 #include "operator.h"
 #include "tree.h"
 #include "pars.h"
@@ -30,7 +32,11 @@ int		left_chevron(t_node *tree, t_shell *sh)
   if (check_err_chevron(tree, sh) == -1)
     return (-1);
   if ((dup_fd[0] = open(tree->right->str, O_RDONLY)) == -1)
-    return (-1);
+    {
+      if (errno == ENOENT)
+	printf("KO\n");
+      return (-1);
+    }
   if ((pid = fork()) == -1)
     return (-1);
   if (pid == 0)
@@ -75,14 +81,14 @@ int		check_err_chevron(t_node *tree, t_shell *sh)
   while ((tree->left->str[0] != sh->op_char[++t]) && sh->op_char[t] != '\0');
   if (sh->op_char[t] != '\0')
     {
-      fprintf(stderr, "Syntax error: about the symbol '%c'\n", sh->op_char[t]);
+      fprintf(stderr, "2Syntax error: about the symbol '%c'\n", sh->op_char[t]);
       return (-1);
     }
   t = -1;
   while ((tree->right->str[0] != sh->op_char[++t]) && sh->op_char[t] != '\0');
   if (sh->op_char[t] != '\0')
     {
-      fprintf(stderr, "Syntax error: about the symbol '%c'\n", sh->op_char[t]);
+      fprintf(stderr, "3Syntax error: about the symbol '%c'\n", sh->op_char[t]);
       return (-1);
     }
   return (0);
