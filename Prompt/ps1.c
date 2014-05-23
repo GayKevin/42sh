@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Wed May 14 01:35:25 2014 Kevin Gay
-** Last update Fri May 23 18:14:18 2014 Kevin Gay
+** Last update Fri May 23 18:18:16 2014 Kevin Gay
 */
 
 #include <string.h>
@@ -40,7 +40,7 @@ void	tab_function_ps1(int (*tab_func[10])(t_shell *sh, int i))
   tab_func[2] = date_ps1;
   tab_func[3] = get_full_hostname_ps1;
   tab_func[4] = get_half_hostname_ps1;
-  tab_func[5] = get_half_hostname_ps1;
+  tab_func[5] = get_nbr;
   tab_func[6] = get_username_ps1;
   tab_func[7] = get_username_ps1;
   tab_func[8] = get_print_letter;

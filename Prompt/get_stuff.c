@@ -5,12 +5,13 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Fri May 23 18:09:15 2014 Kevin Gay
-** Last update Fri May 23 18:13:57 2014 Kevin Gay
+** Last update Fri May 23 18:23:25 2014 Kevin Gay
 */
 
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "main.h"
 #include "my_strncpy.h"
 #include "my_strcmp.h"
@@ -41,6 +42,20 @@ int		get_username_ps1(t_shell *sh, int i)
   getlogin_r(str, 512);
   strcat(sh->ps1, str);
   return (i + 1);
+}
+
+int		get_nbr(t_shell *sh, int i)
+{
+  static int	l;
+  char		str[10];
+
+
+  memset(str, 0, 10);
+  sprintf(str, "%d", l);
+  ++l;
+  i = i + 2;
+  strcat(sh->ps1, str);
+  return (i);
 }
 
 int		get_full_hostname_ps1(t_shell *sh, int i)
