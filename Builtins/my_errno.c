@@ -5,13 +5,15 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 19 14:00:47 2014 Maxime Limone
-** Last update Fri May 23 19:40:39 2014 Kevin Gay
+** Last update Fri May 23 19:44:25 2014 Maxime Limone
 */
 
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 #include "tree.h"
+#include "my_free.h"
 #include "main.h"
 #include "my_errno.h"
 
@@ -65,7 +67,6 @@ int		*tab_errno(int *tab)
 int		find_errno(t_shell *sh)
 {
   t_erno	er;
-  char		**tab_fun;
   int		*tab_tab;
   int		i;
 
