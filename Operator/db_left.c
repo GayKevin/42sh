@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Tue May 20 10:51:02 2014 Maxime Limone
-** Last update Wed May 21 17:54:47 2014 Maxime Limone
+** Last update Fri May 23 14:28:29 2014 Maxime Limone
 */
 
 #include <sys/types.h>
@@ -25,6 +25,8 @@ int		db_left(t_node *tree, t_shell *sh)
   int		pipefd[2];
   int		dp;
 
+  if (check_err_chevron(tree, sh) == -1)
+    return (-1);
   if ((buff_w = malloc(sizeof(char) * 1)) == NULL)
     return (-1);
   db_left_afterpart(buff_w, tree, sh);

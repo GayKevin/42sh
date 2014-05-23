@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Tue May 13 22:39:53 2014 Kevin Gay
-** Last update Wed May 14 14:11:40 2014 Maxime Limone
+** Last update Fri May 23 14:30:48 2014 Maxime Limone
 */
 
 #include <stdlib.h>
@@ -25,6 +25,8 @@ int		db_right(t_node *tree, t_shell *sh)
   int		dup_fd[2];
   pid_t		pid;
 
+  if (check_err_chevron(tree, sh) == -1)
+    return (-1);
   if ((dup_fd[0] = open(stock_name(epur_str(tree->right->str)),
 			O_APPEND | O_RDWR | O_CREAT, 0644)) == -1)
     return (-1);

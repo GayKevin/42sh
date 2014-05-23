@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:23:51 2014 Maxime Limone
-** Last update Mon May 19 17:57:52 2014 Maxime Limone
+** Last update Fri May 23 18:04:53 2014 Maxime Limone
 */
 
 #include <stdio.h>
@@ -41,10 +41,8 @@ int		add_env(t_shell *sh, int i, int p)
   t = 0;
   l = -1;
   while (sh->cmd[i + 1][++l] != '\0')
-    {
-      if (sh->cmd[i + 1][l] == '=')
-	t = 1;
-    }
+    if (sh->cmd[i + 1][l] == '=')
+      t = 1;
   if (t == 1)
     {
       if ((sh->env = realloc(sh->env, sizeof(char *) * (p + 2))) == NULL)
