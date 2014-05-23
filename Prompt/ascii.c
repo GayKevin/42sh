@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Wed May 21 15:24:02 2014 Kevin Gay
-** Last update Wed May 21 16:17:15 2014 Kevin Gay
+** Last update Fri May 23 17:41:50 2014 Kevin Gay
 */
 
 #include <string.h>
@@ -39,5 +39,5 @@ int	ascii_ps1(t_shell *sh, int i)
   while (str[++l] != '[');
   strcat_nbr(str2, str, l);
   strcat(sh->ps1, str2);
-  return (i - 1);
+  return (i);
 }

@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Thu May  8 15:12:42 2014 Maxime Limone
-** Last update Thu May 22 18:23:17 2014 Kevin Gay
+** Last update Thu May 22 21:53:29 2014 Maxime Limone
 */
 
 #include <stdlib.h>
@@ -28,7 +28,7 @@ int             parsing_main(char *buff, t_shell *sh)
   tree->left = NULL;
   tree->right = NULL;
   if (check_op(buff, sh, tree) == 1);
-  /* display_tree(tree); */
+  //  display_tree(tree);
   if ((gere_operator(tree, sh)) == -1)
     {
       free_stuff(sh, tree);
@@ -40,23 +40,23 @@ int             parsing_main(char *buff, t_shell *sh)
 
 int		check_op(char *buff, t_shell *sh, t_node *tree)
 {
+  char		*buf;
   int		i;
   char		op_f;
-  char		*buf;
 
   buf = malloc(sizeof(char) * (strlen(buff) + 5));
-  memset(buf, 0, strlen(buff));
+  memset(buf, 0, (strlen(buff) + 5));
   strcpy(buf, buff);
   tree->str = malloc(sizeof(char) * (strlen(buf) + 5));
   memset(tree->str, 0, (strlen(buf) + 5));
-  strcpy(tree->str, buf);
-  tree->str = epur_str(tree->str);
   i = -1;
   sh->r = 0;
   ++sh->i_tree;
   sh->db_op = 0;
-  while (buf[++i] != '\0')
+  while (buff[++i] != '\0')
     i = check_op_st(buf, i, sh);
+  strcpy(tree->str, buf);
+  tree->str = epur_str(tree->str);
   if (sh->r == 0)
     {
       free(buf);
@@ -73,6 +73,7 @@ int		check_op(char *buff, t_shell *sh, t_node *tree)
     tree->chck_tree = 2;
   tree->op = op_f;
   add_node(tree, epur_str(sh->left), epur_str(sh->right));
+  //printf("left -> %s \t right -> %s\n", tree->left->str, tree->right->str);
   check_op(tree->left->str, sh, tree->left);
   check_op(tree->right->str, sh, tree->right);
   return (0);
@@ -104,7 +105,7 @@ int		check_op_st(char *buff, int i, t_shell *sh)
 int		change_double_char(char op, int i, int t, t_shell *sh)
 {
   if (op == '|')
-    sh->op_fnd[sh->r - 1] = '-';
+    sh->op_fnd[sh->r - 1] = '*';
   else
     sh->op_fnd[sh->r - 1] = sh->op_char[t] + 5;
   sh->op_fnd_i[sh->r - 1] = i++;
@@ -122,19 +123,23 @@ char		prio_op(char *buff, t_shell *sh)
   brk = 0;
   op_f = '~';
   while (brk == 0 && (sh->op_fnd[++i] != '\0'))
-    if (sh->op_fnd[i] == ';')
-      {
-	op_f = sh->op_fnd[i];
-	sh->op_i = i;
-	brk = 1;
-      }
-    else
-      if (sh->op_fnd[i] < op_f && sh->op_fnd[i] != '\0')
+    {
+      if (sh->op_fnd[i] == '|')
+	sh->op_fnd[i] = '9';
+      if (sh->op_fnd[i] == ';')
 	{
 	  op_f = sh->op_fnd[i];
 	  sh->op_i = i;
+	  brk = 1;
 	}
-  if (op_f == '-' || op_f == '+' || op_f == 'A' || op_f == 'C')
+      else
+	if (sh->op_fnd[i] < op_f && sh->op_fnd[i] != '\0')
+	  {
+	    op_f = sh->op_fnd[i];
+	    sh->op_i = i;
+	  }
+    }
+  if (op_f == '*' || op_f == '+' || op_f == 'A' || op_f == 'C')
     sh->db_op = 2;
   return (op_f);
 }

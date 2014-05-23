@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Wed May 21 15:23:19 2014 Kevin Gay
-** Last update Wed May 21 15:33:48 2014 Kevin Gay
+** Last update Fri May 23 16:56:48 2014 Kevin Gay
 */
 
 #include <string.h>
@@ -17,7 +17,7 @@
 #include "my_strncpy.h"
 
 
-void		date_ps1(t_shell *sh, int i)
+int		date_ps1(t_shell *sh, int i)
 {
   time_t	rawtime;
   struct tm	*timeinfo;
@@ -42,4 +42,5 @@ void		date_ps1(t_shell *sh, int i)
 	++o;
     }
   strcat(sh->ps1, str);
+  return (i + 1);
 }
