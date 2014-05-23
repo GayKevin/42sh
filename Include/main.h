@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:47:14 2014 Maxime Limone
-** Last update Fri May 23 18:13:00 2014 Kevin Gay
+** Last update Fri May 23 19:23:36 2014 Kevin Gay
 */
 
 #ifndef MAIN_H_
