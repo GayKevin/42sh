@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Tue May 13 22:38:27 2014 Kevin Gay
-** Last update Fri May 23 10:04:25 2014 Maxime Limone
+** Last update Fri May 23 13:59:05 2014 Maxime Limone
 */
 
 #include <string.h>
@@ -78,7 +78,7 @@ int		check_err_chevron(t_node *tree, t_shell *sh)
   while ((tree->right->str[0] != sh->op_char[++t]) && sh->op_char[t] != '\0');
   if (sh->op_char[t] != '\0')
     {
-      fprintf(stderr, "3Syntax error: about the symbol '%c'\n", sh->op_char[t]);
+      fprintf(stderr, "Syntax error: about the symbol '%c'\n", sh->op_char[t]);
       return (-1);
     }
   if (tree->left->str[0] == '\0')
@@ -106,6 +106,7 @@ int		change_chevron(t_node *tree, t_shell *sh)
     }
   buff[++b] = '\0';
   tree->right->str = epur_str(tree->right->str);
+  printf("%s\n", tree->right->str);
   strcpy(tree->left->str, buff);
   free(buff);
   return (0);
