@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Tue May 13 22:38:27 2014 Kevin Gay
-** Last update Thu May 22 22:43:08 2014 Maxime Limone
+** Last update Fri May 23 19:38:13 2014 Kevin Gay
 */
 
 #include <string.h>
@@ -33,7 +33,7 @@ int		left_chevron(t_node *tree, t_shell *sh)
     return (-1);
   if ((dup_fd[0] = open(tree->right->str, O_RDONLY)) == -1)
     {
-      if (errno == ENOENT)
+      if (find_errno(sh) == -1)
 	printf("KO\n");
       return (-1);
     }
@@ -75,22 +75,15 @@ int		check_err_chevron(t_node *tree, t_shell *sh)
       fprintf(stderr, "Syntax error: about the symbol '%c'\n", tree->op);
       return (-1);
     }
-  if (tree->left->str[0] == '\0')
-    if (change_chevron(tree, sh) == -1)
-      return (-1);
-  while ((tree->left->str[0] != sh->op_char[++t]) && sh->op_char[t] != '\0');
-  if (sh->op_char[t] != '\0')
-    {
-      fprintf(stderr, "2Syntax error: about the symbol '%c'\n", sh->op_char[t]);
-      return (-1);
-    }
-  t = -1;
   while ((tree->right->str[0] != sh->op_char[++t]) && sh->op_char[t] != '\0');
   if (sh->op_char[t] != '\0')
     {
-      fprintf(stderr, "3Syntax error: about the symbol '%c'\n", sh->op_char[t]);
+      fprintf(stderr, "Syntax error: about the symbol '%c'\n", sh->op_char[t]);
       return (-1);
     }
+  if (tree->left->str[0] == '\0')
+    if (change_chevron(tree, sh) == -1)
+      return (-1);
   return (0);
 }
 
@@ -102,11 +95,11 @@ int		change_chevron(t_node *tree, t_shell *sh)
 
   i = -1;
   b = -1;
-  if ((buff = malloc(sizeof(char) * strlen(tree->left->str))) == NULL)
+  if ((buff = malloc(sizeof(char) * (strlen(tree->right->str) + 1))) == NULL)
     return (-1);
-  memset(buff, 0, strlen(tree->left->str));
+  memset(buff, 0, strlen(tree->right->str));
   while (tree->right->str[++i] != ' ' && tree->right->str[i] != '\0');
-  while (tree->right->str[++i] != ' ' && tree->right->str[i] != '\0')
+  while (tree->right->str[++i] != '\0')
     {
       buff[++b] = tree->right->str[i];
       tree->right->str[i] = ' ';

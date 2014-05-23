@@ -5,12 +5,12 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 14:50:23 2014 Maxime Limone
-** Last update Mon May  5 14:50:24 2014 Maxime Limone
+** Last update Fri May 23 18:18:06 2014 Maxime Limone
 */
 
 #ifndef STR_TO_WORDTAB_H_
 # define STR_TO_WORDTAB_H_
 
-char	**my_str_to_wordtab(char *str);
+char		**my_str_to_wordtab(char *str);
 
-#endif /* STR_TO_WORDTAB */
+#endif /* STR_TO_WORDTAB_H_ */

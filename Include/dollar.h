@@ -1,17 +1,17 @@
 /*
-** dollar.h for dollar in /home/gay_k/42sh
+** dollar.h for 42sh in /home/limone_m/rendu/42sh/Include
 ** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
+** Made by Maxime Limone
+** Login   <limone_m@epitech.net>
 ** 
-** Started on  Tue May 13 13:43:30 2014 Kevin Gay
-** Last update Wed May 14 02:13:14 2014 Kevin Gay
+** Started on  Fri May 23 18:15:12 2014 Maxime Limone
+** Last update Fri May 23 18:15:15 2014 Maxime Limone
 */
 
 #ifndef DOLLAR_H_
 # define DOLLAR_H_
 
-int	dollar(t_shell *sh);
-int	compare_env_dollar(char *tmp, t_shell *sh, int p);
+int		dollar(t_shell *sh);
+int		compare_env_dollar(char *tmp, t_shell *sh, int p);
 
-#endif /* DOLLAR */
+#endif /* DOLLAR_H_ */

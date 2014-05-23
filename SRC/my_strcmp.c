@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Wed May 21 12:04:01 2014 Kevin Gay
-** Last update Wed May 21 15:25:14 2014 Kevin Gay
+** Last update Fri May 23 19:47:59 2014 Maxime Limone
 */
 
 int	my_strncmp_nbr(char *str1, char *str2, int o, int i)
