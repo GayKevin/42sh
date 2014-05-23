@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Wed May 14 01:35:25 2014 Kevin Gay
-** Last update Fri May 23 18:18:16 2014 Kevin Gay
+** Last update Fri May 23 19:47:24 2014 Maxime Limone
 */
 
 #include <string.h>
@@ -66,6 +66,7 @@ int	find_ps1_stuff(t_shell *sh)
 	    i = tab_func[8](sh, i);
 	}
     }
+  return (0);
 }
 
 
@@ -80,7 +81,7 @@ void	env_null(t_shell *sh, int p)
     }
 }
 
-int	*find_ps1(t_shell *sh)
+int	find_ps1(t_shell *sh)
 {
   int	p;
   int	l;

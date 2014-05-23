@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Wed May 14 14:24:39 2014 Maxime Limone
-** Last update Thu May 22 22:08:39 2014 Maxime Limone
+** Last update Fri May 23 19:39:11 2014 Kevin Gay
 */
 
 #include <stdlib.h>
@@ -15,6 +15,7 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 #include "main.h"
+#include "operator.h"
 #include "tree.h"
 #include "pars.h"
 #include "epur_str.h"
@@ -31,6 +32,7 @@ char		*stock_name(char *str)
   i = -1;
   while (str[++i] != ' ' && str[i] != '\t' && str[i] != '\0')
     tmp[i] = str[i];
+  tmp[i] = '\0';
   return (tmp);
 }
 

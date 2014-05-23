@@ -4,7 +4,7 @@
 ## Made by Maxime Limone
 ## Login   <limone_m@epitech.net>
 ## Started on  Mon May  5 14:54:13 2014 Maxime Limone
-## Last update Fri May 23 18:11:19 2014 Kevin Gay
+## Last update Fri May 23 19:39:55 2014 Kevin Gay
 ##
 
 SRC		= Operator/pipe_simple.c \
@@ -49,8 +49,6 @@ SRC		= Operator/pipe_simple.c \
 		  SRC/my_malloc_pwd.c \
 		  SRC/my_show_tab.c \
 		  SRC/main.c
-#	  	  move.c \
-#	 	  termcaps.c
 
 NAME		= 42sh
 

@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 11:00:18 2014 Maxime Limone
-** Last update Wed May 21 21:14:12 2014 Maxime Limone
+** Last update Fri May 23 17:56:52 2014 Maxime Limone
 */
 
 #include <string.h>
@@ -32,14 +32,13 @@ int		cd_home(t_shell *sh, int i)
     return (-1);
   memset(cd, 0, 512);
   while (sh->env[++l] != NULL)
-    if (strncmp(sh->env[l], "HOME=", 5) == 0)
-      while (sh->env[l][o] != '\0')
+    while (strncmp(sh->env[l], "HOME=", 5) == 0 && sh->env[l][o] != '\0')
 	cd[++p] = sh->env[l][o++];
   if (chdir(cd) == -1)
     {
       sh->ok_cmd = -1;
       if (find_errno(sh) == -1)
-      	printf("KO\n");
+      	fprintf(stderr, "Error: directory inaccessible\n");
       return (-1);
     }
   old_pwd(sh);
@@ -62,16 +61,13 @@ int		cd_old_pwd(t_shell *sh, int i)
     return (-1);
   memset(cmd, 0, 512);
   while (sh->env[++o] != NULL)
-    if (strncmp(sh->env[o], "OLDPWD=", 7) == 0)
-      {
-	while (sh->env[o][++l] != '\0')
-	  cmd[p++] = sh->env[o][l];
-      }
+    while (strncmp(sh->env[o], "OLDPWD=", 7) == 0 && sh->env[o][++l] != '\0')
+      cmd[p++] = sh->env[o][l];
   if (chdir(cmd) == -1)
     {
       sh->ok_cmd = -1;
       if (find_errno(sh) == -1)
-      	printf("KO\n");
+ 	fprintf(stderr, "Error: directory inaccessible\n");
       return (-1);
     }
   old_pwd(sh);
@@ -98,7 +94,7 @@ int		find_cd(t_shell *sh, int i)
 	    {
 	      sh->ok_cmd = -1;
 	      if (find_errno(sh) == -1)
-		printf("KO\n");
+		fprintf(stderr, "Error: directory inaccessible\n");
 	      return (-1);
 	    }
       	  old_pwd(sh);
