@@ -1,17 +1,17 @@
 /*
-** free_stuff.h for free_stuff in /home/gay_k/rendu/42sh
+** free_stuff.h for 42sh in /home/limone_m/rendu/42sh/Include
 ** 
-** Made by Kevin Gay
-** Login   <gay_k@epitech.net>
+** Made by Maxime Limone
+** Login   <limone_m@epitech.net>
 ** 
-** Started on  Fri May 16 14:12:00 2014 Kevin Gay
-** Last update Fri May 16 14:13:03 2014 Kevin Gay
+** Started on  Fri May 23 18:10:38 2014 Maxime Limone
+** Last update Fri May 23 18:10:50 2014 Maxime Limone
 */
 
 #ifndef FREE_STUFF_H_
 # define FREE_STUFF_H_
 # include "tree.h"
 
-void	free_stuff(t_shell *sh, t_node *tree);
+void		free_stuff(t_shell *sh, t_node *tree);
 
-#endif /* FREE_STUFF */
+#endif /* FREE_STUFF_H_ */

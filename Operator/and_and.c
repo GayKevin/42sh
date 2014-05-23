@@ -5,17 +5,23 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Tue May 13 22:37:47 2014 Kevin Gay
-** Last update Thu May 22 14:16:27 2014 Maxime Limone
+** Last update Fri May 23 15:00:43 2014 Maxime Limone
 */
 
+#include <string.h>
+#include <stdio.h>
 #include "main.h"
+#include "my_putstr.h"
+#include "operator.h"
 #include "tree.h"
+#include "pars.h"
 #include "path.h"
 #include "my_free.h"
-#include "pars.h"
 
 int	and_and(t_node *tree, t_shell *sh)
 {
+  if (check_err_op(tree, sh) == -1)
+    return (-1);
   gere_operator(tree->left, sh);
   if (sh->ok_cmd == 1)
     {

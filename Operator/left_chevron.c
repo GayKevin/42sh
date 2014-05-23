@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Tue May 13 22:38:27 2014 Kevin Gay
-** Last update Fri May 23 13:59:05 2014 Maxime Limone
+** Last update Fri May 23 17:03:01 2014 Maxime Limone
 */
 
 #include <string.h>
@@ -106,7 +106,6 @@ int		change_chevron(t_node *tree, t_shell *sh)
     }
   buff[++b] = '\0';
   tree->right->str = epur_str(tree->right->str);
-  printf("%s\n", tree->right->str);
   strcpy(tree->left->str, buff);
   free(buff);
   return (0);

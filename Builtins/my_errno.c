@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 19 14:00:47 2014 Maxime Limone
-** Last update Mon May 19 17:58:55 2014 Maxime Limone
+** Last update Fri May 23 18:00:40 2014 Maxime Limone
 */
 
 #include <stdio.h>
@@ -14,7 +14,7 @@
 #include "tree.h"
 #include "main.h"
 
-char	**tab_function_errno(char *tab_fun[19])
+char		**tab_function_errno(char *tab_fun[19])
 {
   tab_fun[0] = "Permission Denied";
   tab_fun[1] = "Operation canceled";
