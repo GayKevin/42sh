@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May 19 14:00:47 2014 Maxime Limone
-** Last update Mon May 19 17:58:55 2014 Maxime Limone
+** Last update Fri May 23 19:31:55 2014 Kevin Gay
 */
 
 #include <stdio.h>
@@ -13,29 +13,29 @@
 #include <errno.h>
 #include "tree.h"
 #include "main.h"
+#include "my_errno.h"
 
-char	**tab_function_errno(char *tab_fun[19])
+void		tab_function_errno(t_erno *sh)
 {
-  tab_fun[0] = "Permission Denied";
-  tab_fun[1] = "Operation canceled";
-  tab_fun[2] = "File exists";
-  tab_fun[3] = "File too large";
-  tab_fun[4] = "Interrupted function call";
-  tab_fun[5] = "Invalid argument";
-  tab_fun[6] = "An I/O error occurred";
-  tab_fun[7] = "Is a directory";
-  tab_fun[8] = "No such file or directory";
-  tab_fun[9] = "Exec format error";
-  tab_fun[10] = "Not a directory";
-  tab_fun[11] = "Directory not empty";
-  tab_fun[12] = "Operation not supported";
-  tab_fun[13] = "Operation not permitted";
-  tab_fun[14] = "Broken pipe";
-  tab_fun[15] = "Read-only file system";
-  tab_fun[16] = "No such process";
-  tab_fun[17] = "Connection timed out";
-  tab_fun[18] = NULL;
-  return (tab_fun);
+  sh->erno[0] = strdup("Permission Denied");
+  sh->erno[1] = strdup("Operation canceled");
+  sh->erno[2] = strdup("File exists");
+  sh->erno[3] = strdup("File too large");
+  sh->erno[4] = strdup("Interrupted function call");
+  sh->erno[5] = strdup("Invalid argument");
+  sh->erno[6] = strdup("An I/O error occurred");
+  sh->erno[7] = strdup("Is a directory");
+  sh->erno[8] = strdup("No such file or directory");
+  sh->erno[9] = strdup("Exec format error");
+  sh->erno[10] = strdup("Not a directory");
+  sh->erno[11] = strdup("Directory not empty");
+  sh->erno[12] = strdup("Operation not supported");
+  sh->erno[13] = strdup("Operation not permitted");
+  sh->erno[14] = strdup("Broken pipe");
+  sh->erno[15] = strdup("Read-only file system");
+  sh->erno[16] = strdup("No such process");
+  sh->erno[17] = strdup("Connection timed out");
+  sh->erno[18] = NULL;
 }
 
 int		*tab_errno(int *tab)
@@ -64,6 +64,7 @@ int		*tab_errno(int *tab)
 
 int		find_errno(t_shell *sh)
 {
+  t_erno	er;
   char		**tab_fun;
   int		*tab_tab;
   int		i;
@@ -71,14 +72,22 @@ int		find_errno(t_shell *sh)
   i = -1;
   if ((tab_tab = malloc(sizeof(int) * 19)) == NULL)
     return (-1);
-  if ((tab_fun = malloc(sizeof(char) * 19)) == NULL)
+  if ((er.erno = malloc(sizeof(char *) * 20)) == NULL)
     return (-1);
+  memset(er.erno, 0, 20);
+  tab_function_errno(&er);
+  i = -1;
   tab_tab = tab_errno(tab_tab);
-  tab_fun = tab_function_errno(tab_fun);
   while (errno != tab_tab[++i] && tab_tab[i] != 0);
   if (tab_tab[i] == 0)
-    return (-1);
+    {
+      my_free(er.erno);
+      return (-1);
+    }
   else
-    fprintf(stderr, "Error: %s\n", tab_fun[i]);
+    {
+      fprintf(stderr, "Error: %s\n", er.erno[i]);
+      my_free(er.erno);
+    }
   return (0);
 }
