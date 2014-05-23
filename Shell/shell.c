@@ -5,7 +5,7 @@
 ** Login   <limone_m@epitech.net>
 ** 
 ** Started on  Mon May  5 16:09:34 2014 Maxime Limone
-** Last update Tue May 20 10:47:42 2014 Maxime Limone
+** Last update Fri May 23 18:29:35 2014 Kevin Gay
 */
 
 #include <unistd.h>
@@ -31,8 +31,10 @@ int		read_buffer(t_shell *sh)
 {
   int		ret;
 
-  //  find_ps1(sh);
-  my_putstr("$> ");
+  find_ps1(sh);
+  my_putstr(sh->ps1);
+  free(sh->ps1);
+  free(sh->ps_1);
   clear_str(sh);
   while ((ret = read(0, sh->buffer, 512)) == 512);
   if (ret == 0)

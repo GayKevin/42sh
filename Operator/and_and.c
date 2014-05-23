@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Tue May 13 22:37:47 2014 Kevin Gay
-** Last update Fri May 23 15:00:43 2014 Maxime Limone
+** Last update Fri May 23 19:39:46 2014 Kevin Gay
 */
 
 #include <string.h>
@@ -14,6 +14,8 @@
 #include "my_putstr.h"
 #include "operator.h"
 #include "tree.h"
+#include "path.h"
+#include "my_free.h"
 #include "pars.h"
 #include "path.h"
 #include "my_free.h"

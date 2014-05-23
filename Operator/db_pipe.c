@@ -5,7 +5,7 @@
 ** Login   <gay_k@epitech.net>
 ** 
 ** Started on  Tue May 13 22:36:10 2014 Kevin Gay
-** Last update Fri May 23 15:05:12 2014 Maxime Limone
+** Last update Fri May 23 19:39:37 2014 Kevin Gay
 */
 
 #include <string.h>

@@ -4,7 +4,7 @@
 ## Made by Maxime Limone
 ## Login   <limone_m@epitech.net>
 ## Started on  Mon May  5 14:54:13 2014 Maxime Limone
-## Last update Fri May 23 16:45:22 2014 Maxime Limone
+## Last update Fri May 23 19:39:55 2014 Kevin Gay
 ##
 
 SRC		= Operator/pipe_simple.c \
@@ -18,7 +18,6 @@ SRC		= Operator/pipe_simple.c \
 		  Operator/db_right.c \
 		  Shell/free_stuff.c \
 		  Shell/shell.c \
-		  Shell/ps1.c \
 		  Shell/env.c \
 		  Shell/clean_str.c \
 		  Shell/path.c \
@@ -35,18 +34,21 @@ SRC		= Operator/pipe_simple.c \
 		  Builtins/pwd.c \
 		  Builtins/old_pwd.c \
 		  Builtins/my_errno.c \
+		  Prompt/get_stuff.c \
+		  Prompt/ps1.c \
+		  Prompt/ascii.c \
+		  Prompt/date.c \
 		  Tree/tree.c \
 		  SRC/epur_str.c \
 	 	  SRC/my_putstr.c \
 		  SRC/my_strcat.c \
 		  SRC/my_strncpy.c \
+		  SRC/my_strcmp.c \
 		  SRC/my_free.c \
 		  SRC/str_to_wordtab.c \
 		  SRC/my_malloc_pwd.c \
 		  SRC/my_show_tab.c \
 		  SRC/main.c
-#	  	  move.c \
-#	 	  termcaps.c
 
 NAME		= 42sh
 
